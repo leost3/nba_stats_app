@@ -125,25 +125,6 @@ teams.forEach(team => {
 
 
 
-
-
-// displayPlayerInfo('mavericks')
-// .then(response => {
-//     response.forEach(resp => {
-//         for (key in resp) {
-//             if (typeof resp[key] !== 'object') {
-//                 playerChart.insertAdjacentHTML("afterend",`<li class="playerInfo player">
-//                 ${key}: ${resp[key]};
-//             </li>
-//             `)
-//                 // console.log(key +' : ' + resp[key]);
-//             }
-//         }
-//         playerChart.insertAdjacentHTML("afterend",'______________________________________________________________________________________________________________________________________________________________________________________________________--')
-//     })
-// });
-
-
 const {toString: s} = 123;
 console.log(s)
 
