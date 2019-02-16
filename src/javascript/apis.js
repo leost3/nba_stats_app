@@ -1,24 +1,45 @@
 
+class Team {
+    constructor(games,name, losses, wins,points,rebounds,assists,blocks,ThreePointersAttempted,threePointsPercentage,TwoPointersAttempted,twoPointsPercentage, FreeThrowsAttempted, FreeThrowsPercentage, Turnovers) {
+        this.games = games;
+        this.name = name;
+        this.losses = losses;
+        this.wins = wins;
+        this.points = points;
+        this.poinsPerGame = this.points/parseInt(this.games);
+        this.rebounds = rebounds;
+        this.reboundsPerGame = this.rebounds/parseInt(this.games)
+        this.assists = assists;
+        this.assistsPerGame = this.assists/parseInt(this.games);
+        this.blocks = blocks;
+        this.blocksPerGame = this.blocks/parseInt(this.games);
+        this.ThreePointersAttempted = ThreePointersAttempted;
+        this.threePointersAttemptedPerGame = this.ThreePointersAttempted/parseInt(this.games); 
+        this.threePointsPercentage = threePointsPercentage;
+        this.TwoPointersAttempted = TwoPointersAttempted;
+        this.TwoPointersAttemptedPerGame = this.TwoPointersAttempted/parseInt(this.games)
+        this.twoPointsPercentage = twoPointsPercentage;
+        this.Turnovers = Turnovers;
+        this.turnoverPerGames = Turnovers/parseInt(this.games);
+        this.FreeThrowsAttempted = FreeThrowsAttempted;
+        this.FreeThrowsAttemptedPerGame = this.FreeThrowsAttempted/parseInt(this.games);
+        this.FreeThrowsPercentage = FreeThrowsPercentage;
+    }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Player {
+    constructor(fanDuelName,FirstName,LastName,PlayerID,PositionCategory,Salary,UsaTodayHeadshotUrl) {
+        this.fanDuelName = fanDuelName;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.LastNameFirstName = `${this.LastName}\/${this.FirstName}`;
+        this.PlayerID = PlayerID;
+        this.PositionCategory = PositionCategory;
+        this.Salary = Salary;
+        this.UsaTodayHeadshotUrl = UsaTodayHeadshotUrl
+    }
+}
 
 
 
