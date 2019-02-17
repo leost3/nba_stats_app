@@ -1,29 +1,32 @@
 
 class Team {
-    constructor(games,name, losses, wins,points,rebounds,assists,blocks,ThreePointersAttempted,threePointsPercentage,TwoPointersAttempted,twoPointsPercentage, FreeThrowsAttempted, FreeThrowsPercentage, Turnovers) {
+    constructor(games,name, losses, wins,points,rebounds,assists,blocks,ThreePointersAttempted,threePointsPercentage,TwoPointersAttempted,TwoPointersPercentage, FreeThrowsAttempted, FreeThrowsPercentage, Turnovers) {
         this.games = games;
         this.name = name;
         this.losses = losses;
         this.wins = wins;
         this.points = points;
-        this.poinsPerGame = this.points/parseInt(this.games);
+        this.poinsPerGame = this.points/this.games;
         this.rebounds = rebounds;
-        this.reboundsPerGame = this.rebounds/parseInt(this.games)
+        this.reboundsPerGame = this.rebounds/this.games
         this.assists = assists;
-        this.assistsPerGame = this.assists/parseInt(this.games);
+        this.assistsPerGame = this.assists/this.games;
         this.blocks = blocks;
-        this.blocksPerGame = this.blocks/parseInt(this.games);
+        this.blocksPerGame = this.blocks/this.games;
         this.ThreePointersAttempted = ThreePointersAttempted;
-        this.threePointersAttemptedPerGame = this.ThreePointersAttempted/parseInt(this.games); 
+        this.threePointersAttemptedPerGame = this.ThreePointersAttempted/this.games; 
         this.threePointsPercentage = threePointsPercentage;
         this.TwoPointersAttempted = TwoPointersAttempted;
-        this.TwoPointersAttemptedPerGame = this.TwoPointersAttempted/parseInt(this.games)
-        this.twoPointsPercentage = twoPointsPercentage;
+        this.TwoPointersAttemptedPerGame = this.TwoPointersAttempted/this.games
+        this.TwoPointersPercentage = TwoPointersPercentage;
         this.Turnovers = Turnovers;
-        this.turnoverPerGames = Turnovers/parseInt(this.games);
+        this.turnoverPerGames = Turnovers/this.games;
         this.FreeThrowsAttempted = FreeThrowsAttempted;
-        this.FreeThrowsAttemptedPerGame = this.FreeThrowsAttempted/parseInt(this.games);
+        this.FreeThrowsAttemptedPerGame = this.FreeThrowsAttempted/this.games;
         this.FreeThrowsPercentage = FreeThrowsPercentage;
+    }
+    async fetchData()  {
+        
     }
 }
 
@@ -40,8 +43,6 @@ class Player {
         this.UsaTodayHeadshotUrl = UsaTodayHeadshotUrl
     }
 }
-
-
 
 const teamStats = [
     {

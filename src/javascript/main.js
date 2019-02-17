@@ -1,9 +1,7 @@
 
 (function start() {
-
-    const teams = document.querySelectorAll('.nav__side img');
-    console.log(teams)
-    teams.forEach(team => {
+    // When team loog is clicked - teams stats and players are displayed
+    document.querySelectorAll('.nav__side img').forEach(team => {
         team.addEventListener('click', (e) => {
             displayPlayers(e);
             displayTeamStatus(e);
@@ -13,8 +11,9 @@
     
     function displayPlayers(e) {
         const clickedTeam = e.target.dataset.teamname;
-        const playerImg = document.querySelector('.players');
+        //fetch players data from clicked team
         fetchPlayerData(clickedTeam)
+        //For each players a html with their picture and informations will be created and inserted
         .then(response => response.forEach(resp => {
             const html = `
             <div class="player__profile" dataset="thisPlayer">
@@ -24,17 +23,16 @@
                  <p>Salary: $${resp.Salary}</p>
             </div>
             `;
-            playerImg.insertAdjacentHTML('beforeend', html);
+            document.querySelector('.players').insertAdjacentHTML('beforeend', html);
         }));
     }
 
     function displayTeamStatus(e) {
         const clickedTeam = e.target.dataset.teamname;
-        console.log(clickedTeam)
-        const stats = document.querySelector('.team__stats');
+        //fetch team stats data
         fetchTeamData(clickedTeam)
+        //For each team a html with their logo and stats will be created and inserted
         .then(resp => {
-            console.log(resp);
             const html = `
             <div class="team__stats-team">
                 <img src="/images/Logos/teams_logos/${clickedTeam}_logo.svg" alt="${resp.name}">
@@ -49,12 +47,10 @@
                  <p>%3PT: ${resp.threePointsPercentage}</p>
                  <p>TOPG: ${resp.turnoverPerGames}</p>
             </div>
-            `
-            stats.insertAdjacentHTML('beforeend', html);
+            `;
+            document.querySelector('.team__stats').insertAdjacentHTML('beforeend', html);
         });
     }
-
-
 })();
 
 
