@@ -4,57 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="nav__user">
-                <input type="text" name="inputthis" placeholder="type here">
+            <div class="nav__top">
+                <input type="text" name="" placeholder="Enter your team">
             </div>
         </nav>
-        <div class="head__page">
-            <img class="nbalogo" src="/nba-stats-logo.png" alt="nba__logo" srcset="">
-            <a href="#section__teams"><img src="images/Logos/basketlogo.png" alt="nba__logo" class="logo__ball"></a> 
-        </div>
     </header>
-    <section class="section__logos" id="section__teams">
-        <div class="section__container">
-            <div class="logo__container">
-                <img src="/images/Logos/ATL_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/BKN_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/BOS_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/CHA_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/CHI_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/CLE_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/DAL_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/DEN_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/DET_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/GSW_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/HOU_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/IND_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/LAC_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/LAL_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/MEM_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/MIA_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/MIL_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/MIN_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/NOP_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/NYK_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/OKC_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/ORL_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/PHI_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/PHX_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/POR_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/SAC_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/SAS_logo.svg" data-conference="w" alt="">
-                <img src="/images/Logos/TOR_logo.svg" data-conference="E" alt="">
-                <img src="/images/Logos/UTA_logo.svg" data-conference="W" alt="">
-                <img src="/images/Logos/WAS_logo.svg" data-conference="E" alt="">
+
+    <section class="main__page">
+        <div class="nav__side">
+                <button class="close">X</button>
+                <div class="btn__coast">
+                    <button class="east__side"data-conference="Eastern">East</button>
+                    <button class="no__side"data-conference="all">All</button>
+                    <button class="west__side"data-conference="Western">West</button>
+                </div>
+                <ul class="teamList">
+                    <!-- <li data-conference="east">
+                        <img data-teamName="atl" src="/images/Logos/teams_logos/ATL_logo.svg"  alt="Atlanta Hawks">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="bkn" src="/images/Logos/teams_logos/BKN_logo.svg"  alt="Brooklyn Nets">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="bos" src="/images/Logos/teams_logos/BOS_logo.svg"  alt="Boston Celtics">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="cha" src="/images/Logos/teams_logos/CHA_logo.svg"  alt="Charlote Honerts">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="chi" src="/images/Logos/teams_logos/CHI_logo.svg"  alt="Chicago Bulls">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="cle" src="/images/Logos/teams_logos/CLE_logo.svg"  alt="Cleveland Cavaliers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="dal" src="/images/Logos/teams_logos/DAL_logo.svg"  alt="Dallas Mavericks">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="den" src="/images/Logos/teams_logos/DEN_logo.svg"  alt="Denver Nuggets">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="det" src="/images/Logos/teams_logos/DET_logo.svg"  alt="Detroit Pitons">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="gs" src="/images/Logos/teams_logos/GSW_logo.svg"  alt="Golden State Warriors">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="hou" src="/images/Logos/teams_logos/HOU_logo.svg"  alt="Houston Rockets">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="ind" src="/images/Logos/teams_logos/IND_logo.svg"  alt="Indiana Pacers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="lac" src="/images/Logos/teams_logos/LAC_logo.svg"  alt="Los Angeles Clippers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="lak" src="/images/Logos/teams_logos/LAL_logo.svg"  alt="Los Angeles Lakers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="mem" src="/images/Logos/teams_logos/MEM_logo.svg"  alt="Memphis Grizzlies">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="mia" src="/images/Logos/teams_logos/MIA_logo.svg"  alt="Miami Heat">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="mil" src="/images/Logos/teams_logos/MIL_logo.svg"  alt="Milwakee Bucks">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="min" src="/images/Logos/teams_logos/MIN_logo.svg"  alt="Minnesota Timberwolves">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="no" src="/images/Logos/teams_logos/NOP_logo.svg"  alt="New Orleans Pelicans">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="ny" src="/images/Logos/teams_logos/NYK_logo.svg"  alt="New York Kincks">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="okc" src="/images/Logos/teams_logos/OKC_logo.svg"  alt="Oklahome City Thunder">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="orl" src="/images/Logos/teams_logos/ORL_logo.svg"  alt="Orlando Magic">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="phi" src="/images/Logos/teams_logos/PHI_logo.svg"  alt="Philadelphia 76ers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="pho" src="/images/Logos/teams_logos/PHX_logo.svg"  alt="Phoenix Suns">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="por" src="/images/Logos/teams_logos/POR_logo.svg"  alt="Portland Traiblazers">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="sac" src="/images/Logos/teams_logos/SAC_logo.svg"  alt="Sacramento Kings">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="sa" src="/images/Logos/teams_logos/SAS_logo.svg"  alt="San Antoinio Spurs">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="tor" src="/images/Logos/teams_logos/TOR_logo.svg"  alt="Toronto Raptors">
+                    </li>
+                    <li data-conference="west">
+                        <img data-teamName="uta" src="/images/Logos/teams_logos/UTA_logo.svg"  alt="Utah Jazz">
+                    </li>
+                    <li data-conference="east">
+                        <img data-teamName="was" src="/images/Logos/teams_logos/WAS_logo.svg"  alt="Washington Wizards">
+                    </li> -->
+                </ul>
+                
+        </div>
+        <div class="team__page">
+            
+            <div class="team__stats">
+
+            </div>
+            <div class="all__stats">
+                <div class="team__stats">              
+                </div>
+                <div class="players">
+                    <div class="starters">
+
+                    </div>
+                    <div class="bench">                                           
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!-- 
+
+// <img data-teamName="atl" src="/images/Logos/ATL_logo.svg" alt="">
+// <img data-teamName="bkn" src="/images/Logos/BKN_logo.svg" alt="">
+// <img data-teamName="bos" src="/images/Logos/BOS_logo.svg" alt="">
+// <img data-teamName="cha" src="/images/Logos/CHA_logo.svg" alt="">
+// <img data-teamName="chi" src="/images/Logos/CHI_logo.svg" alt="">
+// <img data-teamName="cle" src="/images/Logos/CLE_logo.svg" alt="">
+// <img data-teamName="dal" src="/images/Logos/DAL_logo.svg" alt="">
+// <img data-teamName="den" src="/images/Logos/DEN_logo.svg" alt="">
+// <img data-teamName="det" src="/images/Logos/DET_logo.svg" alt="">
+// <img data-teamName="gs" src="/images/Logos/GSW_logo.svg" alt="">
+// <img data-teamName="hou" src="/images/Logos/HOU_logo.svg" alt="">
+// <img data-teamName="ind" src="/images/Logos/IND_logo.svg" alt="">
+// <img data-teamName="lac" src="/images/Logos/LAC_logo.svg" alt="">
+// <img data-teamName="lak" src="/images/Logos/LAL_logo.svg" alt="">
+// <img data-teamName="mem" src="/images/Logos/MEM_logo.svg" alt="">
+// <img data-teamName="mia" src="/images/Logos/MIA_logo.svg" alt="">
+// <img data-teamName="mil" src="/images/Logos/MIL_logo.svg" alt="">
+// <img data-teamName="min" src="/images/Logos/MIN_logo.svg" alt="">
+// <img data-teamName="no" src="/images/Logos/NOP_logo.svg" alt="">
+// <img data-teamName="ny" src="/images/Logos/NYK_logo.svg" alt="">
+// <img data-teamName="okc" src="/images/Logos/OKC_logo.svg" alt="">
+// <img data-teamName="orl" src="/images/Logos/ORL_logo.svg" alt="">
+// <img data-teamName="phi" src="/images/Logos/PHI_logo.svg" alt="">
+// <img data-teamName="pho" src="/images/Logos/PHX_logo.svg" alt="">
+// <img data-teamName="por" src="/images/Logos/POR_logo.svg" alt="">
+// <img data-teamName="sac" src="/images/Logos/SAC_logo.svg" alt="">
+// <img data-teamName="sa" src="/images/Logos/SAS_logo.svg" alt="">
+// <img data-teamName="tor" src="/images/Logos/TOR_logo.svg" alt="">
+// <img data-teamName="uta" src="/images/Logos/UTA_logo.svg" alt="">
+// <img data-teamName="was" src="/images/Logos/WAS_logo.svg" alt="">
+
+
+
+
+// <img data-teamName="hawks" src="/images/Logos/ATL_logo.svg" alt="">
+// <img data-teamName="nets" src="/images/Logos/BKN_logo.svg" alt="">
+// <img data-teamName="celtics" src="/images/Logos/BOS_logo.svg" alt="">
+// <img data-teamName="hornerts" src="/images/Logos/CHA_logo.svg" alt="">
+// <img data-teamName="bulls" src="/images/Logos/CHI_logo.svg" alt="">
+// <img data-teamName="cavaliers" src="/images/Logos/CLE_logo.svg" alt="">
+// <img data-teamName="mavericks" src="/images/Logos/DAL_logo.svg" alt="">
+// <img data-teamName="nuggets" src="/images/Logos/DEN_logo.svg" alt="">
+// <img data-teamName="pistons" src="/images/Logos/DET_logo.svg" alt="">
+// <img data-teamName="warriors" src="/images/Logos/GSW_logo.svg" alt="">
+// <img data-teamName="rockets" src="/images/Logos/HOU_logo.svg" alt="">
+// <img data-teamName="pacers" src="/images/Logos/IND_logo.svg" alt="">
+// <img data-teamName="clippers" src="/images/Logos/LAC_logo.svg" alt="">
+// <img data-teamName="lakers" src="/images/Logos/LAL_logo.svg" alt="">
+// <img data-teamName="grizzlies" src="/images/Logos/MEM_logo.svg" alt="">
+// <img data-teamName="heat" src="/images/Logos/MIA_logo.svg" alt="">
+// <img data-teamName="bucks" src="/images/Logos/MIL_logo.svg" alt="">
+// <img data-teamName="timberwolves" src="/images/Logos/MIN_logo.svg" alt="">
+// <img data-teamName="pelicans" src="/images/Logos/NOP_logo.svg" alt="">
+// <img data-teamName="knicks" src="/images/Logos/NYK_logo.svg" alt="">
+// <img data-teamName="thunder" src="/images/Logos/OKC_logo.svg" alt="">
+// <img data-teamName="magic" src="/images/Logos/ORL_logo.svg" alt="">
+// <img data-teamName="sixers" src="/images/Logos/PHI_logo.svg" alt="">
+// <img data-teamName="suns" src="/images/Logos/PHX_logo.svg" alt="">
+// <img data-teamName="trailblazers" src="/images/Logos/POR_logo.svg" alt="">
+// <img data-teamName="kings" src="/images/Logos/SAC_logo.svg" alt="">
+// <img data-teamName="spurs" src="/images/Logos/SAS_logo.svg" alt="">
+// <img data-teamName="raptors" src="/images/Logos/TOR_logo.svg" alt="">
+// <img data-teamName="jazz" src="/images/Logos/UTA_logo.svg" alt="">
+// <img data-teamName="wizards" src="/images/Logos/WAS_logo.svg" alt=""> -->

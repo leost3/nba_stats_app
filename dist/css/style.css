@@ -1,5 +1,6 @@
 body {
-    background: white;
+    background: lightgray;
+    padding: 3rem;
     /* overflow-x: hidden; */
 }
 
@@ -11,19 +12,25 @@ header {
     background: orangered;
 }
 
+header .nav__top {
+    padding: 2rem;
+}
 .main__page {
     display: flex;
 
 }
 
-.team__background {
+/* .team__background {
     height: 45vh;
     background: url("/images/teams_images/spurs.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
-}
+} */
+
+
+
 
 .nav__side {
     background: pink;
@@ -40,10 +47,7 @@ header {
 }
 
 .team__page {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
+    background: white;
     flex: 1;
 }
 

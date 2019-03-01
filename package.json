@@ -1,0 +1,30 @@
+{
+  "name": "nba_stats_app",
+  "version": "1.0.0",
+  "description": "players and team stats",
+  "main": "index.js",
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "nba": "^4.5.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack -cli --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leost3/nba_stats_app.git"
+  },
+  "author": "leonardo studart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leost3/nba_stats_app/issues"
+  },
+  "homepage": "https://github.com/leost3/nba_stats_app#readme"
+}

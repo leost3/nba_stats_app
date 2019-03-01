@@ -25,7 +25,8 @@ async function displayRoster(team) {
     const url = await fetch(`https://api.codetabs.com/v1/proxy?quest=http://data.nba.net//data/10s/prod/v1/2018/teams/${team}/roster.json`);
     const response = await url.json();
     const data = response["league"]["standard"]["players"];
-    return data;
+    console.log(data)
+    // return data;
 }
 
 
