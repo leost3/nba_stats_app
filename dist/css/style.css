@@ -1,36 +1,45 @@
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
 body {
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 1.6rem;
     background: lightgray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100hv; 
     padding: 3rem;
     /* overflow-x: hidden; */
 }
 
+/* HEADER */
 header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background: orangered;
+    background: steelblue;
 }
+
+/* NAV__TOP */
 
 header .nav__top {
     padding: 2rem;
 }
+
+/* MAIN PAGE */
 .main__page {
     display: flex;
-
 }
 
-/* .team__background {
-    height: 45vh;
-    background: url("/images/teams_images/spurs.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-} */
 
 
-
+/* SIDE BAR */
 
 .nav__side {
     background: pink;
@@ -38,21 +47,61 @@ header .nav__top {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* width: 0%; */
+    flex: 0.15;
+    position: relative;
+    width: 0;
 }
-.nav__side ul {
+
+
+/* SIDE BAR Buttons  */
+.btn__conference {
+    margin: 2rem 0;
+    display: flex;
+    border: 1px solid black;
+    background: steelblue;   
+    border-radius: 15rem;
+    cursor: pointer;
+
+}
+
+.btn__conference * {
+    color: white;
+    padding: 0.1rem 0.6rem;
+    text-transform: uppercase;
+}
+
+.btn__conference *:not(:last-child) {
+    border-right: .5px solid black;
+}
+.btn__conference .east__side {
+  
+}
+
+
+.side__teams {
+    margin: 0px;
     padding: 0%;
-
-
-
+    box-sizing: border-box;
+    background: pink;
 }
 
+.team__list {
+    padding: 0%;
+    margin: 0%;
+}
+
+.side__teams ul {
+    padding: 0%;
+}
+
+.side__teams li {
+    padding: 0%;
+    margin-left: 0%;
+}
 
 .team__logo img {
     width: 25%;
 }
-
-
 
 .team__logo {
     display: flex;
@@ -62,96 +111,16 @@ header .nav__top {
     padding: 0%;
     margin: 2px;
     list-style: none;
-    background: yellowgreen;
-
+    border-top: 1px solid black;
 }
+
+
 .team__page {
-    background: white;
     flex: 1;
 }
 
-.bench img {
-    /* width: 15%; */
-    /* margin: 3rem 3rem; */
-    /* background: orangered; */
-    /* border-radius: 50%;
-    border: 5px black solid; */
-}
 
-/* .starters img {
-    display: block;
-} */
-
-.starters img {
-}
-
-.team__stats {
-    background: steelblue;
-    margin: 50px 50px;
-    display: flex;
-}
-
-.player__headshot{
-    background-image: url(/images/Logos/teams_logos/BOS_logo.svg);
-    background-size: cover;
-    background-position: center; 
-    /* height: 500px; */
-    width: 100%;
-    height: 450px;
-    border: 2px white solid;
-    flex: 1;
-    /* background: orangered; */
-   
-}
-
-
-.nbalogo {
-    background: white;
-}
-
-/* .a,.b,.c, .d {
-    flex: 1;
-} */
-
-.a {
-    flex: 5;
-}
-
-.player__headshot img {
-    width: 70px;
-    flex: 1;
-}
-/* .player__headshot > *{
-    width: 100%;
-
-} */
-
-.bench {
-    /* background: orange; */
-}
-
-li {
-    list-style: none;
-    background: yellowgreen;
-    width: 100%;
-}
-
-.players {
-
-}
-
-li img {
-    width: 100%;
-}
-
-
-.player__profile:hover {
-    background: steelblue;
-    opacity: 70%;
-}
-
-
-.player__profile {
-    width: 350px;
-
+.favorite__players {
+    flex: 0.2;
+    background: orangered;
 }

@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
     renderResults(state.teams);
 })
 
-elements.costBtn.forEach(btn => {
+elements.confereceBtn.forEach(btn => {
     btn.addEventListener('click', e => {
         cleanSide();
         const conference = e.target.dataset.conference; // east/west/all
