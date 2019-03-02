@@ -38,14 +38,33 @@ header .nav__top {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 15%;
     /* width: 0%; */
 }
+.nav__side ul {
+    padding: 0%;
 
-.nav__side img {
-    width: 15%;
+
+
 }
 
+
+.team__logo img {
+    width: 25%;
+}
+
+
+
+.team__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0%;
+    margin: 2px;
+    list-style: none;
+    background: yellowgreen;
+
+}
 .team__page {
     background: white;
     flex: 1;
