@@ -2,7 +2,7 @@ import {elements} from '../views/base';
 
 const key = '86a8a62f6d7c4969858b4744aec1763c';
 
-export const nbaTeams =  class Teams {
+export const nbaTeams =  class Team {
     constructor(conference) {
         this.conference = conference;
     }
@@ -11,12 +11,11 @@ export const nbaTeams =  class Teams {
         try {
             // const res = await fetch(`https://api.fantasydata.net/v3/nba/stats/json/AllTeams?key=86a8a62f6d7c4969858b4744aec1763c`)
             // const data = await res.json();
-            console.log(this.conference)
             if (this.conference === 'all') {
                 this.teams = teams.filter(el => el.Key !== 'EAST'&&el.Key !== 'WEST');
             } else {
                 this.teams = teams.filter( el => {
-                    if (el.Conference && el.Conference !== 'All') {
+                    if (el.Conference) {
                         return el.Conference === this.conference;
                     } 
                 });
