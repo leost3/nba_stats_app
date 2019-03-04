@@ -26,7 +26,6 @@ export const cleanSide = () => {
 
 
 export const highlightSelectedTeam = (team) => {
-    console.log(team);
     const teamArray = Array.from(document.querySelectorAll('.team__logo'));
     teamArray.forEach(el => {
         el.classList.remove('team__logo--active');

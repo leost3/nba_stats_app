@@ -163,6 +163,11 @@ header .nav__top {
     flex: 1;  
 }
 
+.team__photo {
+    text-align: center;
+    height: 100px;
+}
+
 .team__players {
     background: wheat;
     display: flex;
