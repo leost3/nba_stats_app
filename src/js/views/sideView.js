@@ -5,11 +5,10 @@ import {elements} from './base'
 
 
 const renderViews = element => {
-    console.log(element)
     const markup =
     `
-    <li data-conference="${element.Conference}" class="team__logo team__logo-${element.Name}">
-        <img data-teamName="${element.Key}" src="/images/Logos/teams_logos/${element.Key}_logo.svg"  alt="${element.City} ${element.Name}">
+    <li data-conference="${element.Conference}" data-teamName="${element.Key}" class="team__logo team__logo-${element.Name}">
+        <img  src="/images/Logos/teams_logos/${element.Key}_logo.svg"  alt="${element.City} ${element.Name}">
         ${element.City} ${element.Name}
     </li>
 `
@@ -23,4 +22,16 @@ export const renderResults = (teams) => {
 
 export const cleanSide = () => {
     elements.teamList.innerHTML = "";
+}
+
+
+export const highlightSelectedTeam = (team) => {
+    console.log(team);
+    const teamArray = Array.from(document.querySelectorAll('.team__logo'));
+    teamArray.forEach(el => {
+        el.classList.remove('team__logo--active');
+        if (el.dataset.teamname === team) {
+            el.classList.add('team__logo--active')
+        }
+    })
 }

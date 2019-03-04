@@ -1,6 +1,6 @@
 import {nbaTeams} from './models/Sidebar';
 import {elements} from './views/base';
-import {renderResults, cleanSide} from './views/sideView';
+import {renderResults, cleanSide, highlightSelectedTeam} from './views/sideView';
 // import { stat } from 'fs';
 
 // console.log(elements.eastTeams)
@@ -12,7 +12,6 @@ const state = {};
 // renderResults(state.teams);
 
 window.addEventListener('load', () => {
-    console.log('loaded')
     state.teams = new nbaTeams('all');
     state.teams.getTeams();
     renderResults(state.teams);
@@ -26,6 +25,13 @@ elements.confereceBtn.forEach(btn => {
         state.teams.getTeams();  
         renderResults(state.teams);
     })
+});
+
+
+elements.teamList.addEventListener('click', e => {
+    const selectedTeam = e.target.closest(".team__logo");
+    // console.log(selectedTeam.dataset.teamname)
+    highlightSelectedTeam(selectedTeam.dataset.teamname);
 });
 
 // figure out how display all teams as page laods

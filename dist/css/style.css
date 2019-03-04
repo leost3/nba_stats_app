@@ -13,7 +13,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100hv; 
-    padding: 3rem;
+    margin: 0%;
+    padding: 0%;
     /* overflow-x: hidden; */
 }
 
@@ -35,6 +36,7 @@ header .nav__top {
 /* MAIN PAGE */
 .main__page {
     display: flex;
+    padding: 0px 3rem;
 }
 
 
@@ -47,7 +49,7 @@ header .nav__top {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    flex: 0.15;
+    flex: 0.20;
     position: relative;
     width: 0;
 }
@@ -55,27 +57,50 @@ header .nav__top {
 
 /* SIDE BAR Buttons  */
 .btn__conference {
-    margin: 2rem 0;
+    margin: 5rem 0;
     display: flex;
     border: 1px solid black;
     background: steelblue;   
     border-radius: 15rem;
     cursor: pointer;
-
+    font-size: 8px;
+    background: orangered;
 }
+
+
+
 
 .btn__conference * {
     color: white;
-    padding: 0.1rem 0.6rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
     text-transform: uppercase;
+    width: 4rem;
+    text-align: center;
 }
 
-.btn__conference *:not(:last-child) {
-    border-right: .5px solid black;
+.btn__conference *:hover {
+    color: steelblue;
+    background: white;
+
 }
+
+.east__side,
+.no__side {
+    border-right: 1px solid steelblue;
+}
+
+
+
 .btn__conference .east__side {
-  
+    border-top-left-radius: 15rem;
+    border-bottom-left-radius: 15rem;
 }
+.btn__conference .west__side {
+    border-top-right-radius: 15rem;
+    border-bottom-right-radius: 15rem;
+}
+
 
 
 .side__teams {
@@ -89,18 +114,37 @@ header .nav__top {
     padding: 0%;
     margin: 0%;
 }
+.team__logo {
+    cursor: pointer;
+}
+.team__logo img:hover {
+    transform: scale(0.75);
+}
 
+.team__logo--active {
+    background: steelblue;
+}
 .side__teams ul {
     padding: 0%;
 }
 
-.side__teams li {
-    padding: 0%;
+.team__list .team__logo {
+    padding: 10px;
     margin-left: 0%;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
 }
 
+.team__list .team__logo:hover,
+.team__list .team__logo:active{
+    background: steelblue;
+}
+
+
 .team__logo img {
-    width: 25%;
+    width: 45%;
 }
 
 .team__logo {
@@ -114,13 +158,57 @@ header .nav__top {
     border-top: 1px solid black;
 }
 
-
+/* TEAM PLAYERS PAGE */
 .team__page {
+    flex: 1;  
+}
+
+.team__players {
+    background: wheat;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.team__players--profile {
+    display: flex;
+    margin: 2px;
+    flex: 1;
+    border: 2px solid black;
+}
+
+.player__img {
+    width: 25rem;
+}
+
+.player__img img{
+    background-image: url('../images/Logos/teams_logos/HOU_logo.svg');
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    margin-bottom:0;     
+}
+
+.player__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: orange;
     flex: 1;
 }
 
 
+
+
+
+
+
+
 .favorite__players {
     flex: 0.2;
-    background: orangered;
+    background: yellowgreen;
 }
