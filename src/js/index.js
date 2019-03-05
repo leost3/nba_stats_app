@@ -60,3 +60,10 @@ const displaySideTeams = () => {
 // Render teams on the sider when page loads
 
 // Render team players from selected team
+
+
+// document.querySelectorAll('.team__players--profile').forEach(el => {
+//     el.addEventListener('mouseover', function(e) {
+//         console.log(e.target.closest('.player__info'));
+//     });
+// })
