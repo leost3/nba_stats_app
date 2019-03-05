@@ -80,9 +80,14 @@ header .nav__top {
 }
 
 .btn__conference *:hover {
-    color: steelblue;
+    color: rgb(179, 175, 206);
     background: white;
 
+}
+
+.btn__conference--active {
+    background: white;
+    color: rgb(179, 175, 206);
 }
 
 .east__side,
@@ -139,7 +144,8 @@ header .nav__top {
 
 .team__list .team__logo:hover,
 .team__list .team__logo:active{
-    background: steelblue;
+    background: slateblue;
+    
 }
 
 
@@ -164,22 +170,50 @@ header .nav__top {
 }
 
 .team__photo {
-    text-align: center;
-    height: 100px;
+    /* text-align: center; */
+    /* height: 100px; */
+    background: yellow
 }
 
 .team__players {
     background: wheat;
     display: flex;
     flex-wrap: wrap;
+
 }
 
-
 .team__players--profile {
-    display: flex;
-    margin: 2px;
-    flex: 1;
+    background: yellow;
+    padding: 0%;
+    margin: 0px;
     border: 2px solid black;
+    position: relative;
+}
+
+.team__players--profile .player__info {
+    margin-bottom: 0px;  
+    background-image: linear-gradient(to right top, #000000, #000000, #000000, #000000, #000000);
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transform: translateY(100%);
+}   
+
+.player__info * {
+    background: yellow;
+    margin: 3px 0;
+}
+
+/* 
+.team__players--profile {
+    margin: 2px;
+    border: 2px solid black;
+    background: yellow;
 }
 
 .player__img {
@@ -187,24 +221,12 @@ header .nav__top {
 }
 
 .player__img img{
-    background-image: url('../images/Logos/teams_logos/HOU_logo.svg');
     display: block;
     width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat: none;
-    background-size: cover;
-    margin-bottom:0;     
-}
+    height: 100%;    
+} */
 
-.player__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: orange;
-    flex: 1;
-}
+
 
 
 

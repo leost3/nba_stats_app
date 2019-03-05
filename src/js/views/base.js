@@ -6,3 +6,10 @@ export const elements = {
     teamList: document.querySelector('.team__list'),
     teamPlayers: document.querySelector('.team__players'),
 }
+
+
+
+export const cleanResults = (parent) => {
+    // console.log(parent.innerHTML);
+    parent.innerHTML = "";
+}

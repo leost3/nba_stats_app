@@ -20,10 +20,6 @@ export const renderResults = (teams) => {
     teams.teams.forEach(renderViews);
 }
 
-export const cleanSide = () => {
-    elements.teamList.innerHTML = "";
-}
-
 
 export const highlightSelectedTeam = (team) => {
     const teamArray = Array.from(document.querySelectorAll('.team__logo'));
@@ -33,4 +29,20 @@ export const highlightSelectedTeam = (team) => {
             el.classList.add('team__logo--active')
         }
     })
+}
+export const highlightSelectedConference = (conference) => {
+    // console.log(conference)
+    const btnArray = Array.from(document.querySelectorAll('.btn__conf'));
+    btnArray.forEach(btn => {
+        console.log(btn)
+        btn.classList.remove('btn__conference--active');
+    });
+    conference.classList.add('btn__conference--active');
+
+    // btnArray.forEach(el => {
+    //     el.classList.remove('btn__conference');
+    //     if (el.dataset.teamname === team) {
+    //         el.classList.add('btn__conference')
+    //     }
+    // })
 }
