@@ -1,4 +1,6 @@
-
+body, html {
+    position: relative;
+}
 
 html {
     box-sizing: border-box;
@@ -190,9 +192,10 @@ header .nav__top {
     margin: 2px;
     border: 2px solid black;
     position: relative;
-    width: 31.33%;
-    flex: 1;
+    width: 100%;
     border-radius: 30px;
+    transition: all 2s;
+    overflow: hidden;
 }
 
 .team__players--profile .player__info {
@@ -206,18 +209,22 @@ header .nav__top {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
+    opacity: 0.6;
     transform: translateY(100%);
-    display: none;
+    /* display: none; */
     transition: all 2s;
+    overflow: hidden;
+    border-radius: 30px;
 
 }   
 
 
 .team__players--profile:hover .player__info {
     transform: translateY(0%);
-    background-image: linear-gradient(to right top, #000000, #000000, #000000, #000000, #000000);
+    background-image: linear-gradient(to right top, #000000, #ffffff);
     display: flex;
+    border-radius: 30px;
+
 }
 
 
