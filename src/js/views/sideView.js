@@ -11,8 +11,11 @@ const renderViews = element => {
         <img  src="/images/Logos/teams_logos/${element.Key}_logo.svg"  alt="${element.City} ${element.Name}">
         ${element.City} ${element.Name}
         <div class="player__info">
-            <div class="check__stats">
-                <h1>check stats</h1>
+            <div class="check__team">
+                <h1>check team</h1>
+            </div>
+            <div class="check__players">
+                <h1>check player</h1>
             </div>
         </div>         
     </li>
