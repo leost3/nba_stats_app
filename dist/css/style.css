@@ -127,12 +127,14 @@ header .nav__top {
     cursor: pointer;
 }
 .team__logo img:hover {
-    transform: scale(0.75);
+    transform: scale(1.25);
 }
 
-/* .team__logo--active {
-    background: steelblue;
-} */
+.team__logo--active {
+    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
+}
+
+
 .side__teams ul {
     padding: 0%;
 }
@@ -147,12 +149,22 @@ header .nav__top {
     overflow: hidden;
 }
 
-/* .team__list .team__logo:hover,
-.team__list .team__logo:active{
-    background: rgb(217, 216, 219); 
-    
-}*/
-
+.team__btns {
+    margin-bottom: 0px;  
+    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transform: translateY(100%);
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: row;
+}   
 
 .team__logo img {
     width: 45%;
@@ -176,12 +188,6 @@ header .nav__top {
     background: tomato;
 }
 
-.team__photo {
-    /* text-align: center; */
-    /* height: 100px; */
-    background: yellow
-}
-
 .team__players {
     background: wheat;
     display: flex;
@@ -199,98 +205,26 @@ header .nav__top {
     transition: all 2s;
     overflow: hidden;
     min-height: 262.8px;
+    display: flex;
 }
 
-.player__info {
-    margin-bottom: 0px;  
-    background-image: linear-gradient(to right top, #000000, #000000, #000000, #000000, #000000);
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-    transform: translateY(100%);
-    transition: all 2s;
-    overflow: hidden;
-
-}   
-/* 
-.team__players--profile .player__info {
-    margin-bottom: 0px;  
-    background-image: linear-gradient(to right top, #000000, #000000, #000000, #000000, #000000);
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-    transform: translateY(100%);
-    display: none; 
-    transition: all 2s;
-    overflow: hidden;
-    border-radius: 30px;
-
-}    */
 
 
-.team__logo:hover .player__info {
+.team__logo:hover .team__btns {
     transform: translateY(0%);
-    background-image: linear-gradient(to right top, #000000, #ffffff);
+    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
     display: flex;
     margin: 0%;
 }
 
 
-.player__info * {
+.team__btns * {
     color: whitesmoke;
     margin: 3px 0;
-}
-
-
-.check__team,.check__players {
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-   
-}
-
-.check__stats:hover {
-    background: white;
-
-}
-
-.check__stats:hover h1 {
-    color: black;
-}
-
-/* 
-.team__players--profile {
-    margin: 2px;
-    border: 2px solid black;
-    background: yellow;
-}
-
-.player__img {
-    width: 25rem;
-}
-
-.player__img img{
     display: block;
-    width: 100%;
-    height: 100%;    
-} */
+}
+
+
 
 
 

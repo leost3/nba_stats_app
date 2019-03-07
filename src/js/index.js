@@ -34,7 +34,7 @@ const displaySideTeams = () => {
         })
     });
     
-    // Hilight selected team
+    // Hilight selected team and display players
 
     const displayPlayers = async selectedTeam => {
         highlightSelectedTeam(selectedTeam);
@@ -49,21 +49,17 @@ const displaySideTeams = () => {
         renderPlayers(state.teamPlayers);
     }
 
-
+    // Click on team to display players
     elements.teamList.addEventListener('click', e => {
-        const selectedTeam = e.target.closest(".team__logo").dataset.teamname;
-        displayPlayers(selectedTeam)
-       
+        const selectedTeam = e.target.closest(".display__team__players").parentElement.parentElement.dataset.teamname;
+        displayPlayers(selectedTeam);
     });
 
 
-// Render teams on the sider when page loads
+    // Click on team to display team informations
+    // elements.teamList.addEventListener('click', e => {
+    //     const selectedTeam = e.target.closest(".display__team__stats").parentElement.parentElement.dataset.teamname;
+    //     console.log(selectedTeam)
+    // });
 
-// Render team players from selected team
 
-
-// document.querySelectorAll('.team__players--profile').forEach(el => {
-//     el.addEventListener('mouseover', function(e) {
-//         console.log(e.target.closest('.player__info'));
-//     });
-// })
