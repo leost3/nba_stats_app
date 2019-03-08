@@ -115,7 +115,7 @@ header .nav__top {
     padding: 0%;
     box-sizing: border-box;
     background: pink;
-    height: 200vh;
+    max-height: 200vh;
     overflow-y: scroll;
 }
 
@@ -130,6 +130,7 @@ header .nav__top {
     transform: scale(1.25);
 }
 
+/* SELECTED TEAM */
 .team__logo--active {
     background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
 }
@@ -156,15 +157,21 @@ header .nav__top {
     bottom: 0%;
     width: 100%;
     height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     opacity: 0.6;
     transform: translateY(100%);
     transition: all 0.5s;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }   
+
+.display__team__stats,
+.display__team__players {
+    background: red;
+}
+
 
 .team__logo img {
     width: 45%;
@@ -200,12 +207,16 @@ header .nav__top {
     margin: 2px;
     border: 2px solid black;
     position: relative;
-    width: 100%;
+    width: 47%;
     border-radius: 30px;
     transition: all 2s;
     overflow: hidden;
     min-height: 262.8px;
     display: flex;
+}
+
+.team__players .team__players--profile:last-child{
+    background: red;
 }
 
 
