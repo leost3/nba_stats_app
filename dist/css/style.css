@@ -46,46 +46,60 @@ header .nav__top {
 /* SIDE BAR */
 
 .nav__side {
-    background: ;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     flex: 0.20;
-    position: relative;
     width: 0;
 }
 
 
 /* SIDE BAR Buttons  */
 .btn__conference {
-    /* margin: 2rem 0; */
     display: flex;
-    border: 1px solid black;
-    background: steelblue;   
-    border-radius: 15rem;
     cursor: pointer;
-    font-size: 8px;
+    /* border-r */
+    /* background: steelblue;     */
 }
 
-.btn__conference .btn__conf {
+
+.btn__conference .btn__conf:nth-child(1) {
+    border-right: 1px solid black;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+}
+.btn__conference .btn__conf:nth-child(3) {
+    border-left: 1px solid black;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+}
+
+.btn__conference * {
     height: 100%;
+    width: 100%;
+    background: steelblue;
+}
+.btn__conference--active {
+    background-color: white;
+    color: rgb(179, 175, 206);
 }
 
 
+
+/* 
 .btn__conference * {
     color: white;
     font-weight: 700;
     padding: 0.3rem 1rem;
     text-transform: uppercase;
     width: 4rem;
-    /* height: 100%; */
     text-align: center;
 }
 
 .btn__conference *:hover {
     color: rgb(179, 175, 206);
-
+    background: white;
 }
 
 .btn__conference--active {
@@ -98,8 +112,6 @@ header .nav__top {
     border-right: 1px solid black;
 }
 
-
-
 .btn__conference .east__side {
     border-top-left-radius: 15rem;
     border-bottom-left-radius: 15rem;
@@ -107,23 +119,27 @@ header .nav__top {
 .btn__conference .west__side {
     border-top-right-radius: 15rem;
     border-bottom-right-radius: 15rem;
-}
-
-
+} */
+/* ---------------------------------------------- */
 
 .side__teams {
-    margin: 0px;
-    padding: 0%;
-    box-sizing: border-box;
-    background: ;
+    /* margin: 0;
+    padding: 0; */
+    /* box-sizing: border-box; */
     max-height: 200vh;
     overflow-y: scroll;
+   
 }
 
+
 .team__list {
-    padding: 1px;
+    margin-top: 0%;
+    padding: 0;
+    background: pink;
 }
 .team__logo {
+    background: orangered;
+    width: 100%;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -173,9 +189,48 @@ header .nav__top {
     width: 45%;
 }
 
-.team__logo {
-   
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* TEAM PLAYERS PAGE */
 .team__page {
