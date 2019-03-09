@@ -46,7 +46,7 @@ header .nav__top {
 /* SIDE BAR */
 
 .nav__side {
-    background: pink;
+    background: ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,17 +59,18 @@ header .nav__top {
 
 /* SIDE BAR Buttons  */
 .btn__conference {
-    margin: 5rem 0;
+    /* margin: 2rem 0; */
     display: flex;
     border: 1px solid black;
     background: steelblue;   
     border-radius: 15rem;
     cursor: pointer;
     font-size: 8px;
-    background: orangered;
 }
 
-
+.btn__conference .btn__conf {
+    height: 100%;
+}
 
 
 .btn__conference * {
@@ -78,12 +79,12 @@ header .nav__top {
     padding: 0.3rem 1rem;
     text-transform: uppercase;
     width: 4rem;
+    /* height: 100%; */
     text-align: center;
 }
 
 .btn__conference *:hover {
     color: rgb(179, 175, 206);
-    background: white;
 
 }
 
@@ -94,7 +95,7 @@ header .nav__top {
 
 .east__side,
 .no__side {
-    border-right: 1px solid steelblue;
+    border-right: 1px solid black;
 }
 
 
@@ -114,41 +115,36 @@ header .nav__top {
     margin: 0px;
     padding: 0%;
     box-sizing: border-box;
-    background: pink;
+    background: ;
     max-height: 200vh;
     overflow-y: scroll;
 }
 
 .team__list {
-    padding: 0%;
-    margin: 0%;
+    padding: 1px;
 }
 .team__logo {
     cursor: pointer;
-}
-.team__logo img:hover {
-    transform: scale(1.25);
-}
-
-/* SELECTED TEAM */
-.team__logo--active {
-    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
-}
-
-
-.side__teams ul {
-    padding: 0%;
-}
-
-.team__list .team__logo {
-    padding: 10px;
-    margin-left: 0%;
     font-size: 1.2rem;
     text-transform: uppercase;
     text-align: center;
     font-weight: 600;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    border-top: 1px solid black;
+    position: relative;
 }
+
+/* SELECTED TEAM */
+.team__logo--active {
+    border: 3px solid rgb(9, 9, 85);
+}
+
+
 
 .team__btns {
     margin-bottom: 0px;  
@@ -178,15 +174,7 @@ header .nav__top {
 }
 
 .team__logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0%;
-    margin: 2px;
-    list-style: none;
-    border-top: 1px solid black;
-    position: relative;
+   
 }
 
 /* TEAM PLAYERS PAGE */

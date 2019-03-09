@@ -39,14 +39,14 @@ const displaySideTeams = () => {
     const displayPlayers = async selectedTeam => {
         highlightSelectedTeam(selectedTeam);
         console.log(selectedTeam);
-        state.teamPlayers = new teamPlayers(selectedTeam);
-        try {
-            await state.teamPlayers.getPlayers();
-        }catch(err){
-            console.log(er)
-        }
-        cleanResults(elements.teamPlayers);
-        renderPlayers(state.teamPlayers);
+        // state.teamPlayers = new teamPlayers(selectedTeam);
+        // try {
+        //     await state.teamPlayers.getPlayers();
+        // }catch(err){
+        //     console.log(er)
+        // }
+        // cleanResults(elements.teamPlayers);
+        // renderPlayers(state.teamPlayers);
     }
 
     const displayTeamTest = () => {
@@ -64,14 +64,4 @@ const displaySideTeams = () => {
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
         if (e.target.matches('.display__team__stats')) displayTeamTest();      
     });
-
-    // elements.teamList.addEventListener('click', e => {
-    //     // const selectedTeam = e.target.closest(".display__team__stats")
-    //     const selectedTeam = e.target.closest('.display__team__stats').parentElement.parentElement.dataset.teamname;
-    //     // console.log(selectedTeam);
-    //     if (selectedTeam !== null) console.log('display teams selected');
-    //     // displayPlayers(selectedTeam);
-       
-    // });
-
 
