@@ -49,7 +49,8 @@ const displaySideTeams = () => {
         // renderPlayers(state.teamPlayers);
     }
 
-    const displayTeamTest = () => {
+    const displayTeamTest = selectedTeam => {
+        highlightSelectedTeam(selectedTeam);
         console.log('TEAM  DISPLAYED')
     }
 
@@ -62,6 +63,6 @@ const displaySideTeams = () => {
 
     elements.teamList.addEventListener('click', e => {
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
-        if (e.target.matches('.display__team__stats')) displayTeamTest();      
+        if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 
