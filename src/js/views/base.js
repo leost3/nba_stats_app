@@ -5,6 +5,7 @@ export const elements = {
     confereceBtn: document.querySelectorAll('.btn__conference *'),
     teamList: document.querySelector('.team__list'),
     teamPlayers: document.querySelector('.team__players'),
+    closeBtn: document.querySelector('.close'),
 }
 
 

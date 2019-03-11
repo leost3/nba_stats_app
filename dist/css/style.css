@@ -104,7 +104,11 @@ header .nav__top {
     align-items: center;
 }
 
-
+.btn__conference *:hover {
+    transition: color 0.7s;
+    color: rgb(219, 28, 28);
+    font-weight: 600;    
+}
 .side__teams {
     max-height: 200vh;
     overflow-y: scroll;
@@ -117,7 +121,7 @@ header .nav__top {
     padding: 0;
 }
 .team__logo {
-    width: 100%;
+    margin-top: 0%;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -236,4 +240,8 @@ header .nav__top {
 .favorite__players {
     flex: 0.2;
     background: yellowgreen;
+}
+
+.closed {
+    flex: 0;
 }
