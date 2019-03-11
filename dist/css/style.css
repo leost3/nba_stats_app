@@ -28,22 +28,26 @@ header {
     align-items: center; 
     background: steelblue;
 }
-
+/* ------------- */
 /* NAV__TOP */
+/* ------------- */
 
 header .nav__top {
     padding: 2rem;
 }
 
+/* ------------ */
 /* MAIN PAGE */
+/* ------------ */
 .main__page {
     display: flex;
     padding: 0px 3rem;
 }
 
 
-
+/* ----------------- */
 /* SIDE BAR */
+/* ----------------- */
 
 .nav__side {
     display: flex;
@@ -68,7 +72,7 @@ header .nav__top {
   
 }
 
-
+/* Apply borders and style conference buttons */
 .btn__conference .btn__conf:nth-child(1) {
     border-right: none;
     border-top-left-radius: 10rem;
@@ -109,17 +113,21 @@ header .nav__top {
     color: rgb(219, 28, 28);
     font-weight: 600;    
 }
+
+
+
+
+/* Sidebar Teams */
 .side__teams {
     max-height: 200vh;
     overflow-y: scroll;
-   
 }
-
 
 .team__list {
     margin-top: 0%;
     padding: 0;
 }
+
 .team__logo {
     margin-top: 0%;
     cursor: pointer;
@@ -136,6 +144,9 @@ header .nav__top {
     border-top: 1px solid black;
     position: relative;
 }
+
+
+
 /* -------------------------------------------------------------- */
 /* SELECTED TEAM */
 /* -------------------------------------------------------------- */
@@ -143,6 +154,7 @@ header .nav__top {
 .team__logo--active {
     border: 3px solid rgb(9, 9, 85);
 }
+
 
 .team__btns {
     margin-bottom: 0px;  
@@ -160,20 +172,34 @@ header .nav__top {
     justify-content: center;
 }   
 
+.team__logo:hover .team__btns {
+    transform: translateY(0%);
+    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
+    display: flex;
+    margin: 0%;
+}
+
 .display__team__stats,
 .display__team__players {
     background: red;
+    color: white;
 }
 
 
 .team__logo img {
     width: 45%;
+    display: block;
 }
 
+/* img {
+    display: block;
+    width: 100%;
+} */
 
 /* -------------------------------------------------------------- */
 /* TEAM PLAYERS PAGE */
 /* -------------------------------------------------------------- */
+
 .team__page {
     flex: 1;  
     background: tomato;
@@ -186,12 +212,10 @@ header .nav__top {
     
 }
 
-
 .team__players--profile {
     margin: 2rem auto;
     background: yellow;
     padding: 0%;
-    /* margin: 2px; */
     border: 2px solid black;
     position: relative;
     width: 47%;
@@ -210,38 +234,18 @@ header .nav__top {
     background: red;
 }
 
-
-
-.team__logo:hover .team__btns {
-    transform: translateY(0%);
-    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
-    display: flex;
-    margin: 0%;
-}
-
-
-.team__btns * {
-    color: whitesmoke;
-    margin: 3px 0;
-    display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
+/* ---------------------------------------------- */
+/*  FAVORITE */
+/* ---------------------------------------------- */
 
 .favorite__players {
     flex: 0.2;
     background: yellowgreen;
+    transition: all 2s;
 }
 
 .closed {
     flex: 0;
+    display: none;
+    transition: all 2s;
 }

@@ -69,4 +69,4 @@ const displaySideTeams = () => {
 
     elements.closeBtn.addEventListener('click', function() {
         document.querySelector('.favorite__players').classList.toggle("closed");
-    })
+    });

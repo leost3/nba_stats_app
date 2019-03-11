@@ -14,3 +14,20 @@ export const cleanResults = (parent) => {
     // console.log(parent.innerHTML);
     parent.innerHTML = "";
 }
+
+
+
+function primceFactor(num) {
+    let primes =[];
+    for (let i = 2; i <= num.length; i++) {
+        if (num % i === 0) {
+            primes.push(i);
+            num /= 1;
+        }
+        if (num === 1) {
+            primes.forEach(prime => console.log(prime));
+            return primes.length;
+        }
+        
+    }
+}
