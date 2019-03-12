@@ -94,12 +94,14 @@ header .nav__top {
     margin: 0 auto;
     font-weight: 600;
     color: white;
+    transition: all 0.5s;
 }
 .btn__conference--active {
     background-color: white;
     color: steelblue;
     font-weight: 600;
-    transition: all 0.5s;
+    
+
 }
 
 .btn__conference .btn__conf {
