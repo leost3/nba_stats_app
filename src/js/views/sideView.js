@@ -35,18 +35,9 @@ export const highlightSelectedTeam = (team) => {
     })
 }
 export const highlightSelectedConference = (conference) => {
-    // console.log(conference)
     const btnArray = Array.from(document.querySelectorAll('.btn__conf'));
     btnArray.forEach(btn => {
-        console.log(btn)
         btn.classList.remove('btn__conference--active');
     });
     conference.classList.add('btn__conference--active');
-
-    // btnArray.forEach(el => {
-    //     el.classList.remove('btn__conference');
-    //     if (el.dataset.teamname === team) {
-    //         el.classList.add('btn__conference')
-    //     }
-    // })
 }

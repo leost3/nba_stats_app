@@ -1,28 +1,45 @@
 import {nbaTeams} from './models/Sidebar';
+import {teamPlayers} from './models/Players';
+import {newTeam} from './models/Team';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers} from './views/playersView';
-import {teamPlayers} from './models/Players';
 
 const state = {};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Display all teams on side on page load
 
 const displaySideTeams = () => {
-    state.teams = new nbaTeams('all');
-    state.teams.getTeams();
-    renderResults(state.teams);
+    state.conferenceTeam = new nbaTeams('all');
+    state.conferenceTeam.getTeams();
+    renderResults(state.conferenceTeam);
 }
 
-    window.addEventListener('load', () => {
-        displaySideTeams();
-    });
+window.addEventListener('load', () => {
+    displaySideTeams();
+});
     
-// Display team from selected conference
+// Display teams from selected conference
     const displayTeamByConference = (conference) => {
-        state.teams = new nbaTeams(conference);
-        state.teams.getTeams();  
-        renderResults(state.teams);
+        state.conferenceTeam = new nbaTeams(conference);
+        state.conferenceTeam.getTeams();
+        renderResults(state.conferenceTeam);
     }
 
     elements.confereceBtn.forEach(btn => {
@@ -38,28 +55,34 @@ const displaySideTeams = () => {
 
     const displayPlayers = async selectedTeam => {
         highlightSelectedTeam(selectedTeam);
-        console.log(selectedTeam);
-        // state.teamPlayers = new teamPlayers(selectedTeam);
-        // try {
-        //     await state.teamPlayers.getPlayers();
-        // }catch(err){
-        //     console.log(er)
-        // }
-        // cleanResults(elements.teamPlayers);
-        // renderPlayers(state.teamPlayers);
+        state.teamPlayers = new teamPlayers(selectedTeam);
+        try {
+            await state.teamPlayers.getPlayers();
+        }catch(err){
+            console.log(er)
+        }
+        cleanResults(elements.teamPlayers);
+        renderPlayers(state.teamPlayers);
     }
 
-    const displayTeamTest = selectedTeam => {
+
+
+
+
+    // Display info about Selected Team
+
+    const displayTeamTest = async selectedTeam => {
         highlightSelectedTeam(selectedTeam);
-        console.log('TEAM  DISPLAYED')
+        state.team = new newTeam(selectedTeam);
+        try {
+            state.team.getTeamInfo()
+        }catch(err){
+            alert("Something has gone wrong");
+            console.log(err);
+        }
     }
 
 
-    // elements.teamList.addEventListener('click', e => {
-    //     const selectedTeam = e.target.closest(".team__logo").dataset.teamname;
-    //     displayPlayers(selectedTeam)
-       
-    // });
 
     elements.teamList.addEventListener('click', e => {
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
