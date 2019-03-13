@@ -87,7 +87,7 @@ header .nav__top {
 .btn__conference * {
     height: 3rem;
     width: 100%;
-    border: 1px solid black;
+    border: 2px solid grey;
     background: steelblue;
     text-align: center;
     text-transform: uppercase;
@@ -100,8 +100,7 @@ header .nav__top {
     background-color: white;
     color: steelblue;
     font-weight: 600;
-    
-
+    border: 2px solid white;
 }
 
 .btn__conference .btn__conf {
