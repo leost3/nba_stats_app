@@ -97,10 +97,10 @@ header .nav__top {
     transition: all 0.5s;
 }
 .btn__conference--active {
-    background-color: white;
+    background-color: #ff0000;
     color: steelblue;
     font-weight: 600;
-    border: 2px solid white;
+    border: 2px solid #ff0000;
 }
 
 .btn__conference .btn__conf {
@@ -219,14 +219,19 @@ header .nav__top {
     padding: 0%;
     border: 2px solid black;
     position: relative;
-    width: 47%;
     border-radius: 30px;
     transition: all 2s;
     overflow: hidden;
     min-height: 262.8px;
     display: flex;
 }
-
+.team__players--profile .player__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: orangered;
+}
 .team__players--profile:not(:last-child) {  
     margin-bottom: 0%;
 }
@@ -245,8 +250,9 @@ header .nav__top {
     transition: all 2s;
 }
 
+.favorite__players * {display: inline-block;}
 .closed {
     flex: 0;
-    display: none;
+    /* display: none; */
     transition: all 2s;
 }
