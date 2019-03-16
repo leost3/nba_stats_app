@@ -75,7 +75,8 @@ window.addEventListener('load', () => {
         highlightSelectedTeam(selectedTeam);
         state.team = new newTeam(selectedTeam);
         try {
-            state.team.getTeamInfo()
+            state.team.getTeamInfo();
+            console.log(state.team)
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);

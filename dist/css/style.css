@@ -29,7 +29,7 @@ header {
     background: steelblue;
 }
 /* ------------- */
-/* NAV__TOP */
+/* NAV__TOP      */
 /* ------------- */
 
 header .nav__top {
@@ -37,7 +37,7 @@ header .nav__top {
 }
 
 /* ------------ */
-/* MAIN PAGE */
+/* MAIN PAGE    */
 /* ------------ */
 .main__page {
     display: flex;
@@ -46,7 +46,7 @@ header .nav__top {
 
 
 /* ----------------- */
-/* SIDE BAR */
+/*     SIDE BAR      */
 /* ----------------- */
 
 .nav__side {
@@ -253,6 +253,6 @@ header .nav__top {
 .favorite__players * {display: inline-block;}
 .closed {
     flex: 0;
-    /* display: none; */
+    display: none;
     transition: all 2s;
 }
