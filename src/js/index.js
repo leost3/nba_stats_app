@@ -4,24 +4,9 @@ import {newTeam} from './models/Team';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers} from './views/playersView';
+import {renderTeam} from './views/teamView';
 
 const state = {};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Display all teams on side on page load
 
@@ -72,15 +57,18 @@ window.addEventListener('load', () => {
     // Display info about Selected Team
 
     const displayTeamTest = async selectedTeam => {
+        // Highlight selected team on sidebar
         highlightSelectedTeam(selectedTeam);
+        // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
+        console.log(state.team)
         try {
             state.team.getTeamInfo();
-            console.log(state.team)
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);
         }
+        renderTeam(state.team);
     }
 
 

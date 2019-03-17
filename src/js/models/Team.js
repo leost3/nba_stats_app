@@ -10,18 +10,31 @@ export const newTeam = class {
 
     async getTeamInfo(key) {
         try {
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=86a8a62f6d7c4969858b4744aec1763c`);
-            const data = res.data;
-            const found = data.find(element => element.Team === this.selectedTeam)
-            this.record = `${found.Wins}-${found.Losses}`;
-            this.FieldGoalsPercentage = `${found.FieldGoalsPercentage}%`;
-            this.ppg = found.Points/found.Games;
-            this.rpg = found.Rebounds/found.Games;
-            this.spg = found.Steals/found.Games;
-            this.ThreePointersPercentage = found.ThreePointersPercentage;
-            this.topg = found.Turnovers/found.Games;
-            this.TwoPointersPercentage = found.TwoPointersPercentage;
-            console.log(found);
+            // const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=86a8a62f6d7c4969858b4744aec1763c`);
+            // https://api.fantasydata.net/v3/nba/stats/json/AllTeams?key=86a8a62f6d7c4969858b4744aec1763       
+            // const data = res.data;
+            // const found = data.find(element => element.Team === this.selectedTeam)
+            // this.record = `${found.Wins}-${found.Losses}`;
+            // this.FieldGoalsPercentage = `${found.FieldGoalsPercentage}%`;
+            // this.ppg = found.Points/found.Games;
+            // this.rpg = found.Rebounds/found.Games;
+            // this.spg = found.Steals/found.Games;
+            // this.ThreePointersPercentage = found.ThreePointersPercentage;
+            // this.topg = found.Turnovers/found.Games;
+            // this.TwoPointersPercentage = found.TwoPointersPercentage;
+            // console.log(found);
+            const res = new Promise( (resolve, reject) => {
+                    resolve(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=86a8a62f6d7c4969858b4744aec1763c`)
+            });
+            res
+            .then(res => console.log(res.json()));
+
+
+
+
+
+
+
         }catch(err) {
             alert("Something has gone wrong!!");
             console.log(err);

@@ -203,11 +203,11 @@ header .nav__top {
 
 .team__page {
     flex: 1;  
-    background: tomato;
+    /* background: tomato; */
 }
 
 .team__players {
-    background: wheat;
+    background: black;
     display: flex;
     flex-wrap: wrap;
     
@@ -225,6 +225,11 @@ header .nav__top {
     min-height: 262.8px;
     display: flex;
 }
+
+.player__image img {
+    width: 100%;
+}
+
 .team__players--profile .player__info {
     display: flex;
     flex-direction: column;
@@ -239,6 +244,23 @@ header .nav__top {
 .team__players .team__players--profile:last-child{
     background: red;
 }
+
+
+.team__photo {
+    /* background-image: url("/images/teams_images/Clippers.jpg"); */
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+.team__photo--active {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+
+
 
 /* ---------------------------------------------- */
 /*  FAVORITE */
