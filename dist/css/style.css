@@ -207,14 +207,57 @@ header .nav__top {
 }
 
 .team__players {
-    background: black;
+    /* background: black; */
     display: flex;
     flex-wrap: wrap;
     /* height: 100%; */
     
 }
 
+
 .team__players--profile {
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+    margin: 0%;
+    border: 1px solid silver;
+    box-shadow: 2px 4px 12px silver;
+
+}
+
+.team__players--profile .player__image {
+    background-image: linear-gradient(to bottom, #d6dce6, #e1e4ec, #ecedf2, #f6f6f9, #ffffff);
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+.team__players--profile .player__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0%;
+    margin: 0%;
+
+}
+
+.team__players--profile .player__info h1{
+    font-size: 4rem;
+
+}
+
+.team__players--profile .player__info .player__name__position {
+
+}
+
+
+.player__image img {
+    width: 100%;
+}
+
+
+
+/* -------------------------------------- */
+/* .team__players--profile {
     margin: 2rem auto;
     background: yellow;
     padding: 0%;
@@ -225,27 +268,27 @@ header .nav__top {
     overflow: hidden;
     min-height: 262.8px;
     display: flex;
-}
+} */
 
-.player__image img {
-    width: 100%;
-}
 
+/* 
 .team__players--profile .player__info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background: orangered;
-}
-.team__players--profile:not(:last-child) {  
+} */
+
+/* .team__players--profile:not(:last-child) {  
     margin-bottom: 0%;
-}
+} */
 
-.team__players .team__players--profile:last-child{
+/* .team__players .team__players--profile:last-child{
     background: red;
-}
+} */
 
+/* -------------------------------------- */
 
 .team__photo {
     /* background-image: url("/images/teams_images/Clippers.jpg"); */
