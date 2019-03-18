@@ -5,7 +5,6 @@ import axios from 'axios';
 export const newTeam = class {
     constructor(selectedTeam) {
         this.selectedTeam = selectedTeam;
-        console.log(selectedTeam);
     }
 
     async getTeamStats(key) {
@@ -38,7 +37,6 @@ export const newTeam = class {
             const found = data.find(element => element.Key === this.selectedTeam);
             console.log(found);
             this.PrimaryColor = found.PrimaryColor;
-            this.SecondaryColor = found.SecondaryColor;
             this.SecondaryColor = found.SecondaryColor;
             this.TertiaryColor = found.TertiaryColor;
             this.WikipediaLogoUrl = found.WikipediaLogoUrl

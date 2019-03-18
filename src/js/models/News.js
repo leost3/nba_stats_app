@@ -1,8 +1,5 @@
 import axios from "axios";
 
-
-
-
 export const news =  class{
     constructor(selectedTeam) {
         this.selectedTeam = selectedTeam;

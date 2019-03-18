@@ -210,7 +210,7 @@ header .nav__top {
     background: black;
     display: flex;
     flex-wrap: wrap;
-    height: 100%;
+    /* height: 100%; */
     
 }
 
@@ -271,6 +271,8 @@ header .nav__top {
     flex: 0.2;
     background: yellowgreen;
     transition: all 2s;
+    display: none;
+
 }
 
 .favorite__players * {display: inline-block;}
