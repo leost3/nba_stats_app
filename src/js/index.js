@@ -62,8 +62,8 @@ window.addEventListener('load', () => {
         // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
         try {
-            state.team.getTeamStats();
-            state.team.getTeamInfo();
+            await state.team.getTeamStats();
+            await state.team.getTeamInfo();
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);
