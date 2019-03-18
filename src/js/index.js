@@ -61,13 +61,14 @@ window.addEventListener('load', () => {
         highlightSelectedTeam(selectedTeam);
         // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
-        console.log(state.team)
         try {
+            state.team.getTeamStats();
             state.team.getTeamInfo();
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);
         }
+        cleanResults(elements.teamPlayers);
         renderTeam(state.team);
     }
 
