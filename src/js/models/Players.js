@@ -47,6 +47,7 @@ export const teamPlayers = class Team {
     refinePlayersNames() {
         console.log(this.playersData);
         this.playersData.forEach(element => {
+            console.log(element)
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
                 // console.log(element.FirstName);
@@ -63,7 +64,48 @@ export const teamPlayers = class Team {
                 element.FirstName = element.FirstName.replace("'",'');
                 // console.log(element.FirstName);
             }
+            while (element.FirstName.includes("'")) {
+                element.FirstName = element.FirstName.replace("'",'');
+                // console.log(element.FirstName);
+            }
+            while (element.LastName.includes("'")) {
+                element.LastName = element.LastName.replace("'",'');
+                // console.log(element.FirstName);
+            }
+            if (element.FirstName === 'Derrick') {
+                console.log(element.FirstName);
+                console.log(element.LastName);
+            }
         });
     }
 
 }
+
+
+/* 
+Luc Mbah Moute
+Andre Imgran
+Damioin Lee - GSW
+Danuel House - Houston
+Scotty Hopson - OKC
+Naz Long - Jazz
+Jaylen Morris - Bucks
+Kalin Lucas - DEtrout
+
+// BULLS
+Cristiano Felicio
+Otto Porter
+Shaquille Harrison
+Timothe Luwawu
+
+Brad Wanamaker - cELTICS
+
+
+James Ennis - phi
+
+John Jenkins - NYK
+
+
+
+
+*/
