@@ -47,6 +47,7 @@ window.addEventListener('load', () => {
         }catch(err){
             console.log(er)
         }
+        state.teamPlayers.refinePlayersNames();
         cleanResults(elements.teamPlayers);
         renderPlayers(state.teamPlayers);
     }
@@ -92,6 +93,6 @@ window.addEventListener('load', () => {
     });
 
 
-    elements.closeBtn.addEventListener('click', function() {
-        document.querySelector('.favorite__players').classList.toggle("closed");
-    });
+    // elements.closeBtn.addEventListener('click', function() {
+    //     document.querySelector('.favorite__players').classList.toggle("closed");
+    // });
