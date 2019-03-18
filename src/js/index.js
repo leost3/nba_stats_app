@@ -1,6 +1,7 @@
 import {nbaTeams} from './models/Sidebar';
 import {teamPlayers} from './models/Players';
 import {newTeam} from './models/Team';
+import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers} from './views/playersView';
@@ -60,16 +61,27 @@ window.addEventListener('load', () => {
         // Highlight selected team on sidebar
         highlightSelectedTeam(selectedTeam);
         // Fetch data of the selected Team
-        state.team = new newTeam(selectedTeam);
+        // state.team = new newTeam(selectedTeam);
+        // try {
+        //     await state.team.getTeamStats();
+        //     await state.team.getTeamInfo();
+        // }catch(err){
+        //     alert("Something has gone wrong");
+        //     console.log(err);
+        // }
+        // cleanResults(elements.teamPlayers);
+        // renderTeam(state.team);
+
+
+        // Testing getting news
+        state.news = new news(selectedTeam);
         try {
-            await state.team.getTeamStats();
-            await state.team.getTeamInfo();
-        }catch(err){
-            alert("Something has gone wrong");
+            await state.news.getNews();
+        }catch(err) {
+            alert("Something went wrong");
             console.log(err);
         }
-        cleanResults(elements.teamPlayers);
-        renderTeam(state.team);
+
     }
 
 
