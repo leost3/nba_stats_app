@@ -46,7 +46,7 @@ export const teamPlayers = class Team {
 
     refinePlayersNames() {
         console.log(this.playersData);
-        const data = this.playersData.map(element => {
+        this.playersData.forEach(element => {
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
                 // console.log(element.FirstName);
@@ -59,9 +59,11 @@ export const teamPlayers = class Team {
                 element.LastName = element.LastName.replace(' ','_');
                 console.log(element.LastName)
             }
-            // console.log(element.LastName)
+            while (element.FirstName.includes("'")) {
+                element.FirstName = element.FirstName.replace("'",'');
+                // console.log(element.FirstName);
+            }
         });
-        // console.log(this.playersData);
     }
 
 }
