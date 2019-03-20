@@ -45,9 +45,11 @@ export const teamPlayers = class Team {
 
 
     refinePlayersNames() {
-        console.log(this.playersData);
+        // console.log(this.playersData);
         this.playersData.forEach(element => {
-            console.log(element)
+            // console.log(element)
+
+            // Remove . from name
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
                 // console.log(element.FirstName);
@@ -55,6 +57,8 @@ export const teamPlayers = class Team {
             if (element.LastName.includes('.')) {
                 element.LastName = element.LastName.replace('.','');
             }
+
+            // Replace space for _ in last name
             if (element.LastName.includes(' ')) {
                 console.log(element.LastName)
                 element.LastName = element.LastName.replace(' ','_');
@@ -72,10 +76,18 @@ export const teamPlayers = class Team {
                 element.LastName = element.LastName.replace("'",'');
                 // console.log(element.FirstName);
             }
-            if (element.FirstName === 'Derrick') {
-                console.log(element.FirstName);
-                console.log(element.LastName);
+
+            if (element.FantasyDraftName.split(' ').length > 2) {
+                console.log(element);
             }
+
+
+
+            // if (element.FirstName === 'Derrick') {
+            //     console.log(element)
+            //     console.log(element.FirstName);
+            //     console.log(element.LastName);
+            // }
         });
     }
 
@@ -84,9 +96,9 @@ export const teamPlayers = class Team {
 
 /* 
 Luc Mbah Moute
-Andre Imgran
-Damioin Lee - GSW
-Danuel House - Houston
+
+Damioin Lee - GSW -- Not in the roster of HEasSHot API
+
 Scotty Hopson - OKC
 Naz Long - Jazz
 Jaylen Morris - Bucks
@@ -100,12 +112,18 @@ Timothe Luwawu
 
 Brad Wanamaker - cELTICS
 
-
 James Ennis - phi
 
 John Jenkins - NYK
 
+Derrick Jones Jr. - MIA
 
+Guillermo Hernangomez - CHA
+
+Jordan McRae - WAS
+Chasson Randle - WAS
+
+Terrence Jones
 
 
 */

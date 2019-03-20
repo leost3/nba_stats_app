@@ -5,6 +5,7 @@ body, html {
 html {
     box-sizing: border-box;
     font-size: 62.5%; 
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -203,14 +204,11 @@ header .nav__top {
 
 .team__page {
     flex: 1;  
-    /* background: tomato; */
 }
 
 .team__players {
-    /* background: black; */
     display: flex;
     flex-wrap: wrap;
-    /* height: 100%; */
     
 }
 
