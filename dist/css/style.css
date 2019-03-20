@@ -6,6 +6,7 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; 
     font-family: 'Roboto', sans-serif;
+
 }
 
 body {
@@ -88,7 +89,7 @@ header .nav__top {
 .btn__conference * {
     height: 3rem;
     width: 100%;
-    border: 2px solid grey;
+    border: 2px solid rgb(152, 152, 158);
     background: steelblue;
     text-align: center;
     text-transform: uppercase;
@@ -143,8 +144,10 @@ header .nav__top {
     align-items: center;
     justify-content: center;
     list-style: none;
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(152, 152, 158);
     position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 
@@ -296,10 +299,12 @@ header .nav__top {
 /* -------------------------------------- */
 
 .team__photo {
-    /* background-image: url("/images/teams_images/Clippers.jpg"); */
+    background-image: url("/images/nbaMap.jpg");
     height: 100vh;
+    width: 100%;
     background-size: cover;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;  
+    padding: 5px;  
 }
 
 .team__photo--active {
