@@ -35,7 +35,8 @@ header {
 /* ------------- */
 
 header .nav__top {
-    padding: 2rem;
+    /* padding: 2rem; */
+    height: 10vh;
 }
 
 /* ------------ */
@@ -300,7 +301,7 @@ header .nav__top {
 
 .team__photo {
     background-image: url("/images/nbaMap.jpg");
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;  

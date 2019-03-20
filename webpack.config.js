@@ -16,4 +16,7 @@ module.exports = {
             template: './index.html'
         })
     ],
+    externals: {
+        moment: 'moment'
+    }
 }
