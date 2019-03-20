@@ -70,18 +70,22 @@ window.addEventListener('load', () => {
             alert("Something has gone wrong");
             console.log(err);
         }
+        console.log(state.team.Oponnent);
+        state.team.getOponnentsStats(state.team.Oponnent);
+        console.log(state.team);
+        // getOponnentsStats(state.team)
         cleanResults(elements.teamPlayers);
         renderTeam(state.team);
 
 
         // Testing getting news
-        state.news = new news(selectedTeam);
-        try {
-            await state.news.getNews();
-        }catch(err) {
-            alert("Something went wrong");
-            console.log(err);
-        }
+        // state.news = new news(selectedTeam);
+        // try {
+        //     await state.news.getNews();
+        // }catch(err) {
+        //     alert("Something went wrong");
+        //     console.log(err);
+        // }
 
     }
 

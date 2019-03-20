@@ -170,7 +170,7 @@ header .nav__top {
     width: 100%;
     height: 100%;
     opacity: 0.6;
-    transform: translateY(100%);
+    transform: translateY(-100%);
     transition: all 0.5s;
     display: flex;
     flex-direction: column;
@@ -213,6 +213,7 @@ header .nav__top {
 .team__players {
     display: flex;
     flex-wrap: wrap;
+    height: 200vh;
     
 }
 
