@@ -264,42 +264,6 @@ header .nav__top {
     width: 100%;
 }
 
-
-
-/* -------------------------------------- */
-/* .team__players--profile {
-    margin: 2rem auto;
-    background: yellow;
-    padding: 0%;
-    border: 2px solid black;
-    position: relative;
-    border-radius: 30px;
-    transition: all 2s;
-    overflow: hidden;
-    min-height: 262.8px;
-    display: flex;
-} */
-
-
-/* 
-.team__players--profile .player__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background: orangered;
-} */
-
-/* .team__players--profile:not(:last-child) {  
-    margin-bottom: 0%;
-} */
-
-/* .team__players .team__players--profile:last-child{
-    background: red;
-} */
-
-/* -------------------------------------- */
-
 .team__photo {
     background-image: url("/images/nbaMap.jpg");
     height: 90vh;
@@ -335,4 +299,10 @@ header .nav__top {
     flex: 0;
     display: none;
     transition: all 2s;
+}
+
+
+
+
+#myChart {
 }
