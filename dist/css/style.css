@@ -214,7 +214,7 @@ header .nav__top {
     display: flex;
     flex-wrap: wrap;
     height: 200vh;
-    
+    /* padding: 0 15px; */  
 }
 
 
@@ -301,8 +301,100 @@ header .nav__top {
     transition: all 2s;
 }
 
+/* PAGE OF TEAM DISPLUAED */
 
+.stats img {
+    width: 6%;
+}
+.team__stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
 
+.team__stats--headpage {
+    /* background: yellow; */
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/sac.jpg');
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
-#myChart {
+.team__stats--logo--Record {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 50%;
+}
+
+.team__stats--logo--Record h1{
+    font-size: 4rem;
+    opacity: 0.9;
+
+}
+.team__stats--logo--Record img{
+    width: 45%;
+    opacity: 0.6;
+}
+
+.team__stats--basics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-size: 15px;
+}
+.team__stats--basics ul{
+    /* background: yellow; */
+    display: flex;
+    padding: 20px 45px;
+    
+}
+
+.team__stats--basics ul li{
+    /* background: orangered; */
+    padding: 5px;
+    line-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 800;
+    /* background: purple; */
+    border-radius: 5px;
+    color: #fff;
+}
+
+.team__stats--basics ul li img{
+    margin: 1rem 1rem;
+}
+.team__stats--info--slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    line-height: 0%;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 15px;
+    /* background: purple; */
+    color: #fff;
+    border-radius: 15px;
+}
+
+.canvas__radar {
+    width: 85%;
+
 }

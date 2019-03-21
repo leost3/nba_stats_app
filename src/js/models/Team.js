@@ -12,15 +12,15 @@ export const newTeam = class {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=86a8a62f6d7c4969858b4744aec1763c`); 
             const data = res.data;
             const found = data.find(element => element.Team === this.selectedTeam);
-            console.log(found);
+            // console.log(found);
 
             this.opponentStats =  {
                 games: found.OpponentStat.Games,
-                apg: found.OpponentStat.Assists/this.game,
-                ppg: found.OpponentStat.Points/this.games,
-                rpg: found.OpponentStat.Rebounds/this.games,
-                spg: found.OpponentStat.Steals/this.games,
-                TOpg: found.OpponentStat.Turnovers/this.games,
+                apg: found.OpponentStat.Assists/found.OpponentStat.Games,
+                ppg: found.OpponentStat.Points/found.OpponentStat.Games,
+                rpg: found.OpponentStat.Rebounds/found.OpponentStat.Games,
+                spg: found.OpponentStat.Steals/found.OpponentStat.Games,
+                TOpg: found.OpponentStat.Turnovers/found.OpponentStat.Games,
                 threePointersAttemptedPerGame: found.OpponentStat.ThreePointersAttempted/this.games,
                 fieldGoalsPercentage: found.OpponentStat.FieldGoalsPercentage,
                 threePointersPercentage: found.OpponentStat.ThreePointersPercentage,
@@ -39,7 +39,6 @@ export const newTeam = class {
             this.threePointersPercentage = found.ThreePointersPercentage;
             this.twoPointersPercentage = found.TwoPointersPercentage;
             this.trueShootingPercentage = found.TrueShootingPercentage;
-            console.log(this.fieldGoalsPercentage)
         }catch(err) {
             alert("Something has gone wrong!!");
             console.log(err);

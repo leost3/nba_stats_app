@@ -65,7 +65,7 @@ window.addEventListener('load', () => {
         state.team = new newTeam(selectedTeam);
         try {
             await state.team.getTeamStats();
-            // await state.team.getTeamInfo();
+            await state.team.getTeamInfo();
             // await state.team.getSchedule();
         }catch(err){
             alert("Something has gone wrong");

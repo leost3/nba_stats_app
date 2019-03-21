@@ -7,6 +7,9 @@ export const elements = {
     teamPlayers: document.querySelector('.team__players'),
     closeBtn: document.querySelector('.close'),
     teamPhoto : document.querySelector('.team__photo'),
+    teamBasicStats: document.querySelector('.team__stats--basics .stats li'),
+    teamInfoSlidersStats: document.querySelector('.team__stats--info--slider')
+    
 }
 
 
