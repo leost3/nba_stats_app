@@ -342,8 +342,8 @@ header .nav__top {
 
 }
 .team__stats--logo--Record img{
-    width: 45%;
-    opacity: 0.6;
+    width: 75%;
+    opacity: 0.4;
 }
 
 .team__stats--basics {
@@ -351,7 +351,7 @@ header .nav__top {
   flex-direction: column;
   align-items: center;
   align-content: center;
-  font-size: 15px;
+  font-size: 12px;
 }
 .team__stats--basics ul{
     /* background: yellow; */
@@ -397,4 +397,12 @@ header .nav__top {
 .canvas__radar {
     width: 85%;
     margin-top: 5rem;
+}
+.conference__logo{
+    background: #333;
+}
+.conference__logo img{
+    display: block;
+    margin: 15px auto;
+    width: 25%;
 }

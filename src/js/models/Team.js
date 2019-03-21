@@ -82,5 +82,24 @@ export const newTeam = class {
         }
     }
 
+    async getStanding() {
+
+        try {
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Standings/2019?key=${keys.key1}`);
+            const data = res.data;
+            const found = data.find(element => element.Key === this.selectedTeam);
+            this.conference = found.Conference;
+            this.teamStanding = {
+                streak: found.Streak,
+                conferenceRecord: `${found.ConferenceWins}-${found.ConferenceLosses}`,
+                homeRecord: `${found.HomeWins}-${found.HomeLosses}`,
+                awayRecord: `${found.AwayWins}-${found.AwayLosses}`,
+            }
+            console.log(found)
+        }catch(err) {
+            console.log(err);
+        }
+    }
+
 }
 

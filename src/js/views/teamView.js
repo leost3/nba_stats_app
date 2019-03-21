@@ -13,18 +13,21 @@ let markup = `
                 <h1>W ${team.record} L</h1>
             </div>
         </div>
+        <div class="conference__logo">
+            <img src="/images/Logos/conference_logos/${team.conference}.png" alt="xx" srcset="">
+        </div>
         <div class="team__stats--basics">
             <ul class="stats">
                 <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.ppg.toFixed(2)} Points per game</li>
                 <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.apg.toFixed(2)} assists per game</li>
-                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.threePointersAttemptedPerGame.toFixed(2)} Three pointers </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp per game</li>
+                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.threePointersAttemptedPerGame.toFixed(2)} 3 pointers per game</li>
             </ul>
         </div>
         <div class="team__stats--info--slider">
-            <h3>Won last 4 games</h3>
-            <h3>30 - 14 against teams of same conference</h3>
-            <h3>29 - 7 at home</h3>
-            <h3>7 - 29 away</h3>
+            <h3>Won last ${team.teamStanding.streak} games</h3>
+            <h3>${team.teamStanding.conferenceRecord} against teams of same conference</h3>
+            <h3>${team.teamStanding.homeRecord} at home</h3>
+            <h3>${team.teamStanding.awayRecord} away</h3>
         </div>
         <div class="canvas__radar">
             <canvas id="myChart"></canvas>

@@ -49,6 +49,7 @@ window.addEventListener('load', () => {
         }
         state.teamPlayers.refinePlayersNames();
         cleanResults(elements.teamPlayers);
+        console.log(state.teamPlayers);
         renderPlayers(state.teamPlayers);
     }
 
@@ -67,11 +68,12 @@ window.addEventListener('load', () => {
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
             // await state.team.getSchedule();
+            await state.team.getStanding();
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);
         }
-        console.log(state.team);
+        // console.log(state.team);
         cleanResults(elements.teamPlayers);
         renderTeam(state.team);
 

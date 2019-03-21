@@ -17,26 +17,11 @@ export const teamPlayers = class Team {
         this.team = team;
     }
 
-
     async getPlayers(teamKey) {
         const key = 'key=86a8a62f6d7c4969858b4744aec1763c';
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?${key}`);
             this.playersData = res.data;    
-            // const playersData = res.data;// Returns an array
-            // return playersData;
-            // console.log(playersData);
-         
-
-
-//             LastName
-// FirstName
-// FanDuelName
-// FanDuelName
-// Position
-// Jersey
-
-
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
@@ -49,7 +34,6 @@ export const teamPlayers = class Team {
         this.playersData.forEach(element => {
             // console.log(element)
 
-            // Remove . from name
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
                 // console.log(element.FirstName);
@@ -60,9 +44,9 @@ export const teamPlayers = class Team {
 
             // Replace space for _ in last name
             if (element.LastName.includes(' ')) {
-                console.log(element.LastName)
+                // console.log(element.LastName)
                 element.LastName = element.LastName.replace(' ','_');
-                console.log(element.LastName)
+                // console.log(element.LastName)
             }
             while (element.FirstName.includes("'")) {
                 element.FirstName = element.FirstName.replace("'",'');
@@ -78,7 +62,7 @@ export const teamPlayers = class Team {
             }
 
             if (element.FantasyDraftName.split(' ').length > 2) {
-                console.log(element);
+                // console.log(element);
             }
 
 
@@ -92,6 +76,27 @@ export const teamPlayers = class Team {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* 
