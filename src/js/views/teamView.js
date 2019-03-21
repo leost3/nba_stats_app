@@ -49,13 +49,6 @@ teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 
 
 createChart(team);
 
-// elements.teamPhoto.style.backgroundImage = `url('/images/teams_images/${team.selectedTeam.toLowerCase()}.jpg')`
-// elements.teamPhoto.classList.add('.team__photo--active');
-// elements.teamPlayers.style.backgroundImage = `linear-gradient(to right bottom, #${team.PrimaryColor},#${team.SecondaryColor})`;
-
-// elements.teamBasicStats.style.backgroundImage = `linear-gradient(to right bottom, #${team.PrimaryColor},#${team.SecondaryColor})`;
-// elements.teamInfoSlidersStats.style.backgroundImage = `linear-gradient(to right bottom, #${team.PrimaryColor},#${team.SecondaryColor})`;
-
 }
 
 
@@ -68,7 +61,7 @@ function hexToRgbA(hex){
             c= [c[0], c[0], c[1], c[1], c[2], c[2]];
         }
         c= '0x'+c.join('');
-        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.4)';
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.5)';
     }
     throw new Error('Bad Hex');
 }
@@ -94,9 +87,9 @@ const createChart = (data) => {
                 hexToRgbA(`#${data.teamInfo.primaryColor}`)
             ],
             borderColor: [
-                `${data.secundaryColor}`
+                `${data.teamInfo.primaryColor}`
             ],
-            borderWidth: 1
+            borderWidth: 4
         },
             {
             label: 'NBA',
@@ -107,12 +100,12 @@ const createChart = (data) => {
                 data.opponentStats.threePointersPercentage
                     ],
             backgroundColor: [
-                `white`
+                `rgba(255,255,55, 0.5)`
             ],
             borderColor: [
                 'rgba(0,0,0)'
             ],
-            borderWidth: 1
+            borderWidth: 4
         },
       
         

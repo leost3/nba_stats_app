@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as keys from '../config';
 
 // https://api.fantasydata.net/v3/nba/stats/JSON/TeamStatsAllowedByPosition/2019?key=86a8a62f6d7c4969858b4744aec1763c
 
@@ -9,7 +10,7 @@ export const newTeam = class {
 
     async getTeamStats(key) {
         try {
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=86a8a62f6d7c4969858b4744aec1763c`); 
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=${keys.key1}`); 
             const data = res.data;
             const found = data.find(element => element.Team === this.selectedTeam);
             // console.log(found);
@@ -46,7 +47,7 @@ export const newTeam = class {
     }
     async getTeamInfo(key) {
         try {
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/AllTeams?key=86a8a62f6d7c4969858b4744aec1763c`); 
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/AllTeams?key=${keys.key1}`); 
             const data = res.data;
             const found = data.find(element => element.Key === this.selectedTeam);
             this.teamInfo = {
@@ -55,7 +56,6 @@ export const newTeam = class {
                 tertiaryColor : found.TertiaryColor,
                 wikipediaLogoUrl : found.WikipediaLogoUrl
             }
-
         }catch(err) {
             alert("Something has gone wrong!!");
             console.log(err);
@@ -64,7 +64,7 @@ export const newTeam = class {
 
     async getSchedule() {
         try {
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Games/2019?key=86a8a62f6d7c4969858b4744aec1763c`);
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Games/2019?key=${keys.key1}`);
             const data = res.data;
             let arr = [];   
             for (let i=0; arr.length < 4; i++) {
@@ -73,7 +73,6 @@ export const newTeam = class {
                         arr.push([data[i].AwayTeam , data[i].HomeTeam, data[i].Day])
                     } 
                 }
-                        
             }
             console.log(arr);
             return arr;
