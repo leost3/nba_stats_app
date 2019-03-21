@@ -66,14 +66,11 @@ window.addEventListener('load', () => {
         try {
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
+            await state.team.getSchedule();
         }catch(err){
             alert("Something has gone wrong");
             console.log(err);
         }
-        console.log(state.team.Oponnent);
-        state.team.getOponnentsStats(state.team.Oponnent);
-        console.log(state.team);
-        // getOponnentsStats(state.team)
         cleanResults(elements.teamPlayers);
         renderTeam(state.team);
 

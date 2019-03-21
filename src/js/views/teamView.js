@@ -13,7 +13,7 @@ createChart(team);
 
 elements.teamPhoto.style.backgroundImage = `url('/images/teams_images/${team.selectedTeam.toLowerCase()}.jpg')`
 elements.teamPhoto.classList.add('.team__photo--active');
-elements.teamPlayers.style.backgroundImage = `linear-gradient(to right bottom, #${team.PrimaryColor},#${team.SecondaryColor})`;
+// elements.teamPlayers.style.backgroundImage = `linear-gradient(to right bottom, #${team.PrimaryColor},#${team.SecondaryColor})`;
 ;
 }
 
@@ -30,13 +30,14 @@ const createChart = (data) => {
     const myChart = new Chart(ctx, {
     type: 'radar',
     data: {
-        labels: ['ppg', 'rpg', 'spg', 'topg'],
+        labels: ['fg', '2pt%', 'ts%', '3p%'],
         datasets: [{
             label: data.selectedTeam,
-            data: [data.ppg,
-                data.rpg,
-                data.spg,
-                data.topg
+            data: [
+                data.FieldGoalsPercentage,
+                data.TwoPointersPercentage,
+                data.TrueShootingPercentage,
+                data.ThreePointersPercentage
                     ],
             backgroundColor: [
                 // 'rgba(255, 99, 132, 0.2)',
@@ -60,10 +61,11 @@ const createChart = (data) => {
         },
         {
             label: 'NBA',
-            data: [data.Opoonentppg,
-                data.Opoonentrpg,
-                data.Opoonentspg,
-                data.Opoonenttopg],
+            data: [
+                data.OpoonentFieldGoalsPercentage,
+                data.OpoonentTwoPointersPercentage,
+                data.OpoonentTrueShootingPercentage,
+                data.OpoonentThreePointersPercentage],
             backgroundColor: [
                 // 'rgba(255, 99, 132, 0.2)',
                 // 'rgba(54, 162, 235, 0.2)',
@@ -71,8 +73,8 @@ const createChart = (data) => {
                 // 'rgba(75, 192, 192, 0.2)',
                 // 'rgba(153, 102, 255, 0.2)',
                 // 'rgba(255, 159, 64, 0.2)'
-                // `rgba(22,222,0,0.5)`
-                `yellow`
+                `rgba(22,222,0,0.5)`
+                
             ],
             borderColor: [
                 // 'rgba(255, 99, 132, 1)',
