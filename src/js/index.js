@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, reanderSelectedPlayerProfile} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile} from './views/playersView';
 import {renderTeam} from './views/teamView';
 
 const state = {};
@@ -21,7 +21,7 @@ const displaySideTeams = () => {
 window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE
-    // displayPlayers('PHO');
+    displayPlayers('PHO');
 });
     
 // Display teams from selected conference
@@ -67,7 +67,10 @@ window.addEventListener('load', () => {
         // cleanResults(elements.teamPlayers);
 
         // Render player profile on screen
-        reanderSelectedPlayerProfile(state.player)
+
+
+
+        renderSelectedPlayerProfile(state.player)
         // console.log(state.player)
     }
 

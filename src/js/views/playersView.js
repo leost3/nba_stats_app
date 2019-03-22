@@ -66,8 +66,29 @@ export const renderPlayers = (data) => {
 
 
 
-export const reanderSelectedPlayerProfile = (data) => {
-    console.log(data)
+export const renderSelectedPlayerProfile = (data) => {
+    const markup = `
+    <div class="selectedPlayer__profile">
+        <div class="selectedPlayer__image">
+            <img src="https://nba-players.herokuapp.com/players/curry/stephen" alt="nene hilario">    
+        </div>
+        <div class="player__info--profile">
+            <h2>STEPH CURRY</h2>
+            <h2>GUARD</h2>
+            <h1>30</h1>
+        </div>
+        <ul class="player__stats">
+            <li>25 ppg</li>
+            <li>12 rpg</li>
+            <li>25 apg</li>
+            <li>4.3 spg</li>
+            <li>62% tsp</li>
+            <li>25%fg</li>
+        </ul>
+    </div>    
+    `
+    elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
+
 }
 
 

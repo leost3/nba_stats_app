@@ -214,6 +214,7 @@ header .nav__top {
     display: flex;
     flex-wrap: wrap;
     height: 200vh;
+    position: relative;
     /* padding: 0 15px; */  
 }
 
@@ -261,6 +262,7 @@ header .nav__top {
 
 
 .player__image img {
+    display: block;
     width: 100%;
 }
 
@@ -283,28 +285,13 @@ header .nav__top {
 
 
 /* ---------------------------------------------- */
-/*  FAVORITE */
+/*  SELECTED TEAM STATS PAGE */
 /* ---------------------------------------------- */
 
-.favorite__players {
-    flex: 0.2;
-    background: yellowgreen;
-    transition: all 2s;
-    display: none;
-
-}
-
-.favorite__players * {display: inline-block;}
-.closed {
-    flex: 0;
-    display: none;
-    transition: all 2s;
-}
-
-/* PAGE OF TEAM DISPLUAED */
 
 .stats img {
     width: 6%;
+    display: block;
 }
 .team__stats {
     display: flex;
@@ -314,7 +301,6 @@ header .nav__top {
 }
 
 .team__stats--headpage {
-    /* background: yellow; */
     width: 100%;
     height: 90vh;
     display: flex;
@@ -354,14 +340,12 @@ header .nav__top {
   font-size: 12px;
 }
 .team__stats--basics ul{
-    /* background: yellow; */
     display: flex;
     padding: 20px 45px;
     
 }
 
 .team__stats--basics ul li{
-    /* background: orangered; */
     padding: 5px;
     line-height: 100%;
     display: flex;
@@ -372,7 +356,6 @@ header .nav__top {
     width: 100%;
     text-transform: uppercase;
     font-weight: 800;
-    /* background: purple; */
     border-radius: 5px;
     color: #fff;
 }
@@ -389,7 +372,6 @@ header .nav__top {
     text-transform: uppercase;
     font-weight: 800;
     padding: 15px;
-    /* background: purple; */
     color: #fff;
     border-radius: 15px;
 }
@@ -406,3 +388,69 @@ header .nav__top {
     margin: 15px auto;
     width: 25%;
 }
+
+/* ---------------------------------------------- */
+/*  SELECTED PLAYER PROFILE */
+/* ---------------------------------------------- */
+
+.selectedPlayer__profile {
+    border: 2px solid  #333;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: steelblue;
+}
+
+.selectedPlayer__image {
+    display: block;
+    width: 100%;
+}
+
+.selectedPlayer__profile .player__info {
+
+
+}
+
+.selectedPlayer__profile .player__info--profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.selectedPlayer__profile .player__stats{
+    padding: 0;
+    
+}
+
+.selectedPlayer__profile .player__stats li{
+    list-style: none;
+}
+
+
+/* ---------------------------------------------- */
+/*  FAVORITE */
+/* ---------------------------------------------- */
+
+.favorite__players {
+    flex: 0.2;
+    background: yellowgreen;
+    transition: all 2s;
+    display: none;
+
+}
+
+.favorite__players * {display: inline-block;}
+.closed {
+    flex: 0;
+    display: none;
+    transition: all 2s;
+}
+
+/* PAGE OF TEAM DISPLUAED */
