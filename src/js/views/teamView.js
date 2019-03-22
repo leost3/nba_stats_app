@@ -24,8 +24,8 @@ let markup = `
             </ul>
         </div>
         <div class="team__stats--info--slider">
-            <h3>Won last ${team.teamStanding.streak} games</h3>
-            <h3>${team.teamStanding.conferenceRecord} against teams of same conference</h3>
+            <h3>Won last ${team.teamStanding.streak} ${team.teamStanding.streak === 1 ? "game" : "games"}</h3>
+            <h3>${team.teamStanding.conferenceRecord} against ${team.conference} conference teams</h3>
             <h3>${team.teamStanding.homeRecord} at home</h3>
             <h3>${team.teamStanding.awayRecord} away</h3>
         </div>

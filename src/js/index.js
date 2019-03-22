@@ -77,10 +77,12 @@ window.addEventListener('load', () => {
     elements.teamPlayers.addEventListener('click', function(e) {
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
-
             diplayPlayerProfile(playerId);
-            
         } 
+        if (e.target.matches('.close__player__profile')) {
+            e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+        }
+         console.log(e.target.parentElement)
     })
 
     // Display info about Selected Team

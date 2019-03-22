@@ -1,8 +1,13 @@
 import {elements} from './base';
 
 
+// Render players profiles on screen
+
 const renderRes = (el) => {
     let markup;
+
+    // If rookie add an default image
+
     if (el.Experience === 0) {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}">
@@ -19,6 +24,8 @@ const renderRes = (el) => {
             </div>   
         </div> 
     `
+
+    // For not rookies
     } else {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
@@ -37,6 +44,8 @@ const renderRes = (el) => {
     `
     }
 
+    // If players if Andre Ingram
+
     if (el.FanDuelName === 'Andre Ingram')
     markup = `
     <div class="team__players--profile">
@@ -54,21 +63,27 @@ const renderRes = (el) => {
     </div> 
 `
 
+
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
 
 
 export const renderPlayers = (data) => {
     data.playersData.forEach(renderRes);
+    console.log(data);
     
 }
 
 
 
 
+// DIsplay profile of selected player and apply filter blur to others profiles
+
 export const renderSelectedPlayerProfile = (data) => {
+    // HTML markup
     const markup = `
     <div class="selectedPlayer__profile">
+        <button class=close__player__profile>X</button>
         <div class="selectedPlayer__image">
             <img src="https://nba-players.herokuapp.com/players/curry/stephen" alt="nene hilario">    
         </div>
@@ -87,6 +102,10 @@ export const renderSelectedPlayerProfile = (data) => {
         </ul>
     </div>    
     `
+
+    // Add blur filter for each of previous players profile
+    document.querySelectorAll('.team__players--profile').forEach(el => el.style.filter = "blur(5px)");
+
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 
 }

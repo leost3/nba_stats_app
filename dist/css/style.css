@@ -404,6 +404,7 @@ header .nav__top {
     align-items: center;
     justify-content: center;
     background: steelblue;
+    z-index: 1;
 }
 
 .selectedPlayer__image {
