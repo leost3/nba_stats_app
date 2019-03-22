@@ -1,10 +1,11 @@
 import {nbaTeams} from './models/Sidebar';
 import {teamPlayers} from './models/Players';
+import {player} from './models/Players';
 import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers} from './views/playersView';
+import {renderPlayers, reanderSelectedPlayerProfile} from './views/playersView';
 import {renderTeam} from './views/teamView';
 
 const state = {};
@@ -19,6 +20,8 @@ const displaySideTeams = () => {
 
 window.addEventListener('load', () => {
     displaySideTeams();
+    // TESTE
+    // displayPlayers('PHO');
 });
     
 // Display teams from selected conference
@@ -53,9 +56,29 @@ window.addEventListener('load', () => {
         renderPlayers(state.teamPlayers);
     }
 
+    // Display advances stats of selected player
+    const diplayPlayerProfile = async selectedPlayer => {
+        state.player = new player(selectedPlayer);
+        try {
+            await state.player.getPlayerData();
+        }catch(err) {
+            console.log(err)
+        }
+        // cleanResults(elements.teamPlayers);
 
+        // Render player profile on screen
+        reanderSelectedPlayerProfile(state.player)
+        // console.log(state.player)
+    }
 
+    elements.teamPlayers.addEventListener('click', function(e) {
+        if (e.target.matches('.player__btn')) {
+            const playerId = e.target.parentElement.parentElement.dataset.playerid;
 
+            diplayPlayerProfile(playerId);
+            
+        } 
+    })
 
     // Display info about Selected Team
 

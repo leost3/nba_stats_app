@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 
 
 export const renderTeam = (team) => {
-console.log(team);
+// console.log(team);
 let markup = `
     <div class="team__stats">
         <div class="team__stats--headpage">
