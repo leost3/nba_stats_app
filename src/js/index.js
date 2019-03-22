@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, renderSelectedPlayerProfile} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons} from './views/playersView';
 import {renderTeam} from './views/teamView';
 
 const state = {};
@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
         renderPlayers(state.teamPlayers);
     }
 
-    // Display advances stats of selected player
+    // Display advanced stats of selected player
     const diplayPlayerProfile = async selectedPlayer => {
         state.player = new player(selectedPlayer);
         try {
@@ -78,17 +78,18 @@ window.addEventListener('load', () => {
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId);
-            // Apply filter
-
-            // Disable buttons
+            // Add blur filter for each of previous players profile
+            applyFilter();
+            // Disable buttons of players profiles
+            disableButtons();
         } 
         if (e.target.matches('.close__player__profile')) {
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
             // Remove filter 
-
+            removeFilter();
             // Enable buttons
+            enableButtons();
         }
-         console.log(e.target.parentElement)
     })
 
     // Display info about Selected Team

@@ -1,6 +1,9 @@
 import {elements} from './base';
 
 
+
+
+
 // Render players profiles on screen
 
 const renderRes = (el) => {
@@ -62,8 +65,6 @@ const renderRes = (el) => {
         </div>   
     </div> 
 `
-
-
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
 
@@ -73,8 +74,6 @@ export const renderPlayers = (data) => {
     console.log(data);
     
 }
-
-
 
 
 // DIsplay profile of selected player and apply filter blur to others profiles
@@ -102,17 +101,25 @@ export const renderSelectedPlayerProfile = (data) => {
         </ul>
     </div>    
     `
-
-    // Add blur filter for each of previous players profile
-    document.querySelectorAll('.team__players--profile').forEach(el => el.style.filter = "blur(5px)");
-
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-
-    const btns = document.querySelectorAll('.player__btn');
-    // btns.forEach(btn => btn.disabled = true);
-    btns.forEach(btn => btn.setAttribute("disabled", "disabled"));
-    btns.forEach(btn => console.log(btn.attributes))
 }
 
+export const applyFilter = () => {
+    const allPlayersProfile = document.querySelectorAll('.team__players--profile');
+    allPlayersProfile.forEach(el => el.style.filter = "blur(5px)");
+}
 
+export const removeFilter = () => {
+    const allPlayersProfile = document.querySelectorAll('.team__players--profile');
+    allPlayersProfile.forEach(el => el.style.filter = "none");
+}
+
+export const disableButtons = () => {
+    const btns = document.querySelectorAll('.player__btn');
+    btns.forEach(btn => btn.disabled = true);
+}
+export const enableButtons = () => {
+    const btns = document.querySelectorAll('.player__btn');
+    btns.forEach(btn => btn.disabled = false);
+}
 
