@@ -19,7 +19,7 @@ const renderRes = (el) => {
                     <h2>${el.FanDuelName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
-                <h1 class="player__btn">BTN</h1>
+                <button class="player__btn" type="button">BTN</button>
                 <h1>${el.Jersey}</h1>
             </div>   
         </div> 
@@ -37,7 +37,7 @@ const renderRes = (el) => {
                     <h2>${el.FanDuelName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
-                <h1 class="player__btn">BTN</h1>
+                <button class="player__btn" type="button">BTN</button>
                 <h1>${el.Jersey}</h1>
             </div>     
         </div> 
@@ -57,7 +57,7 @@ const renderRes = (el) => {
                 <h4>${el.FanDuelName}</h4>
                 <h4>${el.Position}</h4>
             </div>
-            <h1 class="player__btn>BTN</h1>
+            <button class="player__btn type="button">BTN</button>
             <h1>${el.Jersey}</h1>
         </div>   
     </div> 
@@ -108,6 +108,10 @@ export const renderSelectedPlayerProfile = (data) => {
 
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 
+    const btns = document.querySelectorAll('.player__btn');
+    // btns.forEach(btn => btn.disabled = true);
+    btns.forEach(btn => btn.setAttribute("disabled", "disabled"));
+    btns.forEach(btn => console.log(btn.attributes))
 }
 
 

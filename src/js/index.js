@@ -78,9 +78,15 @@ window.addEventListener('load', () => {
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId);
+            // Apply filter
+
+            // Disable buttons
         } 
         if (e.target.matches('.close__player__profile')) {
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+            // Remove filter 
+
+            // Enable buttons
         }
          console.log(e.target.parentElement)
     })
