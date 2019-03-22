@@ -33,40 +33,46 @@ let markup = `
             <canvas id="myChart"></canvas>
         </div>
     </div>
-   
-    `
-
+`
+// Insert markup into HTML
 elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-const teamBasicStats = document.querySelectorAll('.team__stats--basics .stats li');
-const teamInfoSlidersStats = document.querySelector('.team__stats--info--slider');
-const teamHeader = document.querySelector('.team__stats--headpage')
+
+// Selec elements
+// const teamBasicStats = document.querySelectorAll('.team__stats--basics .stats li');
+// const teamInfoSlidersStats = document.querySelector('.team__stats--info--slider');
+// const teamHeader = document.querySelector('.team__stats--headpage')
+
+// Change backgroundColor of team information
+// teamInfoSlidersStats.style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
+// teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
 
 
-teamInfoSlidersStats.style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
-
-teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
-
-teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
+// Black gradient background on backgroundImage
+// teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
 
 
 
-createChart(team);
+
+
 
 }
 
+export const chart = (team) => {
+    createChart(team)
+};
 
+export const changeBackgroundColor = (team) => {
 
-function hexToRgbA(hex){
-    let c;
-    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-        c= hex.substring(1).split('');
-        if(c.length== 3){
-            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-        }
-        c= '0x'+c.join('');
-        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.5)';
-    }
-    throw new Error('Bad Hex');
+    const teamBasicStats = document.querySelectorAll('.team__stats--basics .stats li');
+    const teamInfoSlidersStats = document.querySelector('.team__stats--info--slider');
+    const teamHeader = document.querySelector('.team__stats--headpage')
+
+    teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
+
+    teamInfoSlidersStats.style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
+
+    teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
+
 }
 
 
@@ -131,6 +137,18 @@ const createChart = (data) => {
 
 
 
+function hexToRgbA(hex){
+    let c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.5)';
+    }
+    throw new Error('Bad Hex');
+}
 
 
 

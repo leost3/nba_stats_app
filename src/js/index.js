@@ -6,7 +6,7 @@ import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons} from './views/playersView';
-import {renderTeam} from './views/teamView';
+import {renderTeam, changeBackgroundColor, chart} from './views/teamView';
 
 const state = {};
 
@@ -20,8 +20,9 @@ const displaySideTeams = () => {
 
 window.addEventListener('load', () => {
     displaySideTeams();
-    // TESTE
-    displayPlayers('PHO');
+    // TESTE - onload
+    // displayTeamTest('SAC');
+    // displayPlayers('SA')
 });
     
 // Display teams from selected conference
@@ -111,6 +112,8 @@ window.addEventListener('load', () => {
         // console.log(state.team);
         cleanResults(elements.teamPlayers);
         renderTeam(state.team);
+        changeBackgroundColor(state.team);
+        chart(state.team);
 
 
         // Testing getting news
@@ -131,6 +134,13 @@ window.addEventListener('load', () => {
         if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 
+
+    // Search player
+    document.querySelector('.search__player').addEventListener('click', (e) => {
+        e.preventDefault();
+        const playerName = document.querySelector('.player__name--input');
+        console.log(playerName.value);
+    });
 
     // elements.closeBtn.addEventListener('click', function() {
     //     document.querySelector('.favorite__players').classList.toggle("closed");

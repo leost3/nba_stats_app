@@ -158,7 +158,8 @@ header .nav__top {
 /* -------------------------------------------------------------- */
 
 .team__logo--active {
-    border: 3px solid rgb(9, 9, 85);
+    border: 3px solid rgb(152, 152, 158);
+    /* rgb(9, 9, 85); */
 }
 
 
