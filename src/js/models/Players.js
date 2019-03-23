@@ -78,9 +78,10 @@ export const teamPlayers = class Team {
 }
 
 
-export const player = class Player {
+export const SelectedPlayer = class Player {
     constructor(playerID) {
         this.playerID = playerID;
+        console.log(this.playerID);
     }
 
 
@@ -90,7 +91,7 @@ export const player = class Player {
             const data = res.data;
             // console.log(data);
             this.games = data.Games;
-            this.apg = data.Assists/this.games.toFixed(2);
+            this.apg = data.Assists/this.games;
             this.fgPercentage = data.FieldGoalsPercentage;
             this.teamId = data.TeamID;
             this.name = data.Name;
@@ -109,6 +110,26 @@ export const player = class Player {
         }catch(err) {
             console.log(err);
         }
+    }
+}
+
+
+export const searchedPlayer = class Searched {
+    constructor(playerName) {
+        this.playerName = playerName.toLowerCase();
+        console.log(playerName)
+    }
+
+    async getSearchedPlayer() {
+        const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players?key=${keys.key1}`);
+        const data = res.data;
+        console.log(data);
+        const found = data.filter(el => {
+            if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName || el.DraftKingsName.toLowerCase() === this.playerName) {
+                return el;
+            }
+        });
+        console.log(found);
     }
 }
 

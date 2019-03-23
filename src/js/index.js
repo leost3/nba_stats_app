@@ -1,6 +1,6 @@
 import {nbaTeams} from './models/Sidebar';
 import {teamPlayers} from './models/Players';
-import {player} from './models/Players';
+import {SelectedPlayer, searchedPlayer} from './models/Players';
 import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults} from './views/base';
@@ -59,9 +59,9 @@ window.addEventListener('load', () => {
 
     // Display advanced stats of selected player
     const diplayPlayerProfile = async selectedPlayer => {
-        state.player = new player(selectedPlayer);
+        state.SelectedPlayer = new SelectedPlayer(selectedPlayer);
         try {
-            await state.player.getPlayerData();
+            await state.SelectedPlayer.getPlayerData();
         }catch(err) {
             console.log(err)
         }
@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
 
 
 
-        renderSelectedPlayerProfile(state.player)
+        renderSelectedPlayerProfile(state.SelectedPlayer)
         // console.log(state.player)
     }
 
@@ -135,11 +135,28 @@ window.addEventListener('load', () => {
     });
 
 
+    // Create searcedPlayer Class
+
+    const searchPlayer = async (playerName) => {
+        state.searchPlayer = new searchedPlayer(playerName);
+        try {
+            state.searchPlayer.getSearchedPlayer();
+        }catch(err) {
+            console.log(err);
+        }
+    }
+
+
+
     // Search player
     document.querySelector('.search__player').addEventListener('click', (e) => {
         e.preventDefault();
-        const playerName = document.querySelector('.player__name--input');
-        console.log(playerName.value);
+        let playerName = document.querySelector('.player__name--input').value;
+        if (playerName.length > 0) {
+            searchPlayer(playerName);
+        }
+        playerName = ""; 
+        // searchPlayer(playerName);
     });
 
     // elements.closeBtn.addEventListener('click', function() {
