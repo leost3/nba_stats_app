@@ -1,25 +1,21 @@
 import {elements} from './base';
 
-
-
-
-
-// Render players profiles on screen
+// Render team players profiles on screen
 
 const renderRes = (el) => {
     let markup;
-
+    console.log(el);
     // If rookie add an default image
 
     if (el.Experience === 0) {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}">
             <div class="player__image">
-                <img src="/images/images.jpg" alt="${el.FanDuelName}">
+                <img src="/images/images.jpg" alt="${el.FantasyDraftName}">
             </div>
             <div class="player__info">
                 <div class="player__name__position">
-                    <h2>${el.FanDuelName}</h2>
+                    <h2>${el.FantasyDraftName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
                 <button class="player__btn" type="button">BTN</button>
@@ -33,11 +29,11 @@ const renderRes = (el) => {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
             <div class="player__image">
-                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.FanDuelName}">
+                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.FantasyDraftName}">
             </div>
             <div class="player__info">
                 <div class="player__name__position">
-                    <h2>${el.FanDuelName}</h2>
+                    <h2>${el.FantasyDraftName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
                 <button class="player__btn" type="button">BTN</button>
@@ -49,15 +45,15 @@ const renderRes = (el) => {
 
     // If players if Andre Ingram
 
-    if (el.FanDuelName === 'Andre Ingram')
+    if (el.FantasyDraftName === 'Andre Ingram')
     markup = `
     <div class="team__players--profile">
         <div class="player__image">
-            <img src="http://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/201281.png" alt="${el.FanDuelName}">
+            <img src="http://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/201281.png" alt="${el.FantasyDraftName}">
         </div>
         <div class="player__info">
             <div class="player__name__position">
-                <h4>${el.FanDuelName}</h4>
+                <h4>${el.FantasyDraftName}</h4>
                 <h4>${el.Position}</h4>
             </div>
             <button class="player__btn type="button">BTN</button>
@@ -70,38 +66,98 @@ const renderRes = (el) => {
 
 
 export const renderPlayers = (data) => {
-    data.playersData.forEach(renderRes);
-    console.log(data);
-    
+    data.playersData.forEach(renderRes);    
 }
 
 
 // DIsplay profile of selected player and apply filter blur to others profiles
 
-export const renderSelectedPlayerProfile = (data) => {
-    // HTML markup
-    const markup = `
-    <div class="selectedPlayer__profile">
-        <button class=close__player__profile>X</button>
-        <div class="selectedPlayer__image">
-            <img src="https://nba-players.herokuapp.com/players/curry/stephen" alt="nene hilario">    
-        </div>
-        <div class="player__info--profile">
-            <h2>STEPH CURRY</h2>
-            <h2>GUARD</h2>
-            <h1>30</h1>
-        </div>
-        <ul class="player__stats">
-            <li>25 ppg</li>
-            <li>12 rpg</li>
-            <li>25 apg</li>
-            <li>4.3 spg</li>
-            <li>62% tsp</li>
-            <li>25%fg</li>
-        </ul>
-    </div>    
-    `
+export const renderSelectedPlayerProfile = (el, exp) => {
+    console.log({exp})
+    let markup; 
+        if (el.games > 0 && exp > 0) {
+            markup = `
+            <div class="selectedPlayer__profile">
+                <button class=close__player__profile>X</button>
+                <div class="selectedPlayer__image">
+                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.name}">    
+                </div>
+                <div class="player__info--profile">
+                    <h2>${el.name}</h2>
+                    <h2>${el.position}</h2>
+                </div>
+                <ul class="player__stats">
+                    <li>${el.games} played games</li>
+                    <li>${el.ppg.toFixed(2)} ppg</li>
+                    <li>${el.rpg.toFixed(2)} rpg</li>
+                    <li>${el.apg.toFixed(2)} apg</li>
+                    <li>${el.spg.toFixed(2)} spg</li>
+                    <li>${el.tsp.toFixed(2)}% tsp</li>
+                    <li>${el.fgPercentage.toFixed(2)}%fg</li>
+                    <li>${el.topg.toFixed(2)} TOpg</li>
+                    <li>${el.plusMinus} Plus Minus</li>
+                    <li>${el.playerEfficiency} Efficiency</li>
+                    <li>${el.usageRate}% Usage Rate</li>
+                </ul>
+            </div>    
+            `
+        } else if (el.games > 0 && exp === 0){
+            markup = `
+            <div class="selectedPlayer__profile">
+                <button class=close__player__profile>X</button>
+                <div class="selectedPlayer__image">
+                <img src="/images/images.jpg" alt="${el.name}">    
+                </div>
+                <div class="player__info--profile">
+                    <h2>${el.name}</h2>
+                    <h2>${el.position}</h2>
+                </div>
+                <ul class="player__stats">
+                    <li>${el.games} played games</li>
+                    <li>${el.ppg.toFixed(2)} ppg</li>
+                    <li>${el.rpg.toFixed(2)} rpg</li>
+                    <li>${el.apg.toFixed(2)} apg</li>
+                    <li>${el.spg.toFixed(2)} spg</li>
+                    <li>${el.tsp.toFixed(2)}% tsp</li>
+                    <li>${el.fgPercentage.toFixed(2)}%fg</li>
+                    <li>${el.topg.toFixed(2)} TOpg</li>
+                    <li>${el.plusMinus} Plus Minus</li>
+                    <li>${el.playerEfficiency} Efficiency</li>
+                    <li>${el.usageRate}% Usage Rate</li>
+                </ul>
+            </div>    
+            `
+        } else if(el.games === 0 && exp > 0) {
+            markup =
+            `   <div class="selectedPlayer__profile">
+                    <button class=close__player__profile>X</button>
+                    <div class="selectedPlayer__image">
+                        <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.name}">    
+                    </div>
+                    <div class="player__info--profile">
+                        <h2>${el.name}</h2>
+                        <h2>${el.position}</h2>
+                    </div>
+                    <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
+                </div>   `
+        }else {
+            markup =
+            `   <div class="selectedPlayer__profile">
+                    <button class=close__player__profile>X</button>
+                    <div class="selectedPlayer__image">
+                    <img src="/images/images.jpg" alt="${el.name}">     
+                    </div>
+                    <div class="player__info--profile">
+                        <h2>${el.name}</h2>
+                        <h2>${el.position}</h2>
+                    </div>
+                    <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
+                </div>   `
+        }
+    
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
+
+    
 }
 
 export const applyFilter = () => {

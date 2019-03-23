@@ -3,7 +3,7 @@ import {teamPlayers} from './models/Players';
 import {SelectedPlayer, searchedPlayer} from './models/Players';
 import {newTeam} from './models/Team';
 import {news} from './models/News';
-import {elements, cleanResults} from './views/base';
+import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart} from './views/teamView';
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
     // displayTeamTest('SAC');
-    // displayPlayers('SA')
+    displayPlayers('SAC')
 });
     
 // Display teams from selected conference
@@ -51,9 +51,9 @@ window.addEventListener('load', () => {
         }catch(err){
             console.log(er)
         }
-        state.teamPlayers.refinePlayersNames();
+        refinePlayersNames(state.teamPlayers.playersData);
         cleanResults(elements.teamPlayers);
-        console.log(state.teamPlayers);
+        // console.log(state.teamPlayers.playersData);
         renderPlayers(state.teamPlayers);
     }
 
@@ -67,12 +67,15 @@ window.addEventListener('load', () => {
         }
         // cleanResults(elements.teamPlayers);
 
-        // Render player profile on screen
-
-
-
-        renderSelectedPlayerProfile(state.SelectedPlayer)
-        // console.log(state.player)
+        // turn last name into a string
+        state.SelectedPlayer.refineName();
+        console.log(state.teamPlayers.playersData)
+        // console.log(state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData).FanDuelName);
+        console.log(state.SelectedPlayer.name);
+        // Remove unecessary characteres from name
+        let playerExperience = state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData);
+        refinePlayersNames([state.SelectedPlayer])
+        renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience)
     }
 
     elements.teamPlayers.addEventListener('click', function(e) {
@@ -81,7 +84,7 @@ window.addEventListener('load', () => {
             diplayPlayerProfile(playerId);
             // Add blur filter for each of previous players profile
             applyFilter();
-            // Disable buttons of players profiles
+            // // Disable buttons of players profiles
             disableButtons();
         } 
         if (e.target.matches('.close__player__profile')) {

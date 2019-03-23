@@ -377,10 +377,19 @@ header .nav__top {
     border-radius: 15px;
 }
 
+
+#myChart {
+background-color: lightgray;
+}
+
+
 .canvas__radar {
-    width: 85%;
+    width: 100%;
     margin-top: 5rem;
 }
+
+
+
 .conference__logo{
     background: #333;
 }

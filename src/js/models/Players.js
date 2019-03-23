@@ -21,7 +21,8 @@ export const teamPlayers = class Team {
     async getPlayers(teamKey) {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
-            this.playersData = res.data;    
+            this.playersData = res.data; 
+            // console.log(this.playersData);   
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
@@ -83,13 +84,26 @@ export const SelectedPlayer = class Player {
         this.playerID = playerID;
         console.log(this.playerID);
     }
-
-
     async getPlayerData() {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2019/${this.playerID}?key=${keys.key1}`);
             const data = res.data;
             // console.log(data);
+            this.data = data;
+            console.log(data);
+            if (data.Name.split(" ").length === 2) [this.FirstName, this.LastName] = data.Name.split(" ");
+            if (data.Name.split(" ").length > 2) [this.FirstName, ...this.LastName] = data.Name.split(" ");
+            // console.log({firstName});
+            // console.log({lastName});
+        //     console.log(this.firstName);
+        //     console.log(this.lastName);
+        //     console.log(typeof this.lastName)
+        // if (typeof this.lastName == "object") {
+        //     console.log('IS AN ARRAY')
+            
+        // } else {
+        //     console.log('Not an array')
+        // }
             this.games = data.Games;
             this.apg = data.Assists/this.games;
             this.fgPercentage = data.FieldGoalsPercentage;
@@ -106,12 +120,37 @@ export const SelectedPlayer = class Player {
             this.tds = data.TripleDoubles;
             this.tsp = data.TrueShootingPercentage;
             this.topg = data.Turnovers/this.games;
-            this.UsageRate = data.UsageRatePercentage;
+            this.usageRate = data.UsageRatePercentage;
         }catch(err) {
             console.log(err);
         }
     }
+    refineName() {
+        if (typeof this.LastName === "object") this.LastName = this.LastName.join(" ");
+        // if (this.name === "Marvin Bagley") this.name = "Marvin Bagley III"; 
+    }
+
+    // returns years of experience of selected player
+    getPlayerXp(teamPlayersData) {
+        return teamPlayersData.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const searchedPlayer = class Searched {
