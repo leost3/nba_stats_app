@@ -70,10 +70,16 @@ export const renderPlayers = (data) => {
 
 
 export const showOffSet = (element) => {
-    
-    let dist = element.parentElement.offsetTop;
+    const sideBar = document.querySelector('.team__page');
+    let sideBarX = sideBar.offsetLeft;
+    let sideBarW = sideBar.style.width;
+    let distY = element.parentElement.offsetTop;
+    let distX = element.parentElement.offsetLeft;
     let elem2 = document.querySelector('.selectedPlayer__profile');
-    elem2.style.top = `${dist}px`;
+    elem2.style.top = `${distY}px`;
+    elem2.style.left = `${distX + sideBarX}px`;
+    console.log({sideBarX})
+    console.log({sideBarW})
   
 }
 
