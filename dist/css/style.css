@@ -388,8 +388,6 @@ background-color: lightgray;
     margin-top: 5rem;
 }
 
-
-
 .conference__logo{
     background: #333;
 }
@@ -415,15 +413,32 @@ background-color: lightgray;
     justify-content: center;
     background: steelblue;
     z-index: 1;
+    width: 33%;
+}
+.selectedPlayer__image{
+    width: 100%;
+    background: #ff0000;
 }
 
-.selectedPlayer__image {
+.selectedPlayer__image img{
     display: block;
     width: 100%;
+    height: 191px;
+    background: #fff;
 }
 
-.selectedPlayer__profile .player__info {
 
+.selectedPlayer__profile .player__info--profile, .player__stats{
+    width: 100%;
+}
+.selectedPlayer__profile .player__info--profile {
+
+
+}
+
+.selectedPlayer__profile .player__stats li{
+    margin: 0 auto;
+    text-align: center;
 
 }
 

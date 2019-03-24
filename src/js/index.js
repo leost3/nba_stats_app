@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart} from './views/teamView';
 
 const state = {};
@@ -22,7 +22,8 @@ window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
     // displayTeamTest('SAC');
-    displayPlayers('SAC')
+    displayPlayers('SAC');
+
 });
     
 // Display teams from selected conference
@@ -58,7 +59,7 @@ window.addEventListener('load', () => {
     }
 
     // Display advanced stats of selected player
-    const diplayPlayerProfile = async selectedPlayer => {
+    const diplayPlayerProfile = async (selectedPlayer, target) => {
         state.SelectedPlayer = new SelectedPlayer(selectedPlayer);
         try {
             await state.SelectedPlayer.getPlayerData();
@@ -69,23 +70,30 @@ window.addEventListener('load', () => {
 
         // turn last name into a string
         state.SelectedPlayer.refineName();
-        console.log(state.teamPlayers.playersData)
+        // console.log(state.teamPlayers.playersData)
         // console.log(state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData).FanDuelName);
-        console.log(state.SelectedPlayer.name);
+        // console.log(state.SelectedPlayer.name);
         // Remove unecessary characteres from name
         let playerExperience = state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData);
-        refinePlayersNames([state.SelectedPlayer])
-        renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience)
+        refinePlayersNames([state.SelectedPlayer]);
+        renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
+        let selectedEl = target.parentElement.parentElement.children[0];
+        console.log(selectedEl);
+        showOffSet(selectedEl);
     }
 
     elements.teamPlayers.addEventListener('click', function(e) {
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
-            diplayPlayerProfile(playerId);
+            diplayPlayerProfile(playerId, e.target);
             // Add blur filter for each of previous players profile
             applyFilter();
             // // Disable buttons of players profiles
             disableButtons();
+            
+
+            // console.log(e.target.parentElement.parentElement.children[0])
+            // console.log(e.target.parentElement.parentElement.children[0].offsetTop)
         } 
         if (e.target.matches('.close__player__profile')) {
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
@@ -95,6 +103,18 @@ window.addEventListener('load', () => {
             enableButtons();
         }
     })
+
+
+// Teste
+    const getEl = () => {
+
+    }
+
+
+
+
+
+
 
     // Display info about Selected Team
 

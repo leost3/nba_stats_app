@@ -4,7 +4,6 @@ import {elements} from './base';
 
 const renderRes = (el) => {
     let markup;
-    console.log(el);
     // If rookie add an default image
 
     if (el.Experience === 0) {
@@ -66,11 +65,26 @@ const renderRes = (el) => {
 
 
 export const renderPlayers = (data) => {
-    data.playersData.forEach(renderRes);    
+    data.playersData.forEach(renderRes);  
 }
 
 
-// DIsplay profile of selected player and apply filter blur to others profiles
+export const showOffSet = (element) => {
+    
+    let dist = element.parentElement.offsetTop;
+    let elem2 = document.querySelector('.selectedPlayer__profile');
+    elem2.style.top = `${dist}px`;
+  
+}
+
+
+
+
+
+
+
+
+// Render profile of selected player
 
 export const renderSelectedPlayerProfile = (el, exp) => {
     console.log({exp})
@@ -156,9 +170,10 @@ export const renderSelectedPlayerProfile = (el, exp) => {
         }
     
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-
-    
 }
+
+
+
 
 export const applyFilter = () => {
     const allPlayersProfile = document.querySelectorAll('.team__players--profile');
