@@ -138,20 +138,7 @@ export const SelectedPlayer = class Player {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Search for player in input field
 
 export const searchedPlayer = class Searched {
     constructor(playerName) {
@@ -168,7 +155,8 @@ export const searchedPlayer = class Searched {
                 return el;
             }
         });
-        console.log(found);
+        this.foundPlayers = found;
+        return found;
     }
 }
 

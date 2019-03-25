@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart} from './views/teamView';
 
 const state = {};
@@ -105,17 +105,6 @@ window.addEventListener('load', () => {
     })
 
 
-// Teste
-    const getEl = () => {
-
-    }
-
-
-
-
-
-
-
     // Display info about Selected Team
 
     const displayTeamTest = async selectedTeam => {
@@ -163,10 +152,13 @@ window.addEventListener('load', () => {
     const searchPlayer = async (playerName) => {
         state.searchPlayer = new searchedPlayer(playerName);
         try {
-            state.searchPlayer.getSearchedPlayer();
+            await state.searchPlayer.getSearchedPlayer();
         }catch(err) {
             console.log(err);
         }
+        cleanResults(elements.teamPlayers);
+
+        displaySearchedPlayer(state.searchPlayer.foundPlayers);
     }
 
 
@@ -174,6 +166,7 @@ window.addEventListener('load', () => {
     // Search player
     document.querySelector('.search__player').addEventListener('click', (e) => {
         e.preventDefault();
+        document.querySelector('.player__name--input').value = 'Curry';
         let playerName = document.querySelector('.player__name--input').value;
         if (playerName.length > 0) {
             searchPlayer(playerName);

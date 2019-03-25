@@ -437,7 +437,6 @@ background-color: lightgray;
 }
 
 .selectedPlayer__profile .player__stats li{
-    margin: 0 auto;
     text-align: center;
 
 }

@@ -77,7 +77,7 @@ export const showOffSet = (element) => {
     let distX = element.parentElement.offsetLeft;
     let elem2 = document.querySelector('.selectedPlayer__profile');
     elem2.style.top = `${distY}px`;
-    elem2.style.left = `${distX + sideBarX}px`;
+    // elem2.style.left = `${distX + sideBarX}px`;
     console.log({sideBarX})
     console.log({sideBarW})
   
@@ -200,3 +200,12 @@ export const enableButtons = () => {
     btns.forEach(btn => btn.disabled = false);
 }
 
+
+
+// Render Searched Player
+
+export const displaySearchedPlayer = (element) => {
+
+    element.forEach(renderRes);  
+ 
+}
