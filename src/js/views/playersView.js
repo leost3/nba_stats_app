@@ -3,6 +3,7 @@ import {elements} from './base';
 // Render team players profiles on screen
 
 const renderRes = (el) => {
+    // console.log(el);
     let markup;
     // If rookie add an default image
 
@@ -10,11 +11,11 @@ const renderRes = (el) => {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}">
             <div class="player__image">
-                <img src="/images/images.jpg" alt="${el.FantasyDraftName}">
+                <img src="/images/images.jpg" alt="${el.DraftKingsName}">
             </div>
             <div class="player__info">
                 <div class="player__name__position">
-                    <h2>${el.FantasyDraftName}</h2>
+                    <h2>${el.DraftKingsName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
                 <button class="player__btn" type="button">BTN</button>
@@ -28,11 +29,11 @@ const renderRes = (el) => {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
             <div class="player__image">
-                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.FantasyDraftName}">
+                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.DraftKingsName}">
             </div>
             <div class="player__info">
                 <div class="player__name__position">
-                    <h2>${el.FantasyDraftName}</h2>
+                    <h2>${el.DraftKingsName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
                 <button class="player__btn" type="button">BTN</button>
@@ -48,11 +49,11 @@ const renderRes = (el) => {
     markup = `
     <div class="team__players--profile">
         <div class="player__image">
-            <img src="http://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/201281.png" alt="${el.FantasyDraftName}">
+            <img src="http://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/201281.png" alt="${el.DraftKingsName}">
         </div>
         <div class="player__info">
             <div class="player__name__position">
-                <h4>${el.FantasyDraftName}</h4>
+                <h4>${el.DraftKingsName}</h4>
                 <h4>${el.Position}</h4>
             </div>
             <button class="player__btn type="button">BTN</button>
@@ -65,7 +66,13 @@ const renderRes = (el) => {
 
 
 export const renderPlayers = (data) => {
+    // console.log(data.playersData)
     data.playersData.forEach(renderRes);  
+}
+
+export const displaySearchedPlayer = (data) => {
+    // console.log(data)
+    data.forEach(renderRes);  
 }
 
 
@@ -78,15 +85,8 @@ export const showOffSet = (element) => {
     let elem2 = document.querySelector('.selectedPlayer__profile');
     elem2.style.top = `${distY}px`;
     // elem2.style.left = `${distX + sideBarX}px`;
-    console.log({sideBarX})
-    console.log({sideBarW})
   
 }
-
-
-
-
-
 
 
 
@@ -204,8 +204,3 @@ export const enableButtons = () => {
 
 // Render Searched Player
 
-export const displaySearchedPlayer = (element) => {
-
-    element.forEach(renderRes);  
- 
-}

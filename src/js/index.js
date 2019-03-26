@@ -66,15 +66,15 @@ window.addEventListener('load', () => {
         }catch(err) {
             console.log(err)
         }
-        // cleanResults(elements.teamPlayers);
-
         // turn last name into a string
         state.SelectedPlayer.refineName();
+
         // console.log(state.teamPlayers.playersData)
         // console.log(state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData).FanDuelName);
         // console.log(state.SelectedPlayer.name);
+
         // Remove unecessary characteres from name
-        let playerExperience = state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData);
+        let playerExperience = state.SelectedPlayer.getPlayerXp();
         refinePlayersNames([state.SelectedPlayer]);
         renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
         let selectedEl = target.parentElement.parentElement.children[0];
@@ -84,6 +84,7 @@ window.addEventListener('load', () => {
 
     elements.teamPlayers.addEventListener('click', function(e) {
         if (e.target.matches('.player__btn')) {
+            console.log(e.target);
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId, e.target);
             // Add blur filter for each of previous players profile
@@ -147,7 +148,7 @@ window.addEventListener('load', () => {
     });
 
 
-    // Create searcedPlayer Class
+    // Create searchedPlayer Class
 
     const searchPlayer = async (playerName) => {
         state.searchPlayer = new searchedPlayer(playerName);
@@ -157,7 +158,6 @@ window.addEventListener('load', () => {
             console.log(err);
         }
         cleanResults(elements.teamPlayers);
-
         displaySearchedPlayer(state.searchPlayer.foundPlayers);
     }
 
