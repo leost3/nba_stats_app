@@ -24,7 +24,7 @@ const renderRes = (el) => {
         </div> 
     `
 
-    // For not rookies
+    // For not rookie display his photo
     } else {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
@@ -43,7 +43,7 @@ const renderRes = (el) => {
     `
     }
 
-    // If players if Andre Ingram
+    // If players is Andre Ingram displays his photo
 
     if (el.FantasyDraftName === 'Andre Ingram')
     markup = `
@@ -75,20 +75,17 @@ export const displaySearchedPlayer = (data) => {
     data.forEach(renderRes);  
 }
 
-
 export const showOffSet = (element) => {
-    const sideBar = document.querySelector('.team__page');
-    let sideBarX = sideBar.offsetLeft;
-    let sideBarW = sideBar.style.width;
+    // const sideBar = document.querySelector('.team__page');
+    // let sideBarX = sideBar.offsetLeft;
+    // let sideBarW = sideBar.style.width;
     let distY = element.parentElement.offsetTop;
-    let distX = element.parentElement.offsetLeft;
+    // let distX = element.parentElement.offsetLeft;
     let elem2 = document.querySelector('.selectedPlayer__profile');
     elem2.style.top = `${distY}px`;
     // elem2.style.left = `${distX + sideBarX}px`;
   
 }
-
-
 
 // Render profile of selected player
 
@@ -174,10 +171,8 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                     <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
                 </div>   `
         }
-    
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
-
 
 
 

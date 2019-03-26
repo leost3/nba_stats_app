@@ -18,9 +18,9 @@ let markup = `
         </div>
         <div class="team__stats--basics">
             <ul class="stats">
-                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.ppg.toFixed(2)} Points per game</li>
-                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.apg.toFixed(2)} assists per game</li>
-                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.threePointersAttemptedPerGame.toFixed(2)} 3 pointers per game</li>
+                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.ppg.toFixed(1)} Points per game</li>
+                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.apg.toFixed(1)} assists per game</li>
+                <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.threePointersAttemptedPerGame.toFixed(1)} Attempted 3 pointers per game</li>
             </ul>
         </div>
         <div class="team__stats--info--slider">

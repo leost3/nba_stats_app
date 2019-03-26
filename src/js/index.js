@@ -22,11 +22,11 @@ window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
     // displayTeamTest('SAC');
-    displayPlayers('SAC');
+    // displayPlayers('SAC');
 
 });
     
-// Display teams from selected conference
+// Display teams from selected conference on the sidebar
     const displayTeamByConference = (conference) => {
         state.conferenceTeam = new nbaTeams(conference);
         state.conferenceTeam.getTeams();
@@ -68,13 +68,12 @@ window.addEventListener('load', () => {
         }
         // turn last name into a string
         state.SelectedPlayer.refineName();
-
         // console.log(state.teamPlayers.playersData)
         // console.log(state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData).FanDuelName);
         // console.log(state.SelectedPlayer.name);
 
-        // Remove unecessary characteres from name
         let playerExperience = state.SelectedPlayer.getPlayerXp();
+        // Remove unecessary characteres from name
         refinePlayersNames([state.SelectedPlayer]);
         renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
         let selectedEl = target.parentElement.parentElement.children[0];
@@ -82,21 +81,19 @@ window.addEventListener('load', () => {
         showOffSet(selectedEl);
     }
 
+
+    // Display selected player profile or close on CLICK
     elements.teamPlayers.addEventListener('click', function(e) {
         if (e.target.matches('.player__btn')) {
-            console.log(e.target);
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId, e.target);
             // Add blur filter for each of previous players profile
             applyFilter();
-            // // Disable buttons of players profiles
+            // Disable buttons of players profiles
             disableButtons();
-            
-
             // console.log(e.target.parentElement.parentElement.children[0])
             // console.log(e.target.parentElement.parentElement.children[0].offsetTop)
-        } 
-        if (e.target.matches('.close__player__profile')) {
+        } else if (e.target.matches('.close__player__profile')) {
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
             // Remove filter 
             removeFilter();
@@ -104,7 +101,6 @@ window.addEventListener('load', () => {
             enableButtons();
         }
     })
-
 
     // Display info about Selected Team
 
@@ -116,10 +112,11 @@ window.addEventListener('load', () => {
         try {
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
-            // await state.team.getSchedule();
+            const schedule = await state.team.getSchedule();
+            console.log(schedule);
             await state.team.getStanding();
         }catch(err){
-            alert("Something has gone wrong");
+            alert("Something went wrong");
             console.log(err);
         }
         // console.log(state.team);
@@ -127,7 +124,6 @@ window.addEventListener('load', () => {
         renderTeam(state.team);
         changeBackgroundColor(state.team);
         chart(state.team);
-
 
         // Testing getting news
         // state.news = new news(selectedTeam);
@@ -139,8 +135,6 @@ window.addEventListener('load', () => {
         // }
 
     }
-
-
 
     elements.teamList.addEventListener('click', e => {
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
@@ -166,7 +160,7 @@ window.addEventListener('load', () => {
     // Search player
     document.querySelector('.search__player').addEventListener('click', (e) => {
         e.preventDefault();
-        document.querySelector('.player__name--input').value = 'Curry';
+        // document.querySelector('.player__name--input').value = 'Curry';
         let playerName = document.querySelector('.player__name--input').value;
         if (playerName.length > 0) {
             searchPlayer(playerName);

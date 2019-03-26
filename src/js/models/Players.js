@@ -1,23 +1,11 @@
 import axios from 'axios';
 import * as keys from '../config';
 
-// PlayersSeasonStats by team
-// https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByTeam/2018/hou?key=86a8a62f6d7c4969858b4744aec1763c
-
-// PlayerInfo by team
-// https://api.fantasydata.net/v3/nba/stats/json/Players/hou?key=86a8a62f6d7c4969858b4744aec1763c
-
-// PlayersSeasonStats by playerId
-// https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2018/20000439?key=86a8a62f6d7c4969858b4744aec1763c
-
-
-
 
 export const teamPlayers = class Team {
     constructor(team) {
         this.team = team;
     }
-
     async getPlayers(teamKey) {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
@@ -28,7 +16,6 @@ export const teamPlayers = class Team {
             console.log(err);
         }
     }
-
 
     refinePlayersNames() {
         // console.log(this.playersData);
@@ -88,7 +75,7 @@ export const SelectedPlayer = class Player {
         try {
             // Player stats
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2019/${this.playerID}?key=${keys.key1}`);
-            const data = res.data;
+            // const data = res.data;
             this.team = data.Team;
             // Players info
             const resInfo = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
@@ -120,15 +107,11 @@ export const SelectedPlayer = class Player {
     }
     refineName() {
         if (typeof this.LastName === "object") this.LastName = this.LastName.join(" ");
-        // if (this.name === "Marvin Bagley") this.name = "Marvin Bagley III"; 
     }
 
     // returns years of experience of selected player
     getPlayerXp() {
-
-        const xp = this.playersInfo.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
-        console.log(xp);
-        return xp;
+        return this.playersInfo.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
     }
 }
 

@@ -391,6 +391,60 @@ background-color: lightgray;
     width: 25%;
 }
 
+/* Schedule */
+.schedule__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.schedule__box img {
+    width:50%;
+}
+
+
+
+.schedule__game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    margin: 2px;
+    position: relative;
+    background: orangered;
+}
+
+.schedule__game h1 {
+    display: block;
+    position:absolute;
+    top: 30% ;
+}
+
+.schedule__away {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-right: 2px solid lightgray;
+    
+}
+.schedule__home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+
+
+
+
+
+
+
 /* ---------------------------------------------- */
 /*  SELECTED PLAYER PROFILE */
 /* ---------------------------------------------- */
@@ -472,4 +526,4 @@ background-color: lightgray;
     transition: all 2s;
 }
 
-/* PAGE OF TEAM DISPLUAED */
+/* Schedule */
