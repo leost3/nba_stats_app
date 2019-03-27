@@ -75,12 +75,12 @@ export const SelectedPlayer = class Player {
         try {
             // Player stats
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2019/${this.playerID}?key=${keys.key1}`);
-            // const data = res.data;
+            const data = res.data;
             this.team = data.Team;
+            console.log(data)
             // Players info
             const resInfo = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
             this.playersInfo = resInfo.data;
-            console.log(this.playersInfo)
             this.data = data;
             if (data.Name.split(" ").length === 2) [this.FirstName, this.LastName] = data.Name.split(" ");
             if (data.Name.split(" ").length > 2) [this.FirstName, ...this.LastName] = data.Name.split(" ");
@@ -142,8 +142,8 @@ export const searchedPlayer = class Searched {
     }
 
     // returns years of experience of selected player
-    getPlayerXp(teamPlayersData) {
-        return teamPlayersData.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
+    getPlayerXp() {
+        return this.playersInfo.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
     }
 }
 

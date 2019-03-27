@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 
 
 export const renderTeam = (team) => {
-// console.log(team);
+console.log(team);
 let markup = `
     <div class="team__stats">
         <div class="team__stats--headpage">
@@ -34,27 +34,8 @@ let markup = `
         </div>
     </div>
 `
-// Insert markup into HTML
-elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-
-// Selec elements
-// const teamBasicStats = document.querySelectorAll('.team__stats--basics .stats li');
-// const teamInfoSlidersStats = document.querySelector('.team__stats--info--slider');
-// const teamHeader = document.querySelector('.team__stats--headpage')
-
-// Change backgroundColor of team information
-// teamInfoSlidersStats.style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
-// teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
-
-
-// Black gradient background on backgroundImage
-// teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
-
-
-
-
-
-
+    // Insert markup into HTML
+    elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
 
 export const chart = (team) => {
@@ -116,8 +97,6 @@ const createChart = (data) => {
             ],
             borderWidth: 4
         },
-      
-        
         ]
     }
     ,
@@ -133,9 +112,6 @@ const createChart = (data) => {
 });
 
 }
-
-
-
 
 function hexToRgbA(hex){
     let c;

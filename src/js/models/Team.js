@@ -78,7 +78,7 @@ export const newTeam = class {
                 }
             }
             // console.log(arr);
-            return arr;
+            this.schedule = arr;
         }
         catch(err) {
             console.log(err);

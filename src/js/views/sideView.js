@@ -21,6 +21,7 @@ const renderViews = element => {
 
 
 export const renderResults = (teams) => {
+    // console.log(teams)
     teams.teams.forEach(renderViews);
 }
 
