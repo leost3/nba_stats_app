@@ -81,11 +81,15 @@ export const newTeam = class {
             // console.log(arr);
 
             arr = arr.map(insideArr => {
-                console.log(insideArr);
                 insideArr[2] = insideArr[2].split("T");
                 insideArr = insideArr.flat();
+                insideArr[3] = insideArr[3].split('');
+                insideArr[3].splice(5)
+                insideArr[3] = insideArr[3].join("");
+                console.log(insideArr[3]);
                 return insideArr;
             });
+            console.log(arr);
             this.schedule = arr;
         }
         catch(err) {

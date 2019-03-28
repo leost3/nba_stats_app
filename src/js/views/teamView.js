@@ -35,60 +35,60 @@ let markup = `
         <div class="schedule__box">
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[0][0]}_logo.svg" alt="Sacramento Kings">
+                    <img src="/images/Logos/teams_logos/${team.schedule[0][0]}_logo.svg" alt="${team.schedule[0][0]}">
                     <p>${team.schedule[0][0]}</p>
                 </div>
                 <div class="at">
-                    <h3>Monday 25/04/2019 19:00 EST</h3>
-                    <h2>AT</h2>
+                <h3>${team.schedule[0][2]} ${team.schedule[0][3]} EST</h3>
+                <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[0][1]}_logo.svg" alt="San Antonio Spurs">
+                    <img src="/images/Logos/teams_logos/${team.schedule[0][1]}_logo.svg" alt="${team.schedule[0][1]}">
                     <p>${team.schedule[0][1]}</p>
                 </div>                
             </div>
 
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[1][0]}_logo.svg" alt="Sacramento Kings">
+                    <img src="/images/Logos/teams_logos/${team.schedule[1][0]}_logo.svg" alt="${team.schedule[1][0]}">
                     <p>${team.schedule[1][0]}</p>
                 </div>
                 <div class="at">
-                    <h3>Monday 25/04/2019 19:00 EST</h3>
-                    <h2>AT</h2>
+                <h3>${team.schedule[1][2]} ${team.schedule[1][3]} EST</h3>
+                <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[1][1]}_logo.svg" alt="San Antonio Spurs">
+                    <img src="/images/Logos/teams_logos/${team.schedule[1][1]}_logo.svg" alt="${team.schedule[1][1]}">
                     <p>${team.schedule[1][1]}</p>
                 </div>                
             </div>
 
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[2][0]}_logo.svg" alt="Sacramento Kings">
+                    <img src="/images/Logos/teams_logos/${team.schedule[2][0]}_logo.svg" alt="${team.schedule[2][0]}">
                     <p>${team.schedule[2][0]}</p>
                 </div>
                 <div class="at">
-                    <h3>Monday 25/04/2019 19:00 EST</h3>
-                    <h2>AT</h2>
+                <h3>${team.schedule[2][2]} ${team.schedule[2][3]} EST</h3>
+                <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[2][1]}_logo.svg" alt="San Antonio Spurs">
+                    <img src="/images/Logos/teams_logos/${team.schedule[2][1]}_logo.svg" alt="${team.schedule[2][1]}">
                     <p>${team.schedule[2][1]}</p>
                 </div>                
             </div>
 
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[3][0]}_logo.svg" alt="Sacramento Kings">
+                    <img src="/images/Logos/teams_logos/${team.schedule[3][0]}_logo.svg" alt="${team.schedule[3][0]}">
                     <p>${team.schedule[3][0]}</p>
                 </div>
                 <div class="at">
-                    <h3>Monday 25/04/2019 19:00 EST</h3>
+                    <h3>${team.schedule[3][2]} ${team.schedule[3][3]} EST</h3>
                     <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[3][1]}_logo.svg" alt="San Antonio Spurs">
+                    <img src="/images/Logos/teams_logos/${team.schedule[3][1]}_logo.svg" alt="${team.schedule[3][1]}">
                     <p>${team.schedule[3][1]}</p>
                 </div>                
             </div>        
