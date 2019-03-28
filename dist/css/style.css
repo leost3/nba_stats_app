@@ -212,10 +212,10 @@ header .nav__top {
 }
 
 .team__players {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     height: 200vh;
-    position: relative;
+    position: relative; */
     /* padding: 0 15px; */  
 }
 
@@ -392,10 +392,14 @@ background-color: lightgray;
 }
 
 /* Schedule */
+
 .schedule__box {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background: red; */
+    width: 75%;
+    margin: 0 auto;
 }
 
 
@@ -405,11 +409,11 @@ background-color: lightgray;
     justify-content: center;
     flex-direction: column; 
     border-bottom: 0.5px solid lightgray;
-width: 100%;
+    /* width: 100%; */
 }
 
 .schedule__box img {
-    width:50%;
+    width:30%;
 }
 
 .schedule__game {
@@ -423,14 +427,22 @@ width: 100%;
 }
 
 .schedule__game .at {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column; 
     border-bottom: 0.5px solid lightgray;
+}
+
+.schedule__game .at h3{
+    text-align: center;
+    font-size: 15px;
 
 }
+
+
+
 
 .schedule__away {
     display: flex;
@@ -445,15 +457,8 @@ width: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    /* background: yellowgreen; */
 }
-
-
-
-
-
-
-
 
 
 /* ---------------------------------------------- */
@@ -537,4 +542,3 @@ width: 100%;
     transition: all 2s;
 }
 
-/* Schedule */

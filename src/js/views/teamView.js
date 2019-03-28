@@ -6,6 +6,7 @@ import Chart from 'chart.js';
 export const renderTeam = (team) => {
 console.log(team);
 let markup = `
+<div class= team__information>
     <div class="team__stats">
         <div class="team__stats--headpage">
             <div class="team__stats--logo--Record">
@@ -29,10 +30,70 @@ let markup = `
             <h3>${team.teamStanding.homeRecord} at home</h3>
             <h3>${team.teamStanding.awayRecord} away</h3>
         </div>
+        <div class="schedule__box">
+            <div class="schedule__game">
+                <div class="schedule__away">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
+                    <p>Sacramento Kings</p>
+                </div>
+                <div class="at">
+                    <h3>Monday 25/04/2019 19:00 EST</h3>
+                    <h2>AT</h2>
+                </div>
+                <div class="schedule__home">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
+                    <p>San Antonio Spurs</p>
+                </div>                
+            </div>
+            <div class="schedule__game">
+                <div class="schedule__away">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
+                    <p>Sacramento Kings</p>
+                </div>
+                <div class="at">
+                    <h3>Monday 25/04/2019 19:00 EST</h3>
+                    <h2>AT</h2>
+                </div>
+                <div class="schedule__home">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
+                    <p>San Antonio Spurs</p>
+                </div>                
+            </div>
+            <div class="schedule__game">
+                <div class="schedule__away">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
+                    <p>Sacramento Kings</p>
+                </div>
+                <div class="at">
+                    <h3>Monday 25/04/2019 19:00 EST</h3>
+                    <h2>AT</h2>
+                </div>
+                <div class="schedule__home">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
+                    <p>San Antonio Spurs</p>
+                </div>                
+            </div>
+            <div class="schedule__game">
+                <div class="schedule__away">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
+                    <p>Sacramento Kings</p>
+                </div>
+                <div class="at">
+                    <h3>Monday 25/04/2019 19:00 EST</h3>
+                    <h2>AT</h2>
+                </div>
+                <div class="schedule__home">
+                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
+                    <p>San Antonio Spurs</p>
+                </div>                
+            </div>        
+        </div>
+
         <div class="canvas__radar">
             <canvas id="myChart"></canvas>
         </div>
     </div>
+</div>
 `
     // Insert markup into HTML
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
