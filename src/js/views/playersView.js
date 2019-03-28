@@ -66,12 +66,12 @@ const renderRes = (el) => {
 
 
 export const renderPlayers = (data) => {
-    // console.log(data.playersData)
+    console.log(data.playersData);
     data.playersData.forEach(renderRes);  
 }
 
 export const displaySearchedPlayer = (data) => {
-    // console.log(data)
+    console.log(data);
     data.forEach(renderRes);  
 }
 
@@ -156,7 +156,8 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                         <h2>${el.position}</h2>
                     </div>
                     <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
-                </div>   `
+                </div>  
+            `
         }else {
             markup =
             `   <div class="selectedPlayer__profile">
@@ -169,7 +170,8 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                         <h2>${el.position}</h2>
                     </div>
                     <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
-                </div>   `
+                </div>  
+            `
         }
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }

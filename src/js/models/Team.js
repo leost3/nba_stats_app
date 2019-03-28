@@ -73,11 +73,19 @@ export const newTeam = class {
             for (let i=0; arr.length < 4; i++) {
                 if (data[i].Status === 'Scheduled') {
                     if (data[i].AwayTeam === this.selectedTeam || data[i].HomeTeam === this.selectedTeam) {
-                        arr.push([data[i].AwayTeam , data[i].HomeTeam, data[i].Day])
+                        arr.push([data[i].AwayTeam , data[i].HomeTeam, data[i].DateTime])
                     } 
                 }
             }
+
             // console.log(arr);
+
+            arr = arr.map(insideArr => {
+                console.log(insideArr);
+                insideArr[2] = insideArr[2].split("T");
+                insideArr = insideArr.flat();
+                return insideArr;
+            });
             this.schedule = arr;
         }
         catch(err) {
@@ -98,7 +106,6 @@ export const newTeam = class {
                 homeRecord: `${found.HomeWins}-${found.HomeLosses}`,
                 awayRecord: `${found.AwayWins}-${found.AwayLosses}`,
             }
-            console.log(found)
         }catch(err) {
             console.log(err);
         }

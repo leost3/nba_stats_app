@@ -212,11 +212,11 @@ header .nav__top {
 }
 
 .team__players {
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
     height: 200vh;
-    position: relative; */
-    /* padding: 0 15px; */  
+    position: relative;
+    padding: 0 15px;  
 }
 
 

@@ -69,7 +69,6 @@ export const teamPlayers = class Team {
 export const SelectedPlayer = class Player {
     constructor(playerID) {
         this.playerID = playerID;
-        console.log(this.playerID);
     }
     async getPlayerData() {
         try {
@@ -122,7 +121,6 @@ export const SelectedPlayer = class Player {
 export const searchedPlayer = class Searched {
     constructor(playerName) {
         this.playerName = playerName.toLowerCase();
-        console.log(playerName)
     }
 
     async getSearchedPlayer() {

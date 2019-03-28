@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
         try {
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
-            // await state.team.getSchedule();
+            await state.team.getSchedule();
             await state.team.getStanding();
         }catch(err){
             alert("Something went wrong");

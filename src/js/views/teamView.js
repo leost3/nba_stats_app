@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 
 
 export const renderTeam = (team) => {
-console.log(team);
+// console.log(team.schedule[0]);
 let markup = `
 <div class= team__information>
     <div class="team__stats">
@@ -30,61 +30,66 @@ let markup = `
             <h3>${team.teamStanding.homeRecord} at home</h3>
             <h3>${team.teamStanding.awayRecord} away</h3>
         </div>
+
+
         <div class="schedule__box">
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
-                    <p>Sacramento Kings</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[0][0]}_logo.svg" alt="Sacramento Kings">
+                    <p>${team.schedule[0][0]}</p>
                 </div>
                 <div class="at">
                     <h3>Monday 25/04/2019 19:00 EST</h3>
                     <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
-                    <p>San Antonio Spurs</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[0][1]}_logo.svg" alt="San Antonio Spurs">
+                    <p>${team.schedule[0][1]}</p>
                 </div>                
             </div>
+
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
-                    <p>Sacramento Kings</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[1][0]}_logo.svg" alt="Sacramento Kings">
+                    <p>${team.schedule[1][0]}</p>
                 </div>
                 <div class="at">
                     <h3>Monday 25/04/2019 19:00 EST</h3>
                     <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
-                    <p>San Antonio Spurs</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[1][1]}_logo.svg" alt="San Antonio Spurs">
+                    <p>${team.schedule[1][1]}</p>
                 </div>                
             </div>
+
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
-                    <p>Sacramento Kings</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[2][0]}_logo.svg" alt="Sacramento Kings">
+                    <p>${team.schedule[2][0]}</p>
                 </div>
                 <div class="at">
                     <h3>Monday 25/04/2019 19:00 EST</h3>
                     <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
-                    <p>San Antonio Spurs</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[2][1]}_logo.svg" alt="San Antonio Spurs">
+                    <p>${team.schedule[2][1]}</p>
                 </div>                
             </div>
+
             <div class="schedule__game">
                 <div class="schedule__away">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/SAC_logo.svg" alt="Sacramento Kings">
-                    <p>Sacramento Kings</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[3][0]}_logo.svg" alt="Sacramento Kings">
+                    <p>${team.schedule[3][0]}</p>
                 </div>
                 <div class="at">
                     <h3>Monday 25/04/2019 19:00 EST</h3>
                     <h2>AT</h2>
                 </div>
                 <div class="schedule__home">
-                    <img data-teamname="SAC" src="/images/Logos/teams_logos/ATL_logo.svg" alt="San Antonio Spurs">
-                    <p>San Antonio Spurs</p>
+                    <img src="/images/Logos/teams_logos/${team.schedule[3][1]}_logo.svg" alt="San Antonio Spurs">
+                    <p>${team.schedule[3][1]}</p>
                 </div>                
             </div>        
         </div>
