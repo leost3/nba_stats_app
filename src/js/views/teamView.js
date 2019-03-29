@@ -4,7 +4,6 @@ import Chart from 'chart.js';
 
 
 export const renderTeam = (team) => {
-// console.log(team.schedule[0]);
 let markup = `
 <div class= team__information>
     <div class="team__stats">
@@ -31,69 +30,6 @@ let markup = `
             <h3>${team.teamStanding.awayRecord} away</h3>
         </div>
 
-
-        <div class="schedule__box">
-            <div class="schedule__game">
-                <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[0][0]}_logo.svg" alt="${team.schedule[0][0]}">
-                    <p>${team.schedule[0][0]}</p>
-                </div>
-                <div class="at">
-                <h3>${team.schedule[0][2]} ${team.schedule[0][3]} EST</h3>
-                <h2>AT</h2>
-                </div>
-                <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[0][1]}_logo.svg" alt="${team.schedule[0][1]}">
-                    <p>${team.schedule[0][1]}</p>
-                </div>                
-            </div>
-
-            <div class="schedule__game">
-                <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[1][0]}_logo.svg" alt="${team.schedule[1][0]}">
-                    <p>${team.schedule[1][0]}</p>
-                </div>
-                <div class="at">
-                <h3>${team.schedule[1][2]} ${team.schedule[1][3]} EST</h3>
-                <h2>AT</h2>
-                </div>
-                <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[1][1]}_logo.svg" alt="${team.schedule[1][1]}">
-                    <p>${team.schedule[1][1]}</p>
-                </div>                
-            </div>
-
-            <div class="schedule__game">
-                <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[2][0]}_logo.svg" alt="${team.schedule[2][0]}">
-                    <p>${team.schedule[2][0]}</p>
-                </div>
-                <div class="at">
-                <h3>${team.schedule[2][2]} ${team.schedule[2][3]} EST</h3>
-                <h2>AT</h2>
-                </div>
-                <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[2][1]}_logo.svg" alt="${team.schedule[2][1]}">
-                    <p>${team.schedule[2][1]}</p>
-                </div>                
-            </div>
-
-            <div class="schedule__game">
-                <div class="schedule__away">
-                    <img src="/images/Logos/teams_logos/${team.schedule[3][0]}_logo.svg" alt="${team.schedule[3][0]}">
-                    <p>${team.schedule[3][0]}</p>
-                </div>
-                <div class="at">
-                    <h3>${team.schedule[3][2]} ${team.schedule[3][3]} EST</h3>
-                    <h2>AT</h2>
-                </div>
-                <div class="schedule__home">
-                    <img src="/images/Logos/teams_logos/${team.schedule[3][1]}_logo.svg" alt="${team.schedule[3][1]}">
-                    <p>${team.schedule[3][1]}</p>
-                </div>                
-            </div>        
-        </div>
-
         <div class="canvas__radar">
             <canvas id="myChart"></canvas>
         </div>
@@ -103,6 +39,41 @@ let markup = `
     // Insert markup into HTML
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
+
+
+const resSchedule = (teamSchedule) => {
+    console.log(teamSchedule)
+    const markup = `
+    <div class="schedule__game">
+        <div class="schedule__away">
+            <img src="/images/Logos/teams_logos/${teamSchedule[0]}_logo.svg" alt="${teamSchedule[0]}">
+            <p>${teamSchedule[0]}</p>
+        </div>
+        <div class="at">
+        <h3>${teamSchedule[2]} ${teamSchedule[3]} EST</h3>
+        <h2>AT</h2>
+        </div>
+        <div class="schedule__home">
+            <img src="/images/Logos/teams_logos/${teamSchedule[1]}_logo.svg" alt="${teamSchedule[1]}">
+            <p>${teamSchedule[1]}</p>
+        </div>                
+    </div>
+    `
+    
+    console.log(elements.scheduleBox)
+
+    // elements.scheduleBox.insertAdjacentHTML('afterbegin', markup);
+}
+
+export const renderSchedule = (scheduleObj) => {
+    for (let prop in scheduleObj) {
+        resSchedule(scheduleObj[prop]);
+    }
+};
+
+
+
+
 
 export const chart = (team) => {
     createChart(team)

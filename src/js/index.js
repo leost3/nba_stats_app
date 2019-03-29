@@ -6,7 +6,7 @@ import {news} from './models/News';
 import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer} from './views/playersView';
-import {renderTeam, changeBackgroundColor, chart} from './views/teamView';
+import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 
 const state = {};
 
@@ -121,6 +121,7 @@ window.addEventListener('load', () => {
         // console.log(state.team);
         cleanResults(elements.teamPlayers);
         renderTeam(state.team);
+        renderSchedule(state.team.schedule);
         changeBackgroundColor(state.team);
         chart(state.team);
 

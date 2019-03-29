@@ -67,7 +67,6 @@ export const newTeam = class {
             // Fetch Sechdule API
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Games/2019?key=${keys.key1}`);
             const data = res.data;
-            // console.log(data);
             let arr = [];   
             // Push to ARR the four next scheduled matched for selected team
             for (let i=0; arr.length < 4; i++) {
@@ -78,7 +77,7 @@ export const newTeam = class {
                 }
             }
 
-            // console.log(arr);
+            this.schedule = {};
 
             arr = arr.map(insideArr => {
                 insideArr[2] = insideArr[2].split("T");
@@ -86,11 +85,12 @@ export const newTeam = class {
                 insideArr[3] = insideArr[3].split('');
                 insideArr[3].splice(5)
                 insideArr[3] = insideArr[3].join("");
-                console.log(insideArr[3]);
                 return insideArr;
             });
-            console.log(arr);
-            this.schedule = arr;
+            for (let i=0; i<arr.length; i++) {
+                this.schedule[`matchDay${i + 1}`] = arr[i];
+            }
+            // console.log(this.schedule);
         }
         catch(err) {
             console.log(err);

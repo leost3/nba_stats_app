@@ -409,7 +409,7 @@ background-color: lightgray;
     justify-content: center;
     flex-direction: column; 
     border-bottom: 0.5px solid lightgray;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .schedule__box img {
@@ -427,7 +427,7 @@ background-color: lightgray;
 }
 
 .schedule__game .at {
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -457,7 +457,7 @@ background-color: lightgray;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background: yellowgreen; */
+    background: yellowgreen;
 }
 
 
