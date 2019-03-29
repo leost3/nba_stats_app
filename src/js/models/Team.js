@@ -11,6 +11,7 @@ export const newTeam = class {
     async getTeamStats() {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=${keys.key1}`); 
+            console.log(res)
             const data = res.data;
             const found = data.find(element => element.Team === this.selectedTeam);
             // console.log(found);
@@ -69,7 +70,7 @@ export const newTeam = class {
             const data = res.data;
             let arr = [];   
             // Push to ARR the four next scheduled matched for selected team
-            for (let i=0; arr.length < 4; i++) {
+            for (let i=0; arr.length < 5; i++) {
                 if (data[i].Status === 'Scheduled') {
                     if (data[i].AwayTeam === this.selectedTeam || data[i].HomeTeam === this.selectedTeam) {
                         arr.push([data[i].AwayTeam , data[i].HomeTeam, data[i].DateTime])
