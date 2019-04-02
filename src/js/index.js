@@ -21,7 +21,7 @@ const displaySideTeams = () => {
 window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
-    displayTeamTest('SAC');
+    // displayTeamTest('SAC');
     // displayPlayers('SAC');
 
 });
@@ -52,6 +52,7 @@ window.addEventListener('load', () => {
         }catch(err){
             console.log(er)
         }
+        state.teamPlayers.refinePlayersNames();
         refinePlayersNames(state.teamPlayers.playersData);
         cleanResults(elements.teamPlayers);
         // console.log(state.teamPlayers.playersData);
@@ -151,6 +152,7 @@ window.addEventListener('load', () => {
         }catch(err) {
             console.log(err);
         }
+        state.searchPlayer.refineName();
         cleanResults(elements.teamPlayers);
         displaySearchedPlayer(state.searchPlayer.foundPlayers);
     }

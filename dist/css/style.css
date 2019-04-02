@@ -276,13 +276,9 @@ header .nav__top {
     background-repeat: no-repeat;    
 }
 
-
-
-
 /* ---------------------------------------------- */
 /*  SELECTED TEAM STATS PAGE */
 /* ---------------------------------------------- */
-
 
 .stats img {
     width: 6%;
@@ -291,8 +287,8 @@ header .nav__top {
 .team__stats {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-content: center;
+    align-items: space-between;
+    align-content: space-between;
 }
 
 .team__stats--headpage {
@@ -397,8 +393,6 @@ background-color: lightgray;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: red;
-    /* margin: 0 auto; */
 }
 
 .game__date {
@@ -411,8 +405,8 @@ background-color: lightgray;
 }
 
 .schedule__box img {
-    width:50%;
-    /* height:350px; */
+    width:25%;
+    /* height:250px; */
 }
 
 .schedule__game {
@@ -439,9 +433,6 @@ background-color: lightgray;
     font-size: 15px;
 
 }
-
-
-
 
 .schedule__away {
     display: flex;
@@ -480,7 +471,6 @@ background-color: lightgray;
 }
 .selectedPlayer__image{
     width: 100%;
-    background: #ff0000;
 }
 
 .selectedPlayer__image img{
@@ -520,7 +510,6 @@ background-color: lightgray;
 .selectedPlayer__profile .player__stats li{
     list-style: none;
 }
-
 
 /* ---------------------------------------------- */
 /*  FAVORITE */

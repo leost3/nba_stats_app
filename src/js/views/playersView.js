@@ -26,6 +26,8 @@ const renderRes = (el) => {
 
     // For not rookie display his photo
     } else {
+        console.log(el.LastName)
+        console.log(el.FirstName)
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
             <div class="player__image">
@@ -64,12 +66,14 @@ const renderRes = (el) => {
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
 
+// Display players from a selected team
 
 export const renderPlayers = (data) => {
     console.log(data.playersData);
     data.playersData.forEach(renderRes);  
 }
 
+// Display searched players
 export const displaySearchedPlayer = (data) => {
     console.log(data);
     data.forEach(renderRes);  

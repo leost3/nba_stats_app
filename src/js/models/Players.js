@@ -6,11 +6,13 @@ export const teamPlayers = class Team {
     constructor(team) {
         this.team = team;
     }
-    async getPlayers(teamKey) {
+    async getPlayers() {
         try {
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key2}`);
             this.playersData = res.data; 
-            // console.log(this.playersData);   
+            this.playersData.forEach(el => {
+                if (el.DraftKingsName === null) console.log(el)
+            });
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
@@ -20,18 +22,16 @@ export const teamPlayers = class Team {
     refinePlayersNames() {
         // console.log(this.playersData);
         this.playersData.forEach(element => {
-            // console.log(element)
-
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
                 // console.log(element.FirstName);
             }
-            if (element.LastName.includes('.')) {
+            while (element.LastName.includes('.')) {
                 element.LastName = element.LastName.replace('.','');
             }
 
             // Replace space for _ in last name
-            if (element.LastName.includes(' ')) {
+            while (element.LastName.includes(' ')) {
                 // console.log(element.LastName)
                 element.LastName = element.LastName.replace(' ','_');
                 // console.log(element.LastName)
@@ -73,12 +73,12 @@ export const SelectedPlayer = class Player {
     async getPlayerData() {
         try {
             // Player stats
-            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2019/${this.playerID}?key=${keys.key1}`);
+            const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2019/${this.playerID}?key=${keys.key2}`);
             const data = res.data;
             this.team = data.Team;
-            console.log(data)
+            console.log(data);
             // Players info
-            const resInfo = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key1}`);
+            const resInfo = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key2}`);
             this.playersInfo = resInfo.data;
             this.data = data;
             if (data.Name.split(" ").length === 2) [this.FirstName, this.LastName] = data.Name.split(" ");
@@ -124,13 +124,19 @@ export const searchedPlayer = class Searched {
     }
 
     async getSearchedPlayer() {
-        const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players?key=${keys.key1}`);
+        const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players?key=${keys.key2}`);
         const data = res.data;
+        // console.log(data)
+        // const found = data.filter(el => {
+        //     if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName || el.DraftKingsName.toLowerCase() === this.playerName) {
+        //         return el;
+        //     }
+        // });
         const found = data.filter(el => {
-            if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName || el.DraftKingsName.toLowerCase() === this.playerName) {
-                return el;
-            }
-        });
+            if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName ||el.DraftKingsName !== null && el.DraftKingsName.toLowerCase() === this.playerName ) return el;
+            // console.log(el.DraftKingsName.toLowerCase())
+        })
+        console.log(found)
         this.foundPlayers = found;
         return found;
     }

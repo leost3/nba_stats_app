@@ -13,9 +13,6 @@ let markup = `
                     <h1>W ${team.record} L</h1>
                 </div>
             </div>
-            <div class="conference__logo">
-                <img src="/images/Logos/conference_logos/${team.conference}.png" alt="xx" srcset="">
-            </div>
             <div class="team__stats--basics">
                 <ul class="stats">
                     <li><img src="/images/Logos/page_logo/basketlogo.png" alt="" srcset="">${team.ppg.toFixed(1)} Points per game</li>
@@ -50,21 +47,19 @@ const resSchedule = (teamSchedule, scheduleBox) => {
     const markup = `
     <div class="schedule__game">
     <div class="schedule__away">
-        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[0]}_logo.svg" alt="Sacramento Kings">
-        <p>Sacramento Kings</p>
+        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[0]}_logo.svg" alt="${teamSchedule[0]}">
+        <p>${teamSchedule[0]}</p>
     </div>
     <div class="at">
-        <h3>Monday 25/04/2019 19:00 EST</h3>
+        <h3>${teamSchedule[2]} ${teamSchedule[3]}</h3>
         <h2>AT</h2>
     </div>
     <div class="schedule__home">
-        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[1]}_logo.svg" alt="San Antonio Spurs">
-        <p>San Antonio Spurs</p>
+        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[1]}_logo.svg" alt="${teamSchedule[1]}">
+        <p>${teamSchedule[1]}</p>
     </div>                
     </div>
     `
-
-    
     scheduleBox.insertAdjacentHTML('beforeend', markup);
 }
 
