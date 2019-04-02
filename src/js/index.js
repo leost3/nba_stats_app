@@ -142,7 +142,19 @@ window.addEventListener('load', () => {
         if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 
-
+    elements.getNews.addEventListener('click',async e => {
+        // Testing getting news
+        state.news = new news();
+        // try {
+            await state.news.getNews();
+        // }
+        try {
+            await state.news.getNews();
+        }catch(err) {
+            alert("Something went wrong");
+            console.log(err);
+        }        
+    })
     // Create searchedPlayer Class
 
     const searchPlayer = async (playerName) => {

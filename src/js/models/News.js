@@ -1,14 +1,13 @@
 import axios from "axios";
+import * as keys from '../config';
 
-export const news =  class{
-    constructor(selectedTeam) {
-        this.selectedTeam = selectedTeam;
-        console.log(selectedTeam);
+export const news =  class News{
+    constructor() {
+        
     }
 
-
     async getNews() {
-        const res = await axios('https://api.fantasydata.net/v3/nba/stats/json/News?key=86a8a62f6d7c4969858b4744aec1763c');
+        const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/News?key=${keys.key2}`);
         const data = res.data;
         console.log(data);
     }

@@ -9,7 +9,8 @@ export const elements = {
     teamPhoto : document.querySelector('.team__photo'),
     teamBasicStats: document.querySelector('.team__stats--basics .stats li'),
     teamInfoSlidersStats: document.querySelector('.team__stats--info--slider'),
-    scheduleBox: document.querySelector('.team__players schedule__box')
+    scheduleBox: document.querySelector('.team__players schedule__box'),
+    getNews: document.querySelector('.get__news'),
     
 }
 
