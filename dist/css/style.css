@@ -484,10 +484,10 @@ background-color: lightgray;
 .selectedPlayer__profile .player__info--profile, .player__stats{
     width: 100%;
 }
-.selectedPlayer__profile .player__info--profile {
+/* .selectedPlayer__profile .player__info--profile {
 
 
-}
+} */
 
 .selectedPlayer__profile .player__stats li{
     text-align: center;
@@ -523,32 +523,38 @@ background-color: lightgray;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: red;
+    /* background: red; */
+    margin: 10px 10px;
+    border:2px solid black;
 
 }
 
-.news h4 {
+.title h4 {
+    font-size: 0.8rem;
     color: darkgray;
+    margin-right: 5px;
     align-self: flex-end;
-    background: yellow
 }
 
 .title {
+    background: #0d0c44;
+    color: #fff;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    background: orange;
+    justify-content: space-between;
+    text-transform: uppercase;
+    /* background: orange; */
 }
 
 .title img {
     width: 10%;
 }
 
-.news__info {
-    width: 100%;
-    justify-content: space-evenly;
-    background: yellowgreen;
+
+.news__content {
+    width: 80%;
+    display: flex;
 }
 
 

@@ -4,6 +4,7 @@ export const elements = {
     westTeams: document.querySelectorAll('.teamList [data-conference~="west"]'),
     confereceBtn: document.querySelectorAll('.btn__conference *'),
     teamList: document.querySelector('.team__list'),
+    teamPage: document.querySelector('.team__page'),
     teamPlayers: document.querySelector('.team__players'),
     closeBtn: document.querySelector('.close'),
     teamPhoto : document.querySelector('.team__photo'),
