@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
     // displayTeamTest('SAC');
-    // displayPlayers('SAC');
+    displayPlayers('SAC');
 
 });
     

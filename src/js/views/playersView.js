@@ -18,7 +18,7 @@ const renderRes = (el) => {
                     <h2>${el.DraftKingsName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
-                <button class="player__btn" type="button">BTN</button>
+                <button class="player__btn">STATS</button>
                 <h1>${el.Jersey}</h1>
             </div>   
         </div> 
@@ -37,7 +37,7 @@ const renderRes = (el) => {
                     <h2>${el.DraftKingsName}</h2>
                     <h2>${el.Position}</h2>
                 </div>
-                <button class="player__btn" type="button">BTN</button>
+                <button class="player__btn">STATS</button>
                 <h1>${el.Jersey}</h1>
             </div>     
         </div> 
@@ -57,7 +57,7 @@ const renderRes = (el) => {
                 <h4>${el.DraftKingsName}</h4>
                 <h4>${el.Position}</h4>
             </div>
-            <button class="player__btn type="button">BTN</button>
+            <button class="player__btn>STATS</button>
             <h1>${el.Jersey}</h1>
         </div>   
     </div> 
@@ -70,7 +70,6 @@ const renderRes = (el) => {
 export const renderPlayers = (data) => {
     data.playersData.forEach(renderRes);  
 }
-
 
 // Clear input Form
 export const clearInput = () =>  elements.inputPlayer.value = '';
@@ -105,7 +104,7 @@ export const renderSelectedPlayerProfile = (el, exp) => {
             <div class="selectedPlayer__profile">
                 <button class=close__player__profile>X</button>
                 <div class="selectedPlayer__image">
-                <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.name}">    
+                    <img src="https://nba-players.herokuapp.com/players/${(el.LastName === "House") ? '' : el.LastName + "/"}${el.FirstName}" alt="${el.name}">    
                 </div>
                 <div class="player__info--profile">
                     <h2>${el.name}</h2>
