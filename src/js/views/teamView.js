@@ -43,23 +43,31 @@ let markup = `
 
 
 const resSchedule = (teamSchedule, scheduleBox) => {
-    console.log(teamSchedule)
-    const markup = `
-    <div class="schedule__game">
-    <div class="schedule__away">
-        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[0]}_logo.svg" alt="${teamSchedule[0]}">
-        <p>${teamSchedule[0]}</p>
-    </div>
-    <div class="at">
-        <h3>${teamSchedule[2]} ${teamSchedule[3]}</h3>
-        <h2>AT</h2>
-    </div>
-    <div class="schedule__home">
-        <img data-teamname="SAC" src="/images/Logos/teams_logos/${teamSchedule[1]}_logo.svg" alt="${teamSchedule[1]}">
-        <p>${teamSchedule[1]}</p>
-    </div>                
-    </div>
+
+    let markup;
+
+    if (teamSchedule.length > 0) {
+         markup = `
+            <div class="schedule__game">
+                <div class="schedule__away">
+                    <img src="/images/Logos/teams_logos/${teamSchedule[0]}_logo.svg" alt="${teamSchedule[0]}">
+                    <p>${teamSchedule[0]}</p>
+                </div>
+                <div class="at">
+                    <h3>${teamSchedule[2]} ${teamSchedule[3]}</h3>
+                    <h2>AT</h2>
+                </div>
+                <div class="schedule__home">
+                    <img src="/images/Logos/teams_logos/${teamSchedule[1]}_logo.svg" alt="${teamSchedule[1]}">
+                    <p>${teamSchedule[1]}</p>
+                </div>                
+            </div>
     `
+    } else {
+        markup = `No games Scheduled`;
+    }
+
+    
     scheduleBox.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -69,9 +77,6 @@ export const renderSchedule = (scheduleObj) => {
         resSchedule(scheduleObj[prop], scheduleBox);
     }
 };
-
-
-
 
 
 export const chart = (team) => {

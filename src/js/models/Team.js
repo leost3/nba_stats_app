@@ -11,10 +11,8 @@ export const newTeam = class {
     async getTeamStats() {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/JSON/TeamSeasonStats/2019?key=${keys.key2}`); 
-            console.log(res)
             const data = res.data;
             const found = data.find(element => element.Team === this.selectedTeam);
-            // console.log(found);
 
             this.opponentStats =  {
                 games: found.OpponentStat.Games,
@@ -69,17 +67,18 @@ export const newTeam = class {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Games/2019?key=${keys.key2}`);
             const data = res.data;
             let arr = [];   
-            // Push to ARR the four next scheduled matched for selected team
-            for (let i=0; arr.length < 4; i++) {
-                if (data[i].Status === 'Scheduled') {
-                    if (data[i].AwayTeam === this.selectedTeam || data[i].HomeTeam === this.selectedTeam) {
-                        arr.push([data[i].AwayTeam , data[i].HomeTeam, data[i].DateTime])
+          
+            // Push next 4 matches(homeTeam, awayTeam and game date) to array arr
+            data.forEach(el => {
+                if (el.Status === 'Scheduled') {
+                    if (el.AwayTeam === this.selectedTeam || el.HomeTeam === this.selectedTeam){
+                        if (arr.length < 4) arr.push([el.AwayTeam, el.HomeTeam, el.DateTime]);
                     } 
                 }
-            }
-
+            });
             this.schedule = {};
 
+            // SPlit date into actual date and time
             arr = arr.map(insideArr => {
                 insideArr[2] = insideArr[2].split("T");
                 insideArr = insideArr.flat();
@@ -88,10 +87,10 @@ export const newTeam = class {
                 insideArr[3] = insideArr[3].join("");
                 return insideArr;
             });
+
             for (let i=0; i<arr.length; i++) {
-                this.schedule[`matchDay${i + 1}`] = arr[i];
+                this.schedule[`matchDate${i + 1}`] = arr[i];
             }
-            // console.log(this.schedule);
         }
         catch(err) {
             console.log(err);
@@ -115,6 +114,5 @@ export const newTeam = class {
             console.log(err);
         }
     }
-
 }
 

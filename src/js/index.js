@@ -55,7 +55,6 @@ window.addEventListener('load', () => {
         state.teamPlayers.refinePlayersNames();
         refinePlayersNames(state.teamPlayers.playersData);
         cleanResults(elements.teamPlayers);
-        // console.log(state.teamPlayers.playersData);
         renderPlayers(state.teamPlayers);
     }
 
@@ -69,9 +68,6 @@ window.addEventListener('load', () => {
         }
         // turn last name into a string
         state.SelectedPlayer.refineName();
-        // console.log(state.teamPlayers.playersData)
-        // console.log(state.SelectedPlayer.getPlayerXp(state.teamPlayers.playersData).FanDuelName);
-        // console.log(state.SelectedPlayer.name);
 
         let playerExperience = state.SelectedPlayer.getPlayerXp();
         // Remove unecessary characteres from name
@@ -119,35 +115,37 @@ window.addEventListener('load', () => {
             alert("Something went wrong");
             console.log(err);
         }
-        // console.log(state.team);
+        // prepare UI
         cleanResults(elements.teamPlayers);
+
+        // Render team information
         renderTeam(state.team);
+        
+        // Render team schedule
         renderSchedule(state.team.schedule);
+
+        // Change background color of team colors
         changeBackgroundColor(state.team);
+
+        // Insert graphics
         chart(state.team);
-
-        // Testing getting news
-        // state.news = new news(selectedTeam);
-        // try {
-        //     await state.news.getNews();
-        // }catch(err) {
-        //     alert("Something went wrong");
-        //     console.log(err);
-        // }
-
     }
 
+    // Display either team or player stats
+
     elements.teamList.addEventListener('click', e => {
+        // Click on button Player
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
+        // Click on button Team
         if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 
+    // Get news
+
     elements.getNews.addEventListener('click',async e => {
-        // Testing getting news
         state.news = new news();
         try {
             await state.news.getNews();
-            // console.log(state.news)
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
@@ -178,22 +176,19 @@ window.addEventListener('load', () => {
         }
     }
 
-
-
     // Search player
     elements.searchPlayerForm.addEventListener('click', e => {
         e.preventDefault();
         searchPlayer();
-        // document.querySelector('.player__name--input').value = 'Curry';
-        // let playerName = document.querySelector('.player__name--input').value;
-        // console.log(playerName)
-        // if (playerName.length > 0) {
-        //     searchPlayer(playerName);
-        // }
-        // playerName = ""; 
-        // // searchPlayer(playerName);
     });
+
 
     // elements.closeBtn.addEventListener('click', function() {
     //     document.querySelector('.favorite__players').classList.toggle("closed");
     // });
+
+
+
+    // SCHEDULE
+    // LAYOUT SEARCH FORM
+    // DESING SELECTED PLAYER
