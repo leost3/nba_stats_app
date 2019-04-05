@@ -7,7 +7,7 @@ import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
-
+import {renderNews} from './views/newsView';
 const state = {};
 
 // Display all teams on side on page load
@@ -145,15 +145,16 @@ window.addEventListener('load', () => {
     elements.getNews.addEventListener('click',async e => {
         // Testing getting news
         state.news = new news();
-        // try {
-            await state.news.getNews();
-        // }
         try {
             await state.news.getNews();
+            // console.log(state.news)
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
-        }        
+        }    
+        state.news.shortContent();
+        cleanResults(elements.teamPlayers);
+        renderNews(state.news.newsData);    
     })
     // Create searchedPlayer Class
 

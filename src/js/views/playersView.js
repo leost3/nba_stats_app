@@ -205,3 +205,6 @@ export const enableButtons = () => {
 
 // Render Searched Player
 
+export const clearInput = () =>  elements.inputPlayer.value = ' ';
+
+export const getInputPlayer = () => elements.inputPlayer;

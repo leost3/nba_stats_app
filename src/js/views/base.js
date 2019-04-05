@@ -12,6 +12,7 @@ export const elements = {
     teamInfoSlidersStats: document.querySelector('.team__stats--info--slider'),
     scheduleBox: document.querySelector('.team__players schedule__box'),
     getNews: document.querySelector('.get__news'),
+    inputPlayer: document.querySelector('.input__player'),
     
 }
 
