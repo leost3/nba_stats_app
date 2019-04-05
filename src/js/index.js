@@ -21,7 +21,7 @@ const displaySideTeams = () => {
 window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
-    // displayTeamTest('SAC');
+    displayTeamTest('SAC');
     // displayPlayers('SAC');
 
 });
@@ -120,7 +120,7 @@ window.addEventListener('load', () => {
 
         // Render team information
         renderTeam(state.team);
-        
+
         // Render team schedule
         renderSchedule(state.team.schedule);
 

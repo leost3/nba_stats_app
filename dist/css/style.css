@@ -288,6 +288,11 @@ header .nav__top {
 /* ---------------------------------------------- */
 /*  SELECTED TEAM STATS PAGE */
 /* ---------------------------------------------- */
+/* .team__information {
+    background: orangered;
+    display: flex;
+    
+} */
 
 .stats img {
     width: 6%;
@@ -296,8 +301,7 @@ header .nav__top {
 .team__stats {
     display: flex;
     flex-direction: column;
-    align-items: space-between;
-    align-content: space-between;
+    justify-content: space-around;
 }
 
 .team__stats--headpage {
@@ -338,10 +342,12 @@ header .nav__top {
   align-items: center;
   align-content: center;
   font-size: 12px;
+  padding: 0%;
+  margin: 0%;
 }
 .team__stats--basics ul{
     display: flex;
-    padding: 20px 45px;
+    /* padding: 20px 45px; */
     
 }
 
@@ -364,6 +370,7 @@ header .nav__top {
     margin: 1rem 1rem;
 }
 .team__stats--info--slider {
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -373,7 +380,9 @@ header .nav__top {
     font-weight: 800;
     padding: 15px;
     color: #fff;
+    margin: 0 auto;
     border-radius: 15px;
+    margin-bottom: 25px;
 }
 
 
@@ -384,7 +393,6 @@ background-color: lightgray;
 
 .canvas__radar {
     width: 100%;
-    margin-top: 5rem;
 }
 
 .conference__logo{
@@ -402,6 +410,7 @@ background-color: lightgray;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .game__date {
@@ -409,13 +418,10 @@ background-color: lightgray;
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    border-bottom: 0.5px solid lightgray;
-    /* width: 100%; */
 }
 
 .schedule__box img {
     width:25%;
-    /* height:250px; */
 }
 
 .schedule__game {
@@ -423,13 +429,13 @@ background-color: lightgray;
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    border: 2px solid black;
+    border: 1.5px solid black;;
     margin: 2px;
     position: relative;
 }
 
 .schedule__game .at {
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -527,7 +533,7 @@ background-color: lightgray;
 .news {
     width: 85%;
     text-align: start;
-    line-height: 25px;
+    line-height: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
