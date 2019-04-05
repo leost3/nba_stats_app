@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
 const state = {};
@@ -152,36 +152,46 @@ window.addEventListener('load', () => {
             alert("Something went wrong");
             console.log(err);
         }    
-        state.news.shortContent();
         cleanResults(elements.teamPlayers);
         renderNews(state.news.newsData);    
     })
+
+
+
     // Create searchedPlayer Class
 
-    const searchPlayer = async (playerName) => {
-        state.searchPlayer = new searchedPlayer(playerName);
-        try {
-            await state.searchPlayer.getSearchedPlayer();
-        }catch(err) {
-            console.log(err);
+    const searchPlayer = async () => {
+
+        let query = getInputPlayer();
+
+        if (query) {
+            state.searchPlayer = new searchedPlayer(query);
+            try {
+                await state.searchPlayer.getSearchedPlayer();
+            }catch(err) {
+                console.log(err);
+            }
+            clearInput();
+            state.searchPlayer.refineName();
+            cleanResults(elements.teamPlayers);
+            displaySearchedPlayer(state.searchPlayer.foundPlayers);
         }
-        state.searchPlayer.refineName();
-        cleanResults(elements.teamPlayers);
-        displaySearchedPlayer(state.searchPlayer.foundPlayers);
     }
 
 
 
     // Search player
-    document.querySelector('.search__player').addEventListener('click', (e) => {
+    elements.searchPlayerForm.addEventListener('click', e => {
         e.preventDefault();
+        searchPlayer();
         // document.querySelector('.player__name--input').value = 'Curry';
-        let playerName = document.querySelector('.player__name--input').value;
-        if (playerName.length > 0) {
-            searchPlayer(playerName);
-        }
-        playerName = ""; 
-        // searchPlayer(playerName);
+        // let playerName = document.querySelector('.player__name--input').value;
+        // console.log(playerName)
+        // if (playerName.length > 0) {
+        //     searchPlayer(playerName);
+        // }
+        // playerName = ""; 
+        // // searchPlayer(playerName);
     });
 
     // elements.closeBtn.addEventListener('click', function() {

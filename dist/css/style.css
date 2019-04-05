@@ -6,7 +6,6 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; 
     font-family: 'Roboto', sans-serif;
-
 }
 
 body {
@@ -22,13 +21,18 @@ body {
     /* overflow-x: hidden; */
 }
 
+:root {
+    --main-header-color: #0d0c44;
+}
+
+
 /* HEADER */
 header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background: steelblue;
+    background: var(--main-header-color);
 }
 /* ------------- */
 /* NAV__TOP      */
@@ -91,7 +95,7 @@ header .nav__top {
     height: 3rem;
     width: 100%;
     border: 2px solid rgb(152, 152, 158);
-    background: steelblue;
+    background: var(--main-header-color);
     text-align: center;
     text-transform: uppercase;
     margin: 0 auto;
@@ -100,10 +104,10 @@ header .nav__top {
     transition: all 0.5s;
 }
 .btn__conference--active {
-    background-color: #ff0000;
+    background-color: #fff;;
     color: steelblue;
     font-weight: 600;
-    border: 2px solid #ff0000;
+    border: 2px solid #eee;
 }
 
 .btn__conference .btn__conf {
@@ -176,32 +180,35 @@ header .nav__top {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }   
 
 .team__logo:hover .team__btns {
     transform: translateY(0%);
-    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);
-    display: flex;
+    background-image: linear-gradient(to right top, #15133a, #13113d, #100f41, #0d0c44, #0a0947);    
     margin: 0%;
+    /* display: flex; */
 }
 
 .display__team__stats,
 .display__team__players {
-    background: red;
-    color: white;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: all 0.7s;
+    margin: 2px 0;
 }
 
-
+.display__team__stats:hover,
+.display__team__players:hover {
+    background-color: #fff;
+    color: black;
+}
 .team__logo img {
     width: 45%;
     display: block;
 }
-
-/* img {
-    display: block;
-    width: 100%;
-} */
 
 /* -------------------------------------------------------------- */
 /* TEAM PLAYERS PAGE */
@@ -523,10 +530,24 @@ background-color: lightgray;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background: red; */
-    margin: 10px 10px;
-    border:2px solid black;
+    border:2px solid darkgray;
+    padding: 0 10px;
+    margin: 10px auto;
 
+}
+
+.title {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--main-header-color);
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    border: none;
 }
 
 .title h4 {
@@ -536,27 +557,14 @@ background-color: lightgray;
     align-self: flex-end;
 }
 
-.title {
-    background: #0d0c44;
-    color: #fff;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-transform: uppercase;
-    /* background: orange; */
-}
-
 .title img {
-    width: 10%;
+    width: 7%;
 }
-
 
 .news__content {
     width: 80%;
     display: flex;
 }
-
 
 /* ---------------------------------------------- */
 /*  FAVORITE */

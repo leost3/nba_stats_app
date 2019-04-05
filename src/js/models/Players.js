@@ -121,6 +121,7 @@ export const SelectedPlayer = class Player {
 export const searchedPlayer = class Searched {
     constructor(playerName) {
         this.playerName = playerName.toLowerCase();
+        console.log(this.playerName);
     }
 
     async getSearchedPlayer() {

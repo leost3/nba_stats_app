@@ -26,8 +26,7 @@ const renderRes = (el) => {
 
     // For not rookie display his photo
     } else {
-        console.log(el.LastName)
-        console.log(el.FirstName)
+
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}"">
             <div class="player__image">
@@ -69,13 +68,18 @@ const renderRes = (el) => {
 // Display players from a selected team
 
 export const renderPlayers = (data) => {
-    console.log(data.playersData);
     data.playersData.forEach(renderRes);  
 }
 
+
+// Clear input Form
+export const clearInput = () =>  elements.inputPlayer.value = '';
+
+// get value of the input form;
+export const getInputPlayer = () => elements.inputPlayer.value;
+
 // Display searched players
 export const displaySearchedPlayer = (data) => {
-    console.log(data);
     data.forEach(renderRes);  
 }
 
@@ -202,9 +206,3 @@ export const enableButtons = () => {
 }
 
 
-
-// Render Searched Player
-
-export const clearInput = () =>  elements.inputPlayer.value = ' ';
-
-export const getInputPlayer = () => elements.inputPlayer;

@@ -1,6 +1,8 @@
 import {elements} from './base';
 
 
+
+// Limit the amount of words on content session
 const limitContent = (content, limit = 300) => {
     if (content.length > limit) {
         let newContent = [];
@@ -15,9 +17,7 @@ const limitContent = (content, limit = 300) => {
     return content;
 }
 
-
 const displayNews = (el) => {
-
     let markup = `
         <div class="news_page">
             <div class="news">
@@ -37,11 +37,6 @@ const displayNews = (el) => {
 
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
-
-
-
-
-
 
 export const renderNews = (newsData) => {
     newsData.forEach(displayNews);
