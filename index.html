@@ -13,11 +13,16 @@
     <header>
         <nav>
             <div class="nav__top">
+                <img src="images/Logos/page_logo/Logo.png" alt="" srcset="">
                 <h1 class="get__news">NEWS</h1>
-                <form for="input__player" action="">
-                    <label for="" class="for"></label>
+                <form for="input__player" action="" class="search__player--form">
+                    <!-- <label for="" class="for">SEARCH PLAYER</label> -->
                     <input type="text" name="input__player" placeholder="Ex. Stephen Curry" class="player__name--input">
-                    <input type="submit" class="search__player"></input>
+                    <button class="search__player">
+                        <svg class="search__icon">
+                            <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use>   
+                        </svg>
+                    </button>
                 </form>
             </div>
         </nav>

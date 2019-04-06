@@ -39,7 +39,7 @@ header {
 /* NAV__TOP      */
 /* ------------- */
 
-nav {
+header nav {
     width: 100%;
 }
 
@@ -69,11 +69,70 @@ header .nav__top {
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+}
+
+header .nav__top .search__player--form{
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 
+header .nav__top .player__name--input{
+  font-family: inherit;
+  font-size: inherit;
+  background-color: lightgray;
+  border: none;
+  padding: .7rem 2rem;
+  border-radius: 100px;
+  width: 70%;
+  transition: all .5s;
+  margin-right: -3.5rem;
+}
+
+header .nav__top .player__name--input:focus{
+    outline: none;
+    width: 100%;
+    background: lightgray;
+
+}
+
+
+header .nav__top  .search__player {
+    background: lightgray;
+    border: none;
+
+}
+
+header .nav__top .search__icon{
+    
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    background-color: lightgray;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+
+}
+
+header .nav__top .search__icon:focus{
+    outline: none;
+}
+
+header .nav__top .search__icon:active{
+}
+
+
+header .nav__top img{
+    display: block;
+    width:15%;
+    height: 100%;
+    align-self: flex-start;
+}
 /* ------------ */
 /* MAIN PAGE    */
 /* ------------ */
@@ -536,6 +595,9 @@ background-color: lightgray;
     background: #fff;
     color: black;
     cursor: pointer;
+    text-align: center;
+    font-weight: 400;
+    font-style: inherit;
 }
 
 .selectedPlayer__profile .close__player__profile:hover {
