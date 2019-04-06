@@ -12,6 +12,8 @@ function correctStreak(element) {
     }
 }
 
+
+// Render team page informations into team page
 export const renderTeam = (team) => {
 
     let markup = `
@@ -31,7 +33,6 @@ export const renderTeam = (team) => {
                 </ul>
             </div>
             <div class="team__stats--info--slider">
-
                 <h3>Has ${correctStreak(team.teamStanding.streak)} last ${team.teamStanding.streak < 0 ? team.teamStanding.streak * -1 : team.teamStanding.streak } ${team.teamStanding.streak === 1 || team.teamStanding.streak === -1 ? "game" : "games"}</h3>
                 <h3>${team.teamStanding.conferenceRecord} against ${team.conference} conference teams</h3>
                 <h3>${team.teamStanding.homeRecord} at home</h3>
@@ -39,7 +40,6 @@ export const renderTeam = (team) => {
             </div>
             
             <div class="schedule__box">
-            
             </div>
             
             <div class="canvas__radar">
@@ -82,6 +82,7 @@ const resSchedule = (teamSchedule, scheduleBox) => {
     scheduleBox.insertAdjacentHTML('beforeend', markup);
 }
 
+// Get teams next schedules
 export const renderSchedule = (scheduleObj) => {
     const scheduleBox = document.querySelector('.team__players .schedule__box');
     for (let prop in scheduleObj) {
@@ -168,6 +169,7 @@ const createChart = (data) => {
 
 }
 
+// TURN HEX INTO RGBA CODE
 function hexToRgbA(hex){
     let c;
     if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
@@ -189,15 +191,4 @@ function hexToRgbA(hex){
 
 
 // Change background pictures
-// suns
-// CLippers 
-// NOP
-// POR
-// INd
-// bulls
 // check Cs
-// Orlando magic
-// Heat
-// CHA
-// WAS
-// Crop GSW

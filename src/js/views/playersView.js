@@ -94,9 +94,21 @@ export const showOffSet = (element) => {
   
 }
 
+
+function playerExp(el) {
+    switch (el) {
+        case 0: return "Rookie";
+        case 1: return "Sophomore";;
+        default: return `${el} years veteran`
+    }
+}
+
+
+
 // Render profile of selected player
 
 export const renderSelectedPlayerProfile = (el, exp) => {
+    console.log({exp})
     console.log({exp})
     let markup; 
         if (el.games > 0 && exp > 0) {
@@ -108,20 +120,21 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                 </div>
                 <div class="player__info--profile">
                     <h2>${el.name}</h2>
+                    <h2>${playerExp(exp)}</h2>
                     <h2>${el.position}</h2>
                 </div>
                 <ul class="player__stats">
-                    <li>${el.games} played games</li>
-                    <li>${el.ppg.toFixed(2)} ppg</li>
-                    <li>${el.rpg.toFixed(2)} rpg</li>
-                    <li>${el.apg.toFixed(2)} apg</li>
-                    <li>${el.spg.toFixed(2)} spg</li>
-                    <li>${el.tsp.toFixed(2)}% tsp</li>
-                    <li>${el.fgPercentage.toFixed(2)}%fg</li>
-                    <li>${el.topg.toFixed(2)} TOpg</li>
-                    <li>${el.plusMinus} Plus Minus</li>
-                    <li>${el.playerEfficiency} Efficiency</li>
-                    <li>${el.usageRate}% Usage Rate</li>
+                    <li><span class="player_stats--li">${el.games}</span> played games</li>
+                    <li><span class="player_stats--li">${el.ppg.toFixed(2)}</span> Points Per Game</li>
+                    <li><span class="player_stats--li">${el.rpg.toFixed(2)}</span> Rebounds Per Game</li>
+                    <li><span class="player_stats--li">${el.apg.toFixed(2)}</span> Assists Per Game</li>
+                    <li><span class="player_stats--li">${el.spg.toFixed(2)}</span> Steals Per Game</li>
+                    <li><span class="player_stats--li">${el.tsp.toFixed(2)}%</span> True Shooting</li>
+                    <li><span class="player_stats--li">${el.fgPercentage.toFixed(2)}%</span> Field Goal</li>
+                    <li><span class="player_stats--li">${el.topg.toFixed(2)}</span> Turnovers Per Game</li>
+                    <li><span class="player_stats--li">${el.plusMinus}</span> Plus Minus</li>
+                    <li><span class="player_stats--li">${el.playerEfficiency}</span> Efficiency</li>
+                    <li><span class="player_stats--li">${el.usageRate}%</span> Usage Rate</li>
                 </ul>
             </div>    
             `
@@ -134,20 +147,21 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                 </div>
                 <div class="player__info--profile">
                     <h2>${el.name}</h2>
+                    <h2>${playerExp(exp)}</h2>
                     <h2>${el.position}</h2>
                 </div>
                 <ul class="player__stats">
-                    <li>${el.games} played games</li>
-                    <li>${el.ppg.toFixed(2)} ppg</li>
-                    <li>${el.rpg.toFixed(2)} rpg</li>
-                    <li>${el.apg.toFixed(2)} apg</li>
-                    <li>${el.spg.toFixed(2)} spg</li>
-                    <li>${el.tsp.toFixed(2)}% tsp</li>
-                    <li>${el.fgPercentage.toFixed(2)}%fg</li>
-                    <li>${el.topg.toFixed(2)} TOpg</li>
-                    <li>${el.plusMinus} Plus Minus</li>
-                    <li>${el.playerEfficiency} Efficiency</li>
-                    <li>${el.usageRate}% Usage Rate</li>
+                    <li><span class="player_stats--li">${el.games}</span> played games</li>
+                    <li><span class="player_stats--li">${el.ppg.toFixed(2)}</span> ppg</li>
+                    <li><span class="player_stats--li">${el.rpg.toFixed(2)}</span> rpg</li>
+                    <li><span class="player_stats--li">${el.apg.toFixed(2)}</span> apg</li>
+                    <li><span class="player_stats--li">${el.spg.toFixed(2)}</span> spg</li>
+                    <li><span class="player_stats--li">${el.tsp.toFixed(2)}%</span> tsp</li>
+                    <li><span class="player_stats--li">${el.fgPercentage.toFixed(2)}</span> %fg</li>
+                    <li><span class="player_stats--li">${el.topg.toFixed(2)}</span> TOpg</li>
+                    <li><span class="player_stats--li">${el.plusMinus}</span> Plus Minus</li>
+                    <li><span class="player_stats--li">${el.playerEfficiency}</span> Efficiency</li>
+                    <li><span class="player_stats--li">${el.usageRate}%</span> Usage Rate</li>
                 </ul>
             </div>    
             `
@@ -160,6 +174,7 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                     </div>
                     <div class="player__info--profile">
                         <h2>${el.name}</h2>
+                        <h2>${playerExp(exp)}</h2>
                         <h2>${el.position}</h2>
                     </div>
                     <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
@@ -174,6 +189,7 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                     </div>
                     <div class="player__info--profile">
                         <h2>${el.name}</h2>
+                        <h2>${playerExp(exp)}</h2>
                         <h2>${el.position}</h2>
                     </div>
                     <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>

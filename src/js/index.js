@@ -21,8 +21,8 @@ const displaySideTeams = () => {
 window.addEventListener('load', () => {
     displaySideTeams();
     // TESTE - onload
-    displayTeamTest('SAC');
-    // displayPlayers('SAC');
+    // displayTeamTest('SAC');
+    displayPlayers('SAC');
 
 });
     
