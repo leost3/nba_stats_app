@@ -88,16 +88,19 @@ header .nav__top .player__name--input{
   border: none;
   padding: .7rem 2rem;
   border-radius: 100px;
-  width: 70%;
+  width: 40%;
   transition: all .5s;
   margin-right: -3.5rem;
 }
 
 header .nav__top .player__name--input:focus{
     outline: none;
-    width: 100%;
+    width: 70%;
     background: lightgray;
-
+}
+header .nav__top .player__name--input:active{
+    outline: none;
+    background: lightgray;
 }
 
 

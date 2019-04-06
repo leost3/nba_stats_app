@@ -2,9 +2,19 @@ import {elements} from './base';
 import Chart from 'chart.js';
 
 
+// Returns either WON or Lost game depending on streak (negative or positive)
+function correctStreak(element) {
+    if (element < 0) {
+        element * -1;
+        return "Lost";
+    } else {
+        return "Won";
+    }
+}
 
 export const renderTeam = (team) => {
-let markup = `
+
+    let markup = `
     <div class= team__information>
         <div class="team__stats">
             <div class="team__stats--headpage">
@@ -21,7 +31,8 @@ let markup = `
                 </ul>
             </div>
             <div class="team__stats--info--slider">
-                <h3>Won last ${team.teamStanding.streak} ${team.teamStanding.streak === 1 ? "game" : "games"}</h3>
+
+                <h3>Has ${correctStreak(team.teamStanding.streak)} last ${team.teamStanding.streak < 0 ? team.teamStanding.streak * -1 : team.teamStanding.streak } ${team.teamStanding.streak === 1 || team.teamStanding.streak === -1 ? "game" : "games"}</h3>
                 <h3>${team.teamStanding.conferenceRecord} against ${team.conference} conference teams</h3>
                 <h3>${team.teamStanding.homeRecord} at home</h3>
                 <h3>${team.teamStanding.awayRecord} away</h3>
@@ -42,6 +53,7 @@ let markup = `
 }
 
 
+// Render Schedules into HTML
 const resSchedule = (teamSchedule, scheduleBox) => {
 
     let markup;
@@ -67,7 +79,6 @@ const resSchedule = (teamSchedule, scheduleBox) => {
         markup = `No games Scheduled`;
     }
 
-    
     scheduleBox.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -80,18 +91,19 @@ export const renderSchedule = (scheduleObj) => {
 
 
 export const chart = (team) => {
-    createChart(team)
+    createChart(team);
 };
 
+// Change background colors of boxes depending on team`s colors
 export const changeBackgroundColor = (team) => {
 
     const teamBasicStats = document.querySelectorAll('.team__stats--basics .stats li');
-    const teamInfoSlidersStats = document.querySelector('.team__stats--info--slider');
-    const teamHeader = document.querySelector('.team__stats--headpage')
+    // const teamInfoSlidersStats = );
+    // const teamHeader = 
 
-    teamHeader.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
+    document.querySelector('.team__stats--headpage').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.699)) ,url('/images/teams_images/${team.selectedTeam}.jpg')`;
 
-    teamInfoSlidersStats.style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
+    document.querySelector('.team__stats--info--slider').style.background = `linear-gradient(to right, #${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"})`;
 
     teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
 
@@ -99,12 +111,12 @@ export const changeBackgroundColor = (team) => {
 
 
 const createChart = (data) => {
-
+    console.log(data)
     const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
+    new Chart(ctx, {
     type: 'radar',
     data: {
-        labels: ['fg', '2pt%', 'ts%', '3p%'],
+        labels: ['FG', '2PT%', 'TrueShotting%', '3PT%','ReboundsPerGame'],
         datasets: [
             {
             label: data.selectedTeam,
@@ -112,7 +124,8 @@ const createChart = (data) => {
                 data.fieldGoalsPercentage,
                 data.twoPointersPercentage,
                 data.trueShootingPercentage,
-                data.threePointersPercentage
+                data.threePointersPercentage,
+                data.rpg,
                     ],
             backgroundColor: [
                 hexToRgbA(`#${data.teamInfo.primaryColor}`)
@@ -123,12 +136,13 @@ const createChart = (data) => {
             borderWidth: 4
         },
             {
-            label: 'NBA',
+            label: `OPONNENTS VS ${data.selectedTeam}`,
             data: [
                 data.opponentStats.fieldGoalsPercentage,
                 data.opponentStats.twoPointersPercentage,
                 data.opponentStats.trueShootingPercentage,
-                data.opponentStats.threePointersPercentage
+                data.opponentStats.threePointersPercentage,
+                data.opponentStats.rpg
                     ],
             backgroundColor: [
                 `rgba(255,255,55, 0.5)`
