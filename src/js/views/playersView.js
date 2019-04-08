@@ -1,11 +1,9 @@
 import {elements} from './base';
 
 // Render players profiles on UI
-
 const renderRes = (el) => {
     let markup;
     // If rookie add an default image
-
     if (el.Experience === 0) {
         markup = `
         <div class="team__players--profile" data-playerID="${el.PlayerID}">
@@ -43,12 +41,10 @@ const renderRes = (el) => {
     }
 
     // If players is Andre Ingram displays his photo
-
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
 }
 
 // Display each player on UI from a selected team data
-
 export const renderPlayers = (data) => {
     data.playersData.forEach(renderRes);  
 }
@@ -68,7 +64,9 @@ export const displaySearchedPlayer = (data) => {
 
 // Display selected player profile on the middle of UI at the same height of selected player
 export const showOffSet = (element) => {
+    // Get distance from top of the page
     let distY = element.parentElement.offsetTop;
+    // Set distance from top of the page 
     let elem2 = document.querySelector('.selectedPlayer__profile');
     elem2.style.top = `${distY}px`;
   
@@ -156,7 +154,7 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                         <h2>${playerExp(exp + 1)}</h2>
                         <h2>${el.position}</h2>
                     </div>
-                    <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
+                    <h2>DID NOT PLAY 2018/2019 SEASON</h2>
                 </div>  
             `
         }else {
@@ -171,7 +169,7 @@ export const renderSelectedPlayerProfile = (el, exp) => {
                         <h2>${playerExp(exp)}</h2>
                         <h2>${el.position}</h2>
                     </div>
-                    <h2>HAS NOT PLAYED IN THIS SEASON SO FAR</h2>
+                    <h2>DID NOT PLAY 2018/2019 SEASON</h2>
                 </div>  
             `
         }

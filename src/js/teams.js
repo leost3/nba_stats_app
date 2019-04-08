@@ -1,5 +1,4 @@
-
-[
+export const teams = [
     {
     "TeamID": 1,
     "Key": "WAS",

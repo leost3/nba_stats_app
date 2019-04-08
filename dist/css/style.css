@@ -637,10 +637,11 @@ background-color: lightgray;
 .selectedPlayer__profile .player__info--profile, .player__stats{
     width: 100%;
 }
-/* .selectedPlayer__profile .player__info--profile {
 
-
-} */
+.selectedPlayer__profile h2 {
+    align-items: center;
+    font-size: 2rem;
+} 
 
 .selectedPlayer__profile .player__stats .player_stats--li{
     font-weight: 600;
