@@ -8,25 +8,28 @@ import {renderResults, highlightSelectedTeam, highlightSelectedConference} from 
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
+
 const state = {};
 
-// Display all teams on side on page load
+// DISPLAY NEWS AS SOON AS PAGE LOADS
+    window.addEventListener('load', () => {
+        displaySideTeams();
+        displayNews();
 
-const displaySideTeams = () => {
-    state.conferenceTeam = new nbaTeams('all');
-    state.conferenceTeam.getTeams();
-    renderResults(state.conferenceTeam);
-}
+        // TEST- onload
+        // displayTeamTest('SAC');
+        // displayPlayers('SAC');
 
-window.addEventListener('load', () => {
-    displaySideTeams();
-    // TESTE - onload
-    // displayTeamTest('SAC');
-    displayPlayers('SAC');
+    });
 
-});
+    // Display all teams on side on page load
+    const displaySideTeams = () => {
+        state.conferenceTeam = new nbaTeams('all');
+        state.conferenceTeam.getTeams();
+        renderResults(state.conferenceTeam); 
+    }
     
-// Display teams from selected conference on the sidebar
+    // Display teams from selected conference on the sidebar
     const displayTeamByConference = (conference) => {
         state.conferenceTeam = new nbaTeams(conference);
         state.conferenceTeam.getTeams();
@@ -36,13 +39,16 @@ window.addEventListener('load', () => {
     elements.confereceBtn.forEach(btn => {
         btn.addEventListener('click', e => {
             const conference = e.target.dataset.conference; // east/west/all
+            // prepare UI
             cleanResults(elements.teamList);
-            displayTeamByConference(conference);
+            // Highlight selected TEAM
             highlightSelectedConference(e.target);
+            // Display team on UI
+            displayTeamByConference(conference);
         })
     });
     
-    // Hilight selected team and display players
+    // Highlight selected team on sidebar and display players
 
     const displayPlayers = async selectedTeam => {
         highlightSelectedTeam(selectedTeam);
@@ -52,6 +58,7 @@ window.addEventListener('load', () => {
         }catch(err){
             console.log(er)
         }
+        // Fix player name according to players image API
         state.teamPlayers.refinePlayersNames();
         refinePlayersNames(state.teamPlayers.playersData);
         cleanResults(elements.teamPlayers);
@@ -70,11 +77,14 @@ window.addEventListener('load', () => {
         state.SelectedPlayer.refineName();
 
         let playerExperience = state.SelectedPlayer.getPlayerXp();
+
         // Remove unecessary characteres from name
         refinePlayersNames([state.SelectedPlayer]);
+
+        // render player profile on UI
         renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
+
         let selectedEl = target.parentElement.parentElement.children[0];
-        console.log(selectedEl);
         showOffSet(selectedEl);
     }
 
@@ -84,26 +94,26 @@ window.addEventListener('load', () => {
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId, e.target);
+
             // Add blur filter for each of previous players profile
             applyFilter();
+
             // Disable buttons of players profiles
             disableButtons();
-            // console.log(e.target.parentElement.parentElement.children[0])
-            // console.log(e.target.parentElement.parentElement.children[0].offsetTop)
         } else if (e.target.matches('.close__player__profile')) {
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
-            // Remove filter 
+            // Remove filter effect 
             removeFilter();
-            // Enable buttons
+            // Enable back the buttons
             enableButtons();
         }
     })
 
     // Display info about Selected Team
-
     const displayTeamTest = async selectedTeam => {
         // Highlight selected team on sidebar
         highlightSelectedTeam(selectedTeam);
+
         // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
         try {
@@ -140,9 +150,9 @@ window.addEventListener('load', () => {
         if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 
-    // Get news
 
-    elements.getNews.addEventListener('click',async e => {
+    // RENDER NEWS ON HTML
+    const displayNews = async e => {
         state.news = new news();
         try {
             await state.news.getNews();
@@ -150,16 +160,18 @@ window.addEventListener('load', () => {
             alert("Something went wrong");
             console.log(err);
         }    
+        renderNews(state.news.newsData);  
+    }
+    elements.getNews.addEventListener('click', e => {
         cleanResults(elements.teamPlayers);
-        renderNews(state.news.newsData);    
-    })
+        displayNews(e);
+    });
 
 
 
     // Create searchedPlayer Class
 
     const searchPlayer = async () => {
-
         let query = getInputPlayer();
 
         if (query) {
@@ -189,6 +201,6 @@ window.addEventListener('load', () => {
 
 
 
-    // SCHEDULE
-    // LAYOUT SEARCH FORM
-    // DESING SELECTED PLAYER
+
+    // USE PACKAGE JSON TEAMS OBJECT
+    // MOUSE OUTSIDE INPUT BOX SEARCH PLAYER

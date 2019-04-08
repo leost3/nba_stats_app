@@ -103,14 +103,16 @@ header .nav__top .player__name--input:focus{
     width: 70%;
     background: lightgray;
 }
-header .nav__top .player__name--input:active{
+header .nav__top .player__name--input:active, 
+header .nav__top .player__name--input:link,
+header .nav__top .player__name--input::outside{
     outline: none;
-    background: lightgray;
+    background: black;
 }
 
 
 header .nav__top  .search__player {
-    background: lightgray;
+    background: rgba(0,0,0,0);
     border: none;
 
 }
@@ -120,7 +122,7 @@ header .nav__top .search__icon{
     height: 1.5rem;
     width: 1.5rem;
     border: none;
-    background-color: lightgray;
+    background-color:rgba(0,0,0,0);;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;

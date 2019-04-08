@@ -28,7 +28,7 @@ const displayNews = (el) => {
                 </div>
                 <div class="news__content">
                     <h1>
-                        ${limitContent(el.Content)}<span class="link"><a href="${el.Url}",">Read more</a></span>
+                        ${limitContent(el.Content)}<span class="link"><a href="${el.Url}" target="_blank">Read more</a></span>
                     </h1>
                 </div>
             </div>

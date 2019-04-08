@@ -1,5 +1,5 @@
 import {elements} from '../views/base';
-
+// import {teams.jso} from './../teams.json';
 const key = '86a8a62f6d7c4969858b4744aec1763c';
 
 export const nbaTeams =  class Team {
@@ -19,6 +19,7 @@ export const nbaTeams =  class Team {
                         return el.Conference === this.conference;
                     } 
                 });
+                this.teams.reverse();
             };
         }catch(err) {
             alert(err);
