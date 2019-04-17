@@ -10,9 +10,6 @@ export const teamPlayers = class Team {
         try {
             const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players/${this.team}?key=${keys.key2}`);
             this.playersData = res.data; 
-            this.playersData.forEach(el => {
-                if (el.DraftKingsName === null) console.log(el)
-            });
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
@@ -20,51 +17,29 @@ export const teamPlayers = class Team {
     }
 
     refinePlayersNames() {
-        // console.log(this.playersData);
         this.playersData.forEach(element => {
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
-                // console.log(element.FirstName);
             }
             while (element.LastName.includes('.')) {
                 element.LastName = element.LastName.replace('.','');
             }
-
             // Replace space for _ in last name
             while (element.LastName.includes(' ')) {
-                // console.log(element.LastName)
                 element.LastName = element.LastName.replace(' ','_');
-                // console.log(element.LastName)
             }
             while (element.FirstName.includes("'")) {
                 element.FirstName = element.FirstName.replace("'",'');
-                // console.log(element.FirstName);
             }
             while (element.FirstName.includes("'")) {
                 element.FirstName = element.FirstName.replace("'",'');
-                // console.log(element.FirstName);
             }
             while (element.LastName.includes("'")) {
                 element.LastName = element.LastName.replace("'",'');
-                // console.log(element.FirstName);
             }
-
-            // if (element.FantasyDraftName.split(' ').length > 2) {
-            //     // console.log(element);
-            // }
-
-
-
-            // if (element.FirstName === 'Derrick') {
-            //     console.log(element)
-            //     console.log(element.FirstName);
-            //     console.log(element.LastName);
-            // }
         });
     }
-
 }
-
 
 export const SelectedPlayer = class Player {
     constructor(playerID) {

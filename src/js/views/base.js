@@ -19,6 +19,7 @@ export const elements = {
 
 
 
+
 export const cleanResults = (parent) => {
     // console.log(parent.innerHTML);
     parent.innerHTML = "";
@@ -56,17 +57,5 @@ export const refinePlayersNames = (name) => {
             element.LastName = element.LastName.replace("'",'');
             // console.log(element.FirstName);
         }
-
-        // if (element.FantasyDraftName.split(' ').length > 2) {
-        //     // console.log(element);
-        // }
-
-
-
-        // if (element.FirstName === 'Derrick') {
-        //     console.log(element)
-        //     console.log(element.FirstName);
-        //     console.log(element.LastName);
-        // }
     });
 }

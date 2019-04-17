@@ -5,7 +5,7 @@ import {newTeam} from './models/Team';
 import {news} from './models/News';
 import {elements, cleanResults, refinePlayersNames} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
-import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, showOffSet, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
+import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, offSetPlayerProfile, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
 
@@ -14,15 +14,15 @@ const state = {};
 // DISPLAY NEWS AS SOON AS PAGE LOADS
     window.addEventListener('load', () => {
         displaySideTeams();
-        displayNews();
+        // displayNews();
 
         // TEST- onload
         // displayTeamTest('SAC');
-        // displayPlayers('SAC');
+        displayPlayers('SAC');
 
     });
 
-    // Display all teams on side on page load
+    // Render all teams on side on page load
     const displaySideTeams = () => {
         state.conferenceTeam = new nbaTeams('all');
         state.conferenceTeam.getTeams();
@@ -36,6 +36,7 @@ const state = {};
         renderResults(state.conferenceTeam);
     }
 
+    // Display teams depending on clicked button (EAST / WEST/ ALL)
     elements.confereceBtn.forEach(btn => {
         btn.addEventListener('click', e => {
             const conference = e.target.dataset.conference; // east/west/all
@@ -85,7 +86,7 @@ const state = {};
         renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
 
         let selectedEl = target.parentElement.parentElement.children[0];
-        showOffSet(selectedEl);
+        offSetPlayerProfile(selectedEl);
     }
 
 

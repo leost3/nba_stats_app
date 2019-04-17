@@ -1,4 +1,3 @@
-import {elements} from '../views/base';
 import {teams} from '../teams';
 
 export const nbaTeams =  class Team {
