@@ -19,7 +19,6 @@ const state = {};
         // TEST- onload
         // displayTeamTest('SAC');
         displayPlayers('SAC');
-
     });
 
     // Render all teams on side on page load
@@ -49,44 +48,29 @@ const state = {};
         })
     });
     
-    // Highlight selected team on sidebar and display players
 
-    const displayPlayers = async selectedTeam => {
-        highlightSelectedTeam(selectedTeam);
-        state.teamPlayers = new teamPlayers(selectedTeam);
-        try {
-            await state.teamPlayers.getPlayers();
-        }catch(err){
-            console.log(er)
-        }
-        // Fix player name according to players image API
-        state.teamPlayers.refinePlayersNames();
-        refinePlayersNames(state.teamPlayers.playersData);
-        cleanResults(elements.teamPlayers);
-        renderPlayers(state.teamPlayers);
-    }
 
     // Display advanced stats of selected player
     const diplayPlayerProfile = async (selectedPlayer, target) => {
         state.SelectedPlayer = new SelectedPlayer(selectedPlayer);
         try {
             await state.SelectedPlayer.getPlayerData();
+            // turn last name into a string
+            state.SelectedPlayer.refineName();
+    
+            let playerExperience = state.SelectedPlayer.getPlayerXp();
+    
+            // Remove unecessary characteres from name
+            refinePlayersNames([state.SelectedPlayer]);
+    
+            // render player profile on UI
+            renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
+    
+            let selectedEl = target.parentElement.parentElement.children[0];
+            offSetPlayerProfile(selectedEl);
         }catch(err) {
             console.log(err)
         }
-        // turn last name into a string
-        state.SelectedPlayer.refineName();
-
-        let playerExperience = state.SelectedPlayer.getPlayerXp();
-
-        // Remove unecessary characteres from name
-        refinePlayersNames([state.SelectedPlayer]);
-
-        // render player profile on UI
-        renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
-
-        let selectedEl = target.parentElement.parentElement.children[0];
-        offSetPlayerProfile(selectedEl);
     }
 
 
@@ -108,13 +92,29 @@ const state = {};
             // Enable back the buttons
             enableButtons();
         }
-    })
+    });
+    
+    // Highlight selected team on sidebar and display players
+
+    const displayPlayers = async selectedTeam => {
+        highlightSelectedTeam(selectedTeam);
+        state.teamPlayers = new teamPlayers(selectedTeam);
+        try {
+            await state.teamPlayers.getPlayers();
+            // Fix player name according to players image API
+            state.teamPlayers.refinePlayersNames();
+            refinePlayersNames(state.teamPlayers.playersData);
+            cleanResults(elements.teamPlayers);
+            renderPlayers(state.teamPlayers);
+        }catch(err){
+            console.log(er)
+        }
+    }
 
     // Display info about Selected Team
     const displayTeamTest = async selectedTeam => {
         // Highlight selected team on sidebar
         highlightSelectedTeam(selectedTeam);
-
         // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
         try {
@@ -122,24 +122,24 @@ const state = {};
             await state.team.getTeamInfo();
             await state.team.getSchedule();
             await state.team.getStanding();
+            // prepare UI
+            cleanResults(elements.teamPlayers);
+    
+            // Render team information
+            renderTeam(state.team);
+    
+            // Render team schedule
+            renderSchedule(state.team.schedule);
+    
+            // Change background color of team colors
+            changeBackgroundColor(state.team);
+    
+            // Insert graphics
+            chart(state.team);
         }catch(err){
             alert("Something went wrong");
             console.log(err);
         }
-        // prepare UI
-        cleanResults(elements.teamPlayers);
-
-        // Render team information
-        renderTeam(state.team);
-
-        // Render team schedule
-        renderSchedule(state.team.schedule);
-
-        // Change background color of team colors
-        changeBackgroundColor(state.team);
-
-        // Insert graphics
-        chart(state.team);
     }
 
     // Display either team or player stats
@@ -157,12 +157,13 @@ const state = {};
         state.news = new news();
         try {
             await state.news.getNews();
+            renderNews(state.news.newsData);  
         }catch(err) {
             alert("Something went wrong");
             console.log(err);
         }    
-        renderNews(state.news.newsData);  
     }
+
     elements.getNews.addEventListener('click', e => {
         cleanResults(elements.teamPlayers);
         displayNews(e);
@@ -179,13 +180,13 @@ const state = {};
             state.searchPlayer = new searchedPlayer(query);
             try {
                 await state.searchPlayer.getSearchedPlayer();
+                clearInput();
+                state.searchPlayer.refineName();
+                cleanResults(elements.teamPlayers);
+                displaySearchedPlayer(state.searchPlayer.foundPlayers);
             }catch(err) {
                 console.log(err);
             }
-            clearInput();
-            state.searchPlayer.refineName();
-            cleanResults(elements.teamPlayers);
-            displaySearchedPlayer(state.searchPlayer.foundPlayers);
         }
     }
 
@@ -200,8 +201,3 @@ const state = {};
     //     document.querySelector('.favorite__players').classList.toggle("closed");
     // });
 
-
-
-
-    // USE PACKAGE JSON TEAMS OBJECT
-    // MOUSE OUTSIDE INPUT BOX SEARCH PLAYER
