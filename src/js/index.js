@@ -85,16 +85,16 @@ const state = {};
 
         if (!state.favoritePlayers.isFavorite(playerID)) {
             // add player to favorites
+            // console.log(state.favoritePlayers.isFavorite(playerID))
             const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
-            console.log(playerData);
             const {PlayerID, Position, Jersey, LastName, FirstName} = playerData[0];
             const newFav = state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName );
-            console.log(newFav)
             // toggle button 
 
 
             // Add favorite to the UI
-            renderFavorite(id)
+            console.log(state.favoritePlayers)
+            // renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
         } else {
             // remove like from the state
 
@@ -105,6 +105,7 @@ const state = {};
 
 
             // remove item from UI list
+            console.log(state.favoritePlayers);
         }
     }
 

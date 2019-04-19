@@ -3,9 +3,10 @@ export const favoritePlayers = class Favorites{
         this.favorites = [];
     }
 
-    addFavorite(id, img, name, position, number) {
-        const favorites = {id, img, name, position, number};
-        this.favorites.push(favorites)
+    addFavorite(id, position, number, lastName, firstName) {
+        const favorites = {id, position, number, lastName, firstName};
+        this.favorites.push(favorites);
+        return this.favorites;
     }
 
     deleteFavorite(id) {
@@ -14,7 +15,7 @@ export const favoritePlayers = class Favorites{
     }
 
     isFavorite(id) {
-      return this.favorites.findIndex(el => el.id === id) !== -1;
+      return this.favorites.findIndex(el => el.id === parseInt(id)) !== -1;
     }
 
     getNumFavorites() {
