@@ -3,6 +3,7 @@ import {elements} from './base';
 
 export const renderFavorite = ({id , position, number , lastName, firstName}) => {
     const markup = `
+    <li>
         <div class="team__players--profile" data-playerID=${id}>
             <div class="player__image">
                 <img src="https://nba-players.herokuapp.com/players/${lastName}/${firstName}" alt="${lastName} ${firstName}">
@@ -15,7 +16,15 @@ export const renderFavorite = ({id , position, number , lastName, firstName}) =>
                 <button class="player__btn">STATS</button>
                 <h1>${number} </h1>
             </div>   
-        </div> `
+        </div>
+    </li>    
+    `
 
-        elements.favoritePlayers.insertAdjacentHTML('afterbegin', markup);
-    }
+    elements.favoritePlayers.insertAdjacentHTML('afterbegin', markup);
+};
+
+export const deleteFavorite = (id) => {
+    // console.log(id)
+    const removedPlayer = document.querySelectorAll(`[data-playerID ~= "${id}"]`);
+    console.log(removedPlayer);
+}

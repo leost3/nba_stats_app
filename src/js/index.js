@@ -9,7 +9,7 @@ import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
 import {favoritePlayers} from './models/FavoritePlayers';
-import {renderFavorite} from './views/favoritePlayerView';
+import {renderFavorite, deleteFavorite} from './views/favoritePlayerView';
 
 const state = {};
 
@@ -94,7 +94,7 @@ const state = {};
 
             // Add favorite to the UI
             console.log(state.favoritePlayers)
-            // renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+            renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
         } else {
             // remove like from the state
 
@@ -105,6 +105,7 @@ const state = {};
 
 
             // remove item from UI list
+            deleteFavorite(playerID);
             console.log(state.favoritePlayers);
         }
     }
@@ -128,7 +129,7 @@ const state = {};
             enableButtons();
         } else if (e.target.matches('.favorite__btn')) {
             const playerID = e.target.parentElement.parentElement.dataset.playerid;
-
+            console.log(playerID)
             controlFavorite(playerID);
         }
     });
