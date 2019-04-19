@@ -8,6 +8,8 @@ import {renderResults, highlightSelectedTeam, highlightSelectedConference} from 
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, offSetPlayerProfile, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
+import {favoritePlayers} from './models/FavoritePlayers';
+import {renderFavorite} from './views/favoritePlayerView';
 
 const state = {};
 
@@ -74,6 +76,38 @@ const state = {};
     }
 
 
+    const controlFavorite = (playerID) => {
+        if (!state.favoritePlayers) state.favoritePlayers = new favoritePlayers();
+        
+
+
+        // const favorites = {id, position, number, lastName, firstName};
+
+        if (!state.favoritePlayers.isFavorite(playerID)) {
+            // add player to favorites
+            const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
+            console.log(playerData);
+            const {PlayerID, Position, Jersey, LastName, FirstName} = playerData[0];
+            const newFav = state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName );
+            console.log(newFav)
+            // toggle button 
+
+
+            // Add favorite to the UI
+            renderFavorite(id)
+        } else {
+            // remove like from the state
+
+            state.favoritePlayers.deleteFavorite(playerID)
+            
+            // toggle the like btn
+
+
+
+            // remove item from UI list
+        }
+    }
+
     // Display selected player profile or close on CLICK
     elements.teamPlayers.addEventListener('click', function(e) {
         if (e.target.matches('.player__btn')) {
@@ -91,6 +125,10 @@ const state = {};
             removeFilter();
             // Enable back the buttons
             enableButtons();
+        } else if (e.target.matches('.favorite__btn')) {
+            const playerID = e.target.parentElement.parentElement.dataset.playerid;
+
+            controlFavorite(playerID);
         }
     });
     
@@ -113,9 +151,7 @@ const state = {};
 
     // Display info about Selected Team
     const displayTeamTest = async selectedTeam => {
-        // Highlight selected team on sidebar
         highlightSelectedTeam(selectedTeam);
-        // Fetch data of the selected Team
         state.team = new newTeam(selectedTeam);
         try {
             await state.team.getTeamStats();
@@ -126,15 +162,12 @@ const state = {};
             cleanResults(elements.teamPlayers);
     
             // Render team information
+            console.log('rendered')
             renderTeam(state.team);
     
             // Render team schedule
             renderSchedule(state.team.schedule);
-    
-            // Change background color of team colors
             changeBackgroundColor(state.team);
-    
-            // Insert graphics
             chart(state.team);
         }catch(err){
             alert("Something went wrong");
@@ -145,9 +178,9 @@ const state = {};
     // Display either team or player stats
 
     elements.teamList.addEventListener('click', e => {
-        // Click on button Player
+
         if (e.target.matches('.display__team__players')) displayPlayers(e.target.parentElement.parentElement.dataset.teamname);
-        // Click on button Team
+
         if (e.target.matches('.display__team__stats')) displayTeamTest(e.target.parentElement.parentElement.dataset.teamname);      
     });
 

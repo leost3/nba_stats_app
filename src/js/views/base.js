@@ -14,7 +14,6 @@ export const elements = {
     getNews:              document.querySelector('.get__news'),
     inputPlayer:          document.querySelector('.player__name--input'),
     searchPlayerForm:     document.querySelector('.search__player'),
-    
 }
 
 export const cleanResults = (parent) => {

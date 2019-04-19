@@ -17,6 +17,7 @@ export const teamPlayers = class Team {
     }
 
     refinePlayersNames() {
+        // Use REGEX
         this.playersData.forEach(element => {
             while (element.FirstName.includes('.')) {
                 element.FirstName = element.FirstName.replace('.','');
@@ -89,8 +90,6 @@ export const SelectedPlayer = class Player {
     }
 }
 
-
-
 // Search for player in input field
 
 export const searchedPlayer = class Searched {
@@ -102,12 +101,6 @@ export const searchedPlayer = class Searched {
     async getSearchedPlayer() {
         const res = await axios(`https://api.fantasydata.net/v3/nba/stats/json/Players?key=${keys.key2}`);
         const data = res.data;
-        // console.log(data)
-        // const found = data.filter(el => {
-        //     if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName || el.DraftKingsName.toLowerCase() === this.playerName) {
-        //         return el;
-        //     }
-        // });
         const found = data.filter(el => {
             if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName ||el.DraftKingsName !== null && el.DraftKingsName.toLowerCase() === this.playerName ) return el;
             // console.log(el.DraftKingsName.toLowerCase())

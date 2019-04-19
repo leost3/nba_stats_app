@@ -675,6 +675,17 @@ background-color: lightgray;
     list-style: none;
 }
 
+.playerNotFound {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    text-transform: uppercase;
+    line-height: 1rem;
+    font-size: 2rem;
+    margin: 0 auto;
+}
+
 /* ---------------------------------------------- */
 /*  NEWS */
 /* ---------------------------------------------- */
@@ -731,24 +742,11 @@ background-color: lightgray;
     flex: 0.2;
     background: yellowgreen;
     transition: all 2s;
-    display: none;
 
 }
 
 .favorite__players * {display: inline-block;}
 .closed {
-    flex: 0;
-    display: none;
+    flex: 1;
     transition: all 2s;
-}
-
-.playerNotFound {
-    text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    text-transform: uppercase;
-    line-height: 1rem;
-    font-size: 2rem;
-    margin: 0 auto;
 }
