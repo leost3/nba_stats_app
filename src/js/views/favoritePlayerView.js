@@ -1,12 +1,18 @@
 import {elements} from './base';
 
 
-export const renderFavorite = ({id , position, number , lastName, firstName}) => {
+export const renderFavorite = ({id , position, number , lastName, firstName, experience}) => {
+    console.log({experience})
+    const playerPhotoSrc = {
+        rookie: '/images/images.jpg',
+        veteran: `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`,
+    }
+ 
     const markup = `
     <li>
         <div class="team__players--profile" data-playerID=${id}>
             <div class="player__image">
-                <img src="https://nba-players.herokuapp.com/players/${lastName}/${firstName}" alt="${lastName} ${firstName}">
+                <img src="${experience === 0 ? playerPhotoSrc.rookie : playerPhotoSrc.veteran}" alt="${firstName} ${lastName}">
             </div>
             <div class="player__info">
                 <div class="player__name__position">

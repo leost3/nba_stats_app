@@ -85,8 +85,10 @@ const state = {};
 
         if (!state.favoritePlayers.isFavorite(playerID)) {
             const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
-            const {PlayerID, Position, Jersey, LastName, FirstName} = playerData[0];
-            state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName );
+            console.log(playerData)
+            const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerData[0];
+            console.log(Experience)
+            state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
             // toggle button 
 
 

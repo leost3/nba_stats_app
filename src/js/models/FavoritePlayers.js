@@ -3,8 +3,8 @@ export const favoritePlayers = class Favorites{
         this.favorites = [];
     }
 
-    addFavorite(id, position, number, lastName, firstName) {
-        const favorites = {id, position, number, lastName, firstName};
+    addFavorite(id, position, number, lastName, firstName, experience) {
+        const favorites = {id, position, number, lastName, firstName, experience};
         this.favorites.push(favorites);
         return this.favorites;
     }
