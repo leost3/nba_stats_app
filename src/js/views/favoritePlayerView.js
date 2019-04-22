@@ -20,11 +20,11 @@ export const renderFavorite = ({id , position, number , lastName, firstName}) =>
     </li>    
     `
 
-    elements.favoritePlayers.insertAdjacentHTML('afterbegin', markup);
+    elements.favoritePlayers.insertAdjacentHTML('beforeend', markup);
 };
 
 export const deleteFavorite = (id) => {
     // console.log(id)
     const removedPlayer = document.querySelectorAll(`[data-playerID ~= "${id}"]`);
-    console.log(removedPlayer);
+    removedPlayer[1].parentElement.removeChild(removedPlayer[1]);
 }
