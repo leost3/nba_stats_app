@@ -2,7 +2,7 @@ import {elements} from './base';
 
 
 export const renderFavorite = ({id , position, number , lastName, firstName, experience}) => {
-    console.log({experience})
+
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`,

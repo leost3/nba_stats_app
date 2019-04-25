@@ -16,6 +16,10 @@ const state = {};
 // DISPLAY NEWS AS SOON AS PAGE LOADS
     window.addEventListener('load', () => {
         displaySideTeams();
+        state.favoritePlayers = new favoritePlayers();
+        // toogle favorite button
+        state.favoritePlayers.readStorage();
+        state.favoritePlayers.favorites.forEach(favorite => renderFavorite(favorite));
         // displayNews();
 
         // TEST- onload
@@ -78,22 +82,15 @@ const state = {};
 
     const controlFavorite = (playerID) => {
         if (!state.favoritePlayers) state.favoritePlayers = new favoritePlayers();
-        
-
-        console.log(state.favoritePlayers.isFavorite(playerID))
-        // const favorites = {id, position, number, lastName, firstName};
 
         if (!state.favoritePlayers.isFavorite(playerID)) {
             const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
-            console.log(playerData)
             const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerData[0];
-            console.log(Experience)
             state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
             // toggle button 
 
 
             // Add favorite to the UI
-            console.log(state.favoritePlayers)
             renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
         } else {
             // remove like from the state
@@ -106,7 +103,6 @@ const state = {};
 
             // remove item from UI list
             deleteFavorite(playerID);
-            console.log(state.favoritePlayers);
         }
     }
 
@@ -129,7 +125,6 @@ const state = {};
             enableButtons();
         } else if (e.target.matches('.favorite__btn')) {
             const playerID = e.target.parentElement.parentElement.dataset.playerid;
-            console.log(playerID)
             controlFavorite(playerID);
         }
     });
@@ -236,3 +231,14 @@ const state = {};
     //     document.querySelector('.favorite__players').classList.toggle("closed");
     // });
 
+/*  Favorite Players */
+// show up stats
+// desfavorite button
+// Collapse btn
+// add icon and toggle icon if favorite
+// add to localStorage
+
+
+
+/*  players view */
+// fix image of rookies in Stats
