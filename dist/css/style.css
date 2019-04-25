@@ -740,7 +740,7 @@ background-color: lightgray;
 
 .favorite__players {
     flex: 0.2;
-    background: yellowgreen;
+    background: steelblue;
     transition: all 2s;
 
 }
