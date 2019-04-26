@@ -72,8 +72,8 @@ const state = {};
             // render player profile on UI
             renderSelectedPlayerProfile(state.SelectedPlayer, playerExperience);
     
-            let selectedEl = target.parentElement.parentElement.children[0];
-            offSetPlayerProfile(selectedEl);
+            let selectedElement = target.parentElement.parentElement.children[0];
+            offSetPlayerProfile(selectedElement);
         }catch(err) {
             console.log(err)
         }
@@ -81,17 +81,28 @@ const state = {};
 
 
     const controlFavorite = (playerID) => {
+        console.log(playerID);
+
         if (!state.favoritePlayers) state.favoritePlayers = new favoritePlayers();
 
         if (!state.favoritePlayers.isFavorite(playerID)) {
+            console.log(state)
             const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
-            const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerData[0];
-            state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
+            console.log({playerData})
+            if (playerData.length > 0) {
+                const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerData[0];
+                state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
+                renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+            } else {
+                const searched = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === Number(playerID));
+                const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = searched[0];
+                state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
+                renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+            }
             // toggle button 
 
 
             // Add favorite to the UI
-            renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
         } else {
             // remove like from the state
 
