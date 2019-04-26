@@ -49,6 +49,9 @@ header nav {
 
 header .nav__top {
     width: 100%;
+    position: fixed;
+    background: var(--main-header-color);
+    z-index: 1;
 
 }
 
@@ -317,7 +320,7 @@ header .nav__top img{
 /* -------------------------------------------------------------- */
 
 .team__page {
-    flex: 1;  
+    flex: 0.8;  
 }
 
 .team__players {
@@ -739,14 +742,34 @@ background-color: lightgray;
 /* ---------------------------------------------- */
 
 .favorite__players {
+    list-style: none;
+    text-decoration: none;
+    transition: all 2s;
+}
+
+.favorite__players--closed {
+    flex: 0;
+    overflow: hidden;
+}
+
+
+.favorite__players--open {
     flex: 0.2;
     background: steelblue;
     transition: all 2s;
 
 }
 
-.favorite__players * {display: inline-block;}
+
+ul li {
+}
+/* .favorite__players * {display: inline-block;}
 .closed {
     flex: 1;
     transition: all 2s;
-}
+} */
+/* 
+
+favorite__players
+team__page
+nav__side */

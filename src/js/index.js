@@ -79,38 +79,38 @@ const state = {};
         }
     }
 
+    const displayPlayerInFavoriteSection = (playerInfo) => {
+        const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerInfo[0];
+        state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
+        renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+    }
 
     const controlFavorite = (playerID) => {
-        console.log(playerID);
 
+       
         if (!state.favoritePlayers) state.favoritePlayers = new favoritePlayers();
 
         if (!state.favoritePlayers.isFavorite(playerID)) {
-            console.log(state)
             const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
-            console.log({playerData})
             if (playerData.length > 0) {
-                const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerData[0];
-                state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
-                renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+                displayPlayerInFavoriteSection(playerData);
             } else {
-                const searched = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === Number(playerID));
-                const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = searched[0];
-                state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
-                renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
+                const searchedPlayer = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === Number(playerID));
+                displayPlayerInFavoriteSection(searchedPlayer);
             }
             // toggle button 
+            openFavoriteSection();
 
 
-            // Add favorite to the UI
         } else {
             // remove like from the state
 
-            state.favoritePlayers.deleteFavorite(playerID)
-            
+            state.favoritePlayers.deleteFavorite(playerID);
+            if (state.favoritePlayers.favorites.length === 0) {
+                console.log('empty')
+                closeFavoriteSection();
+            } 
             // toggle the like btn
-
-
 
             // remove item from UI list
             deleteFavorite(playerID);
@@ -122,10 +122,8 @@ const state = {};
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId, e.target);
-
             // Add blur filter for each of previous players profile
             applyFilter();
-
             // Disable buttons of players profiles
             disableButtons();
         } else if (e.target.matches('.close__player__profile')) {
@@ -238,6 +236,22 @@ const state = {};
     });
 
 
+    const openFavoriteSection = () => {
+        document.querySelector(".favorite__players").classList.add('favorite__players--open')
+        document.querySelector(".favorite__players").classList.remove('favorite__players--closed')
+    }
+
+    const closeFavoriteSection = () => {
+        document.querySelector(".favorite__players").classList.remove('favorite__players--open')
+        document.querySelector(".favorite__players").classList.add('favorite__players--closed')
+    };
+
+    document.querySelector('.open__favorite').addEventListener('click', function() {
+        openFavoriteSection();
+    });
+    document.querySelector('.btn__close').addEventListener('click', function() {
+        closeFavoriteSection();
+    });
     // elements.closeBtn.addEventListener('click', function() {
     //     document.querySelector('.favorite__players').classList.toggle("closed");
     // });
