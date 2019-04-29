@@ -9,7 +9,7 @@ import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
 import {renderNews} from './views/newsView';
 import {favoritePlayers} from './models/FavoritePlayers';
-import {renderFavorite, deleteFavorite} from './views/favoritePlayerView';
+import {renderFavorite, deleteFavorite, fillFavoriteBtn} from './views/favoritePlayerView';
 
 const state = {};
 
@@ -20,11 +20,11 @@ const state = {};
         // toogle favorite button
         state.favoritePlayers.readStorage();
         state.favoritePlayers.favorites.forEach(favorite => renderFavorite(favorite));
-        displayNews();
+        // displayNews();
 
         // TEST- onload
         // displayTeamTest('SAC');
-        // displayPlayers('SAC');
+        displayPlayers('SAC');
     });
 
     // Render all teams on side on page load
@@ -95,7 +95,9 @@ const state = {};
             if (playerData.length > 0) {
                 displayPlayerInFavoriteSection(playerData);
             } else {
+                console.log(state)
                 const searchedPlayer = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === Number(playerID));
+                // fillFavoriteBtn();
                 displayPlayerInFavoriteSection(searchedPlayer);
             }
             // toggle button 
@@ -132,8 +134,10 @@ const state = {};
             removeFilter();
             // Enable back the buttons
             enableButtons();
-        } else if (e.target.matches('.favorite__btn')) {
+        } else if (e.target.matches('.favorite__btn__star') || e.target.matches('.favorite__btn')) {
+            console.log(e.target)
             const playerID = e.target.parentElement.parentElement.dataset.playerid;
+            console.log(playerID)
             controlFavorite(playerID);
         }
     });

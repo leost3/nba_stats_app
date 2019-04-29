@@ -34,3 +34,8 @@ export const deleteFavorite = (id) => {
     const removedPlayer = document.querySelectorAll(`[data-playerID ~= "${id}"]`);
     removedPlayer[1].parentElement.removeChild(removedPlayer[1]);
 }
+
+
+export const fillFavoriteBtn = () => {
+    document.querySelector('.favorite__btn__star').classList.add('favorite__btn__star--filled');
+}

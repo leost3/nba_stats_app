@@ -19,7 +19,11 @@ const renderPlayer = ({Experience, PlayerID, DraftKingsName, Position, Jersey, L
                     <h2>${Position}</h2>
                 </div>
                 <button class="player__btn">STATS</button>
-                <button class="favorite__btn">FAV</button>
+                <svg class="favorite__btn__star">
+                <use xlink:href="icons/sprite.svg#icon-star-full"></use>   
+            </svg>
+                
+                
                 <h1>${Jersey}</h1>
             </div>   
         </div> 
