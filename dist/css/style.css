@@ -778,9 +778,22 @@ background-color: lightgray;
 
 }
 
+.favorite__btn__star {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    text-decoration: none;
+}
 .favorite__btn__star--icon {
     width: 32px;
     cursor: pointer;
+    fill: lightgray;
+    transition: 0.7s;   
+}
+.favorite__btn__star--icon:hover {
+    
+    fill: linear-gradient(to right, #000 #000);
+    background: black;
 }
 ul li {
 }
