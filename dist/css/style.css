@@ -765,7 +765,23 @@ background-color: lightgray;
 
 }
 
+#favorite__menu {
+    position: relative;
+}
+#favorite__menu .btn__close {
+    position: absolute;
+    top: 2px;
+    right: 22px;
+    font-size: 3rem;
+    color: #000;
+    text-decoration: none;
 
+}
+
+.favorite__btn__star--icon {
+    width: 32px;
+    cursor: pointer;
+}
 ul li {
 }
 /* .favorite__players * {display: inline-block;}

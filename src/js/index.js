@@ -121,6 +121,7 @@ const state = {};
 
     // Display selected player profile or close on CLICK
     elements.teamPlayers.addEventListener('click', function(e) {
+        // console.log(e.target)
         if (e.target.matches('.player__btn')) {
             const playerId = e.target.parentElement.parentElement.dataset.playerid;
             diplayPlayerProfile(playerId, e.target);
@@ -134,14 +135,16 @@ const state = {};
             removeFilter();
             // Enable back the buttons
             enableButtons();
-        } else if (e.target.matches('.favorite__btn__star') || e.target.matches('.favorite__btn')) {
-            console.log(e.target)
-            const playerID = e.target.parentElement.parentElement.dataset.playerid;
-            console.log(playerID)
+        } else if (e.target.matches('.favorite__btn__star, .favorite__btn__star *')) {
+            // console.log(e.target.parentElement.parentElement)
+            const fav = document.querySelector('.favorite__btn__star');
+            const playerID = fav.parentElement.parentElement.dataset.playerid;
             controlFavorite(playerID);
         }
     });
     
+
+
     // Highlight selected team on sidebar and display players
 
     const displayPlayers = async selectedTeam => {
