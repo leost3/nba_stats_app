@@ -12,7 +12,6 @@ export const favoritePlayers = class Favorites{
     
     deleteFavorite(id) {
         const index = this.favorites.findIndex(el => el.id === parseInt(id));
-        console.log({index})
         this.favorites.splice(index,1);
         this.addFavoriteToLocalStorage();
     }

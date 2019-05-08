@@ -15,6 +15,7 @@ const state = {};
 
 // DISPLAY NEWS AS SOON AS PAGE LOADS
     window.addEventListener('load', () => {
+        // localStorage.clear();
         displaySideTeams();
         state.favoritePlayers = new favoritePlayers();
         // toogle favorite button
@@ -85,35 +86,32 @@ const state = {};
         renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
     }
 
-    const controlFavorite = (playerID) => {
-
+    const controlFavorite = (playerID, icon) => {
        
         if (!state.favoritePlayers) state.favoritePlayers = new favoritePlayers();
 
-        if (!state.favoritePlayers.isFavorite(playerID)) {
-            const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === Number(playerID));
+        if ( !state.favoritePlayers.isFavorite(playerID) ) {
+            const playerData = state.teamPlayers.playersData.filter(el => el.PlayerID === parseInt(playerID));
+
             if (playerData.length > 0) {
                 displayPlayerInFavoriteSection(playerData);
             } else {
                 console.log(state)
-                const searchedPlayer = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === Number(playerID));
-                // fillFavoriteBtn();
+                const searchedPlayer = state.searchPlayer.foundPlayers.filter(player => player.PlayerID === parseInt(playerID));
                 displayPlayerInFavoriteSection(searchedPlayer);
             }
+            fillFavoriteBtn(true, icon);
             // toggle button 
             openFavoriteSection();
 
 
         } else {
             // remove like from the state
-
             state.favoritePlayers.deleteFavorite(playerID);
-            if (state.favoritePlayers.favorites.length === 0) {
-                console.log('empty')
-                closeFavoriteSection();
-            } 
-            // toggle the like btn
 
+            if (state.favoritePlayers.favorites.length === 0) closeFavoriteSection();
+            // toggle the like btn
+            fillFavoriteBtn(false, icon);
             // remove item from UI list
             deleteFavorite(playerID);
         }
@@ -130,16 +128,28 @@ const state = {};
             // Disable buttons of players profiles
             disableButtons();
         } else if (e.target.matches('.close__player__profile')) {
+
             e.target.parentElement.parentElement.removeChild(e.target.parentElement);
-            // Remove filter effect 
             removeFilter();
-            // Enable back the buttons
             enableButtons();
+
         } else if (e.target.matches('.favorite__btn__star, .favorite__btn__star *')) {
-            // console.log(e.target.parentElement.parentElement)
-            const fav = document.querySelector('.favorite__btn__star');
-            const playerID = fav.parentElement.parentElement.dataset.playerid;
-            controlFavorite(playerID);
+            let playerID, icon;
+            if (e.target.matches('.favorite__btn__star .favorite__btn__star--icon')) {
+                playerID = e.target.parentElement.parentElement.parentElement.dataset.playerid;
+                icon = e.target;
+            } else if (e.target.matches('.favorite__btn__star .favorite__btn__star--icon *')) {
+
+                playerID = e.target.parentElement.parentElement.parentElement.parentElement.dataset.playerid;
+                icon = e.target.parentElement;
+                
+            } else if (e.target.matches('.favorite__btn__star')) {
+
+                playerID = e.target.parentElement.parentElement.dataset.playerid;
+                icon = e.target.parentElement.children[2].children[0];
+            } 
+
+            controlFavorite(playerID, icon);
         }
     });
     
@@ -156,7 +166,10 @@ const state = {};
             state.teamPlayers.refinePlayersNames();
             refinePlayersNames(state.teamPlayers.playersData);
             cleanResults(elements.teamPlayers);
-            renderPlayers(state.teamPlayers);
+
+          
+            renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
+            
         }catch(err){
             console.log(er)
         }

@@ -1,12 +1,22 @@
 import {elements} from './base';
 
 // Render players profiles on UI
-const renderPlayer = ({Experience, PlayerID, DraftKingsName, Position, Jersey, LastName, FirstName}) => {
+const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Position, Jersey, LastName, FirstName}) => {
     // Make this object reusable
+
+    const isFavorite =  favoritesIds.includes(PlayerID);
+    console.log(isFavorite);
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${LastName}/${FirstName}`,
     }
+    let elementClass;
+    if (isFavorite) {
+        elementClass = "favorite__btn__star--icon favorite__btn__star--filled";
+    } else {
+        elementClass = "favorite__btn__star--icon";
+    }
+    console.log(elementClass)
 
     const markup = 
         `<div class="team__players--profile" data-playerID="${PlayerID}">
@@ -20,7 +30,7 @@ const renderPlayer = ({Experience, PlayerID, DraftKingsName, Position, Jersey, L
                 </div>
                 <button class="player__btn">STATS</button>
                 <button class="favorite__btn__star">
-                    <svg class="favorite__btn__star--icon">
+                    <svg class="${elementClass}"}>
                         <use xlink:href="icons/sprite.svg#icon-star-full"></use>   
                     </svg>
                 </button>
@@ -33,8 +43,10 @@ const renderPlayer = ({Experience, PlayerID, DraftKingsName, Position, Jersey, L
 }
 
 // Display each player on UI from a selected team data
-export const renderPlayers = (data) => {
-    data.playersData.forEach(renderPlayer);  
+export const renderPlayers = (favorites, data) => {
+    const ids = []
+    favorites.forEach(fav => ids.push(fav.id));
+    data.playersData.forEach((playerData) => renderPlayer(ids, playerData));  
 }
 
 const displayPlayerNotFound = () => {

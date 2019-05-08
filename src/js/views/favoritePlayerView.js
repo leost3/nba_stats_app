@@ -36,6 +36,11 @@ export const deleteFavorite = (id) => {
 }
 
 
-export const fillFavoriteBtn = () => {
-    document.querySelector('.favorite__btn__star').classList.add('favorite__btn__star--filled');
+export const fillFavoriteBtn = (isFavorite, icon) => {
+    console.log(icon)
+    if (!isFavorite ? icon.classList.remove('favorite__btn__star--filled') : icon.classList.add('favorite__btn__star--filled'));
+    // icon.classList.toggle('favorite__btn__star--filled')
+    console.log(icon);
+    // console.log(filledColor)
+    // icon.style.fill = filledColor;
 }

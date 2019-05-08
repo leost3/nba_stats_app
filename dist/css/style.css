@@ -791,19 +791,13 @@ background-color: lightgray;
     transition: 0.7s;   
 }
 .favorite__btn__star--icon:hover {
-    
-    fill: linear-gradient(to right, #000 #000);
-    background: black;
+    fill: #0d0c44
+    ;
 }
-ul li {
+.favorite__btn__star--filled {
+    fill: #0d0c44;
+    width: 32px;
+    cursor: pointer;
+    transition: 0.7s; 
 }
-/* .favorite__players * {display: inline-block;}
-.closed {
-    flex: 1;
-    transition: all 2s;
-} */
-/* 
 
-favorite__players
-team__page
-nav__side */
