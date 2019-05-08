@@ -18,14 +18,13 @@ const state = {};
         // localStorage.clear();
         displaySideTeams();
         state.favoritePlayers = new favoritePlayers();
-        // toogle favorite button
         state.favoritePlayers.readStorage();
         state.favoritePlayers.favorites.forEach(favorite => renderFavorite(favorite));
-        // displayNews();
+        displayNews();
 
         // TEST- onload
         // displayTeamTest('SAC');
-        displayPlayers('SAC');
+        // displayPlayers('SAC');
     });
 
     // Render all teams on side on page load

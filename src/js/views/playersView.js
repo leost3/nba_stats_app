@@ -43,7 +43,8 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
 // Display each player on UI from a selected team data
 export const renderPlayers = (favorites, data) => {
     const ids = favorites.map(fav => fav.id);
-    data.playersData.forEach( playerData => renderPlayer(ids, playerData));  
+    console.log(data)
+    data.playersData.reverse().forEach( playerData => renderPlayer(ids, playerData));  
 }
 
 const displayPlayerNotFound = () => {
