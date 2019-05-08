@@ -166,9 +166,9 @@ const state = {};
             state.teamPlayers.refinePlayersNames();
             // Fix player name according to players image API
             refinePlayersNames(state.teamPlayers.playersData);
-            // cleanResults(elements.teamPlayers);
+            cleanResults(elements.teamPlayers);
           
-            // renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
+            renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
             
         }catch(err){
             console.log(err)
