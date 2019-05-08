@@ -3,7 +3,7 @@ import {teamPlayers} from './models/Players';
 import {SelectedPlayer, searchedPlayer} from './models/Players';
 import {newTeam} from './models/Team';
 import {news} from './models/News';
-import {elements, cleanResults, refinePlayersNames} from './views/base';
+import {elements, cleanResults, refinePlayersNames, renderLoader} from './views/base';
 import {renderResults, highlightSelectedTeam, highlightSelectedConference} from './views/sideView';
 import {renderPlayers, renderSelectedPlayerProfile, applyFilter, disableButtons,removeFilter, enableButtons, offSetPlayerProfile, displaySearchedPlayer, clearInput, getInputPlayer} from './views/playersView';
 import {renderTeam, changeBackgroundColor, chart, renderSchedule} from './views/teamView';
@@ -20,11 +20,11 @@ const state = {};
         state.favoritePlayers = new favoritePlayers();
         state.favoritePlayers.readStorage();
         state.favoritePlayers.favorites.forEach(favorite => renderFavorite(favorite));
-        displayNews();
+        // displayNews();
 
         // TEST- onload
         // displayTeamTest('SAC');
-        // displayPlayers('SAC');
+        displayPlayers('SAC');
     });
 
     // Render all teams on side on page load
@@ -160,14 +160,15 @@ const state = {};
         highlightSelectedTeam(selectedTeam);
         state.teamPlayers = new teamPlayers(selectedTeam);
         try {
+            cleanResults(elements.teamPlayers);
+            renderLoader(elements.teamPlayers);
             await state.teamPlayers.getPlayers();
-            // Fix player name according to players image API
             state.teamPlayers.refinePlayersNames();
+            // Fix player name according to players image API
             refinePlayersNames(state.teamPlayers.playersData);
             cleanResults(elements.teamPlayers);
-
           
-            renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
+            // renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
             
         }catch(err){
             console.log(er)
@@ -179,15 +180,15 @@ const state = {};
         highlightSelectedTeam(selectedTeam);
         state.team = new newTeam(selectedTeam);
         try {
+            cleanResults(elements.teamPlayers);
+            renderLoader(elements.teamPlayers);
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
             // await state.team.getSchedule();
             await state.team.getStanding();
             // prepare UI
-            cleanResults(elements.teamPlayers);
     
             // Render team information
-            console.log('rendered')
             renderTeam(state.team);
     
             // Render team schedule

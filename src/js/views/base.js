@@ -56,3 +56,16 @@ export const refinePlayersNames = (name) => {
         }
     });
 }
+
+
+export const renderLoader = parent => {
+    const loader = `
+        <div class="loader">
+            <svg>
+                <use xlink:href="/icons/sprite.svg#icon-spinner11"></use>  
+            </svg>
+        </div>
+    `;
+
+    parent.insertAdjacentHTML('afterbegin', loader);
+}

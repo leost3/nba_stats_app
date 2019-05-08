@@ -776,8 +776,11 @@ background-color: lightgray;
     font-size: 3rem;
     color: #000;
     text-decoration: none;
+    transition: 0.7s;
 }
-
+#favorite__menu .btn__close:hover {
+    color: #fff;
+}
 .favorite__btn__star {
     background: transparent;
     border-color: transparent;
@@ -789,12 +792,6 @@ background-color: lightgray;
     fill: #0d0c44
     ;
 }
-.favorite__btn__star--filled {
-    fill: #0d0c44;
-    width: 32px;
-    cursor: pointer;
-    transition: 0.7s; 
-}
 
 .favorite__btn__star--icon {
     width: 32px;
@@ -803,3 +800,33 @@ background-color: lightgray;
     transition: 0.7s;   
 }
 
+.favorite__btn__star--filled {
+    fill: #0d0c44;
+    width: 32px;
+    cursor: pointer;
+    transition: 0.7s; 
+}
+
+
+/* loader */
+
+.loader {
+    margin: 5rem auto;
+    text-emphasis: center;
+}
+
+.loader {
+    margin: 35rem auto;
+    text-align: center; }
+    .loader svg {
+      height: 5.5rem;
+      width: 5.5rem;
+      fill: #0d0c44;
+      transform-origin: 44% 50%;
+      animation: rotate 1.5s infinite linear; }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0); }
+    100% {
+      transform: rotate(360deg); } }
