@@ -771,11 +771,11 @@ background-color: lightgray;
 #favorite__menu .btn__close {
     position: absolute;
     top: 2px;
-    right: 22px;
+    right: 50%;
+    transform: translateX(50%);
     font-size: 3rem;
     color: #000;
     text-decoration: none;
-
 }
 
 .favorite__btn__star {
@@ -784,12 +784,7 @@ background-color: lightgray;
     color: transparent;
     text-decoration: none;
 }
-.favorite__btn__star--icon {
-    width: 32px;
-    cursor: pointer;
-    fill: lightgray;
-    transition: 0.7s;   
-}
+
 .favorite__btn__star--icon:hover {
     fill: #0d0c44
     ;
@@ -799,5 +794,12 @@ background-color: lightgray;
     width: 32px;
     cursor: pointer;
     transition: 0.7s; 
+}
+
+.favorite__btn__star--icon {
+    width: 32px;
+    cursor: pointer;
+    fill: lightgray;
+    transition: 0.7s;   
 }
 
