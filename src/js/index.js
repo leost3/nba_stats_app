@@ -182,7 +182,7 @@ const state = {};
         try {
             await state.team.getTeamStats();
             await state.team.getTeamInfo();
-            await state.team.getSchedule();
+            // await state.team.getSchedule();
             await state.team.getStanding();
             // prepare UI
             cleanResults(elements.teamPlayers);
@@ -192,7 +192,7 @@ const state = {};
             renderTeam(state.team);
     
             // Render team schedule
-            renderSchedule(state.team.schedule);
+            // renderSchedule(state.team.schedule);
             changeBackgroundColor(state.team);
             chart(state.team);
         }catch(err){
@@ -242,7 +242,7 @@ const state = {};
                 clearInput();
                 state.searchPlayer.refineName();
                 cleanResults(elements.teamPlayers);
-                displaySearchedPlayer(state.searchPlayer.foundPlayers);
+                displaySearchedPlayer(state.favoritePlayers.favorites, state.searchPlayer.foundPlayers);
             }catch(err) {
                 console.log(err);
             }

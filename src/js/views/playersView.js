@@ -5,7 +5,6 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
     // Make this object reusable
 
     const isFavorite =  favoritesIds.includes(PlayerID);
-    console.log(isFavorite);
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${LastName}/${FirstName}`,
@@ -16,7 +15,6 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
     } else {
         elementClass = "favorite__btn__star--icon";
     }
-    console.log(elementClass)
 
     const markup = 
         `<div class="team__players--profile" data-playerID="${PlayerID}">
@@ -44,9 +42,8 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
 
 // Display each player on UI from a selected team data
 export const renderPlayers = (favorites, data) => {
-    const ids = []
-    favorites.forEach(fav => ids.push(fav.id));
-    data.playersData.forEach((playerData) => renderPlayer(ids, playerData));  
+    const ids = favorites.map(fav => fav.id);
+    data.playersData.forEach( playerData => renderPlayer(ids, playerData));  
 }
 
 const displayPlayerNotFound = () => {
@@ -59,9 +56,10 @@ const displayPlayerNotFound = () => {
 }
 
 // Display searched players
-export const displaySearchedPlayer = (data) => {
+export const displaySearchedPlayer = (favorites, data) => {
     if (data.length > 0) {
-        data.forEach(renderPlayer);  
+        const ids = favorites.map(fav => fav.id);
+        data.forEach( playerData => renderPlayer(ids, playerData));  
     } else {
         displayPlayerNotFound();
     }

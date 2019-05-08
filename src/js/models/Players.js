@@ -95,7 +95,6 @@ export const SelectedPlayer = class Player {
 export const searchedPlayer = class Searched {
     constructor(playerName) {
         this.playerName = playerName.toLowerCase();
-        console.log(this.playerName);
     }
 
     async getSearchedPlayer() {
@@ -105,7 +104,6 @@ export const searchedPlayer = class Searched {
             if (el.FirstName.toLowerCase() === this.playerName || el.LastName.toLowerCase() === this.playerName ||el.DraftKingsName !== null && el.DraftKingsName.toLowerCase() === this.playerName ) return el;
             // console.log(el.DraftKingsName.toLowerCase())
         })
-        console.log(found)
         this.foundPlayers = found;
         return found;
     }

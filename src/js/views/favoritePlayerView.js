@@ -30,17 +30,12 @@ export const renderFavorite = ({id , position, number , lastName, firstName, exp
 };
 
 export const deleteFavorite = (id) => {
-    // console.log(id)
     const removedPlayer = document.querySelectorAll(`[data-playerID ~= "${id}"]`);
     removedPlayer[1].parentElement.removeChild(removedPlayer[1]);
 }
 
 
 export const fillFavoriteBtn = (isFavorite, icon) => {
-    console.log(icon)
     if (!isFavorite ? icon.classList.remove('favorite__btn__star--filled') : icon.classList.add('favorite__btn__star--filled'));
-    // icon.classList.toggle('favorite__btn__star--filled')
-    console.log(icon);
-    // console.log(filledColor)
-    // icon.style.fill = filledColor;
+    
 }
