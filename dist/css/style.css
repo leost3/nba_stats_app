@@ -84,6 +84,7 @@ header .nav__top .search__player--form{
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
 }
 
 
@@ -135,15 +136,15 @@ header .nav__top .search__icon:focus{
     outline: none;
 }
 
-header .nav__top .search__icon:active{
-}
-
-
 header .nav__top img{
     display: block;
     width:15%;
     height: 100%;
     align-self: flex-start;
+}
+
+button:focus {
+    outline: 0;
 }
 /* ------------ */
 /* MAIN PAGE    */

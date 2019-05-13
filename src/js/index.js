@@ -187,7 +187,7 @@ const state = {};
             // await state.team.getSchedule();
             await state.team.getStanding();
             // prepare UI
-    
+            cleanResults(elements.teamPlayers);
             // Render team information
             renderTeam(state.team);
     
