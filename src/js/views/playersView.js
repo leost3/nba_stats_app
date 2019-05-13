@@ -5,11 +5,14 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
     // Make this object reusable
 
     const isFavorite =  favoritesIds.includes(PlayerID);
+
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${LastName}/${FirstName}`,
     }
+
     let elementClass;
+
     if (isFavorite) {
         elementClass = "favorite__btn__star--icon favorite__btn__star--filled";
     } else {
@@ -38,7 +41,7 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
         </div> 
     `;
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-}
+};
 
 // Display each player on UI from a selected team data
 export const renderPlayers = (favorites, data) => {
@@ -88,8 +91,8 @@ function playerExp(playerInformation) {
         case 0: return "Rookie";
         case 1: return "Sophomore";;
         default: return `${playerInformation} years veteran`
-    }
-}
+    };
+};
 
 // Render profile of selected player
 
@@ -99,7 +102,7 @@ export const renderSelectedPlayerProfile = ({games,LastName, Experience, FirstNa
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${LastName}/${FirstName}`,
-    }
+    };
 
     const playerStats = {
         playedSeason: ` <ul class="player__stats">
@@ -116,7 +119,7 @@ export const renderSelectedPlayerProfile = ({games,LastName, Experience, FirstNa
                             <li><span class="player_stats--li">${usageRate}%</span> Usage Rate</li>
                         </ul>`,
         didNotPlaySeason: `<h2>DID NOT PLAY 2018/2019 SEASON</h2>`
-    }
+    };
 
     let markup = `
         <div class="selectedPlayer__profile">
@@ -133,31 +136,31 @@ export const renderSelectedPlayerProfile = ({games,LastName, Experience, FirstNa
     </div> `
 
    elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);   
-}
+};
 
 // Apply filter effect when player is elected
 export const applyFilter = () => {
     const allPlayersProfile = document.querySelectorAll('.team__players--profile');
     allPlayersProfile.forEach(el => el.style.filter = "blur(5px)");
-}
+};
 
 // Remove filter effected when player profile is closed
 export const removeFilter = () => {
     const allPlayersProfile = document.querySelectorAll('.team__players--profile');
     allPlayersProfile.forEach(el => el.style.filter = "none");
-}
+};
 
 // Disable buttons when player is elected
 
 export const disableButtons = () => {
     const btns = document.querySelectorAll('.player__btn');
     btns.forEach(btn => btn.disabled = true);
-}
+};
 
 // Enable back buttons when player profile is closed
 export const enableButtons = () => {
     const btns = document.querySelectorAll('.player__btn');
     btns.forEach(btn => btn.disabled = false);
-}
+};
 
 

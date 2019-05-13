@@ -15,22 +15,19 @@ export const elements = {
     inputPlayer:          document.querySelector('.player__name--input'),
     searchPlayerForm:     document.querySelector('.search__player'),
     favoritePlayers:      document.querySelector('.favorite__players'),
-}
+};
 
 export const cleanResults = (parent) => {
     // console.log(parent.innerHTML);
     parent.innerHTML = "";
-}
+};
 
-
+// USE REGEX
 export const refinePlayersNames = (name) => {
-    // console.log(this.playersData);
     name.forEach(element => {
-        // console.log(element)
 
         while (element.FirstName.includes('.')) {
             element.FirstName = element.FirstName.replace('.','');
-            // console.log(element.FirstName);
         }
         if (element.LastName.includes('.')) {
             element.LastName = element.LastName.replace('.','');
@@ -38,24 +35,19 @@ export const refinePlayersNames = (name) => {
 
         // Replace space for _ in last name
         if (element.LastName.includes(' ')) {
-            // console.log(element.LastName)
             element.LastName = element.LastName.replace(' ','_');
-            // console.log(element.LastName)
         }
         while (element.FirstName.includes("'")) {
-            element.FirstName = element.FirstName.replace("'",'');
-            // console.log(element.FirstName);
+            element.FirstName = element.FirstName.replace(" " ,' ');
         }
         while (element.FirstName.includes("'")) {
-            element.FirstName = element.FirstName.replace("'",'');
-            // console.log(element.FirstName);
+            element.FirstName = element.FirstName.replace(" ' ",' ');
         }
         while (element.LastName.includes("'")) {
-            element.LastName = element.LastName.replace("'",'');
-            // console.log(element.FirstName);
+            element.LastName = element.LastName.replace(" ' ",' ');
         }
     });
-}
+};
 
 
 export const renderLoader = parent => {
@@ -66,6 +58,5 @@ export const renderLoader = parent => {
             </svg>
         </div>
     `;
-
     parent.insertAdjacentHTML('afterbegin', loader);
-}
+};

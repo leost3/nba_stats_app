@@ -15,7 +15,7 @@ const limitContent = (content, limit = 300) => {
         return `${newContent.join(' ')}...`;
     }
     return content;
-}
+};
 
 const displayNews = (el) => {
     let markup = `
@@ -36,9 +36,9 @@ const displayNews = (el) => {
     `;
 
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-}
+};
 
 export const renderNews = (newsData) => {
     newsData.forEach(displayNews);
 
-}
+};

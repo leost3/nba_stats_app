@@ -50,7 +50,7 @@ export const renderTeam = (team) => {
 `
     // Insert markup into HTML
     elements.teamPlayers.insertAdjacentHTML('afterbegin', markup);
-}
+};
 
 
 // Render Schedules into HTML
@@ -80,7 +80,7 @@ const resSchedule = (teamSchedule, scheduleBox) => {
     }
 
     scheduleBox.insertAdjacentHTML('beforeend', markup);
-}
+};
 
 // Get teams next schedules
 export const renderSchedule = (scheduleObj) => {
@@ -108,7 +108,7 @@ export const changeBackgroundColor = (team) => {
 
     teamBasicStats.forEach(el => el.style.background = `linear-gradient(to right,#${team.teamInfo.primaryColor}, ${team.teamInfo.primaryColor === "000000" ? "#333" : "#000"}`);
 
-}
+};
 
 
 const createChart = (data) => {
@@ -167,7 +167,7 @@ const createChart = (data) => {
     }
 });
 
-}
+};
 
 // TURN HEX INTO RGBA CODE
 function hexToRgbA(hex){
@@ -186,9 +186,3 @@ function hexToRgbA(hex){
 
 
 
-
-
-
-
-// Change background pictures
-// check Cs

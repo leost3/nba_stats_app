@@ -6,7 +6,7 @@ export const renderFavorite = ({id , position, number , lastName, firstName, exp
     const playerPhotoSrc = {
         rookie: '/images/images.jpg',
         veteran: `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`,
-    }
+    };
  
     const markup = `
     <li>
@@ -32,10 +32,10 @@ export const renderFavorite = ({id , position, number , lastName, firstName, exp
 export const deleteFavorite = (id) => {
     const removedPlayer = document.querySelectorAll(`[data-playerID ~= "${id}"]`);
     removedPlayer[1].parentElement.removeChild(removedPlayer[1]);
-}
+};
 
 
 export const fillFavoriteBtn = (isFavorite, icon) => {
     if (!isFavorite ? icon.classList.remove('favorite__btn__star--filled') : icon.classList.add('favorite__btn__star--filled'));
     
-}
+};

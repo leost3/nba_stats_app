@@ -32,14 +32,14 @@ const state = {};
         state.conferenceTeam = new nbaTeams('all');
         state.conferenceTeam.getTeams();
         renderResults(state.conferenceTeam); 
-    }
+    };
     
     // Display teams from selected conference on the sidebar
     const displayTeamByConference = (conference) => {
         state.conferenceTeam = new nbaTeams(conference);
         state.conferenceTeam.getTeams();
         renderResults(state.conferenceTeam);
-    }
+    };
 
     // Display teams depending on clicked button (EAST / WEST/ ALL)
     elements.confereceBtn.forEach(btn => {
@@ -77,13 +77,13 @@ const state = {};
         }catch(err) {
             console.log(err)
         }
-    }
+    };
 
     const displayPlayerInFavoriteSection = (playerInfo) => {
         const {PlayerID, Position, Jersey, LastName, FirstName, Experience} = playerInfo[0];
         state.favoritePlayers.addFavorite(PlayerID, Position, Jersey, LastName, FirstName, Experience );
         renderFavorite(state.favoritePlayers.favorites[state.favoritePlayers.favorites.length - 1]);
-    }
+    };
 
     const controlFavorite = (playerID, icon) => {
        
@@ -114,7 +114,7 @@ const state = {};
             // remove item from UI list
             deleteFavorite(playerID);
         }
-    }
+    };
 
     // Display selected player profile or close on CLICK
     elements.teamPlayers.addEventListener('click', function(e) {
@@ -173,7 +173,7 @@ const state = {};
         }catch(err){
             console.log(err)
         }
-    }
+    };
 
     // Display info about Selected Team
     const displayTeamTest = async selectedTeam => {
@@ -199,7 +199,7 @@ const state = {};
             alert("Something went wrong");
             console.log(err);
         }
-    }
+    };
 
     // Display either team or player stats
 
@@ -221,7 +221,7 @@ const state = {};
             alert("Something went wrong");
             console.log(err);
         }    
-    }
+    };
 
     elements.getNews.addEventListener('click', e => {
         cleanResults(elements.teamPlayers);
@@ -247,7 +247,7 @@ const state = {};
                 console.log(err);
             }
         }
-    }
+    };
 
     // Search player
     elements.searchPlayerForm.addEventListener('click', e => {
@@ -259,7 +259,7 @@ const state = {};
     const openFavoriteSection = () => {
         document.querySelector(".favorite__players").classList.add('favorite__players--open')
         document.querySelector(".favorite__players").classList.remove('favorite__players--closed')
-    }
+    };
 
     const closeFavoriteSection = () => {
         document.querySelector(".favorite__players").classList.remove('favorite__players--open')
@@ -272,18 +272,6 @@ const state = {};
     document.querySelector('.btn__close').addEventListener('click', function() {
         closeFavoriteSection();
     });
-    // elements.closeBtn.addEventListener('click', function() {
-    //     document.querySelector('.favorite__players').classList.toggle("closed");
-    // });
-
-/*  Favorite Players */
-// show up stats
-// desfavorite button
-// Collapse btn
-// add icon and toggle icon if favorite
-// add to localStorage
 
 
-
-/*  players view */
-// fix image of rookies in Stats
+    
