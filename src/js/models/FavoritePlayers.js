@@ -32,4 +32,4 @@ export const favoritePlayers = class Favorites{
         const storage  = JSON.parse(localStorage.getItem('likes'));
         if (storage) this.favorites = storage;
     }
-}
+};

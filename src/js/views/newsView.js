@@ -18,11 +18,12 @@ const limitContent = (content, limit = 300) => {
 };
 
 const displayNews = (el) => {
+    const alt = el.Content.split(" ")[0].split("").splice(0,3).join("");
     let markup = `
         <div class="news_page">
             <div class="news">
                 <div class="title">
-                    <img src="/images/Logos/teams_logos/${el.Team}_logo.svg">
+                    <img src="/images/Logos/teams_logos/${el.Team}_logo.svg" alt=${alt}>
                     <h1>${el.Title}</h1>
                     <h4>${el.TimeAgo}</h4>
                 </div>

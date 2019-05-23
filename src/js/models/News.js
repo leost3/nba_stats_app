@@ -7,4 +7,4 @@ export const news =  class News{
         const data = res.data;
         this.newsData = data.reverse();
     }
-}
+};

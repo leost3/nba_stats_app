@@ -116,7 +116,7 @@ export const searchedPlayer = class Searched {
     getPlayerXp() {
         return this.playersInfo.find( playerData => playerData.DraftKingsName === this.name || (playerData.FirstName + ' ' + playerData.LastName) === this.name).Experience;
     }
-}
+};
 
 
 

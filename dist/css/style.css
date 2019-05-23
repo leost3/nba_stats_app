@@ -402,6 +402,14 @@ button:focus {
     background-repeat: no-repeat;    
 }
 
+.logo_players_page {
+    width: 100%;
+    text-align: center;
+}
+.logo_players_page img {
+    width: 25%;
+}
+
 
 .favorite__btn__star--filled {
     fill: yellow;

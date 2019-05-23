@@ -44,10 +44,16 @@ const renderPlayer = (favoritesIds, {Experience, PlayerID, DraftKingsName, Posit
 };
 
 // Display each player on UI from a selected team data
-export const renderPlayers = (favorites, data) => {
+export const renderPlayers = (favorites, data, team) => {
+    console.log(team)
     const ids = favorites.map(fav => fav.id);
-    console.log(data)
+    // console.log(data)
     data.playersData.reverse().forEach( playerData => renderPlayer(ids, playerData));  
+    elements.teamPlayers.insertAdjacentHTML('afterbegin', 
+    `<div class='logo_players_page'>
+        <img src="/images/Logos/teams_logos/${team}_logo.svg" />
+    </div>`);
+
 }
 
 const displayPlayerNotFound = () => {

@@ -20,11 +20,11 @@ const state = {};
         state.favoritePlayers = new favoritePlayers();
         state.favoritePlayers.readStorage();
         state.favoritePlayers.favorites.forEach(favorite => renderFavorite(favorite));
-        displayNews();
+        // displayNews();
 
         // TEST- onload
         // displayTeamTest('SAC');
-        // displayPlayers('SAC');
+        displayPlayers('SAC');
     });
 
     // Render all teams on side on page load
@@ -168,7 +168,7 @@ const state = {};
             refinePlayersNames(state.teamPlayers.playersData);
             cleanResults(elements.teamPlayers);
           
-            renderPlayers(state.favoritePlayers.favorites, state.teamPlayers);
+            renderPlayers(state.favoritePlayers.favorites, state.teamPlayers, selectedTeam);
             
         }catch(err){
             console.log(err)

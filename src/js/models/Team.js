@@ -1,8 +1,6 @@
 import axios from 'axios';
 import * as keys from '../config';
 
-// https://api.fantasydata.net/v3/nba/stats/JSON/TeamStatsAllowedByPosition/2019?key=86a8a62f6d7c4969858b4744aec1763c
-
 export const newTeam = class {
     constructor(selectedTeam) {
         this.selectedTeam = selectedTeam;
@@ -59,7 +57,7 @@ export const newTeam = class {
             alert("Something has gone wrong!!");
             console.log(err);
         }
-    }
+    };
 
     async getSchedule() {
         try {
@@ -114,5 +112,5 @@ export const newTeam = class {
             console.log(err);
         }
     }
-}
+};
 
