@@ -340,6 +340,11 @@ button:focus {
     border: 1px solid silver;
     box-shadow: 2px 4px 12px silver;
     margin: 2rem auto;
+    transition: all .5s;
+}
+
+.team__players--profile:hover {
+    transform: translateY(-10px);
 }
 
 .team__players--profile .player__image {
