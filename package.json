@@ -4,7 +4,7 @@
   "description": "players and team stats",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "chart.js": "^2.8.0",
     "html-webpack-plugin": "^3.2.0",
     "nba": "^4.5.0"
